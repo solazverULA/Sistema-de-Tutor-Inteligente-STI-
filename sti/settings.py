@@ -39,7 +39,9 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django_extensions',
     'apps.user',
-    'apps.learn'
+    'apps.learn',
+    'apps.teacher',
+    'apps.student',
 ]
 
 MIDDLEWARE = [
@@ -80,8 +82,8 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'sti',
-        'USER': 'LizanLycan',
-        'PASSWORD': 'lizandro17011996',
+        'USER': 'postgres',
+        'PASSWORD': '453672',
         'HOST': 'localhost',
         'PORT': 5432,
     }
