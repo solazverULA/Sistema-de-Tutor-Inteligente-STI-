@@ -17,12 +17,12 @@ un repositorio:
 	virtualenv -p python3.6 mi_venv
 	source mi_venv/bin/activate
 
--->Instalar requerimientos
+--> Instalar requerimientos
 	pip install -r requirements.txt
 
--->Creación y configuración BD postgress
-	-->Instalar y configurar postgress 
- 	-->Cambiar al usuario postgres (por defecto)
+--> Creación y configuración BD postgress
+	--> Instalar y configurar postgress 
+ 	--> Cambiar al usuario postgres (por defecto)
  		sudo su postgres
  	--> Ver  lista de tablas existentes
  		psql -l
