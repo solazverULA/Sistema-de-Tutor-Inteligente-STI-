@@ -1,7 +1,5 @@
 # Sistema de Tutor Inteligente STI
 
--->  Ver rama development
-git  
 El objetivo principal de esta aplicación es enseñar programación a los estudiantes que cursan Programación I en la Escuela de Ingeniería de Sistemas de la Universidad de Los Andes (ULA), mediante la implementación de una serie de tutoriales y lecciones, con un Agente Inteligente (Tutor Inteligente) que sea capaz de ayudar y guiar al estudiante en su proceso de aprendizaje.
 
 Proyecto en Django con HTML del admin template: light-bootstrap-dashboard-html-v2.0.1
@@ -45,11 +43,11 @@ un repositorio:
 
  --> Configuración archivo settings.py:
 
- 		'NAME': 'sti', (nombre BD)
+ 	'NAME': 'sti', (nombre BD)
 
-        'USER': 'postgres', 
+    'USER': 'postgres', (usuario por defecto)
 
-        'PASSWORD': '453672', (clave usuario postgres)
+    'PASSWORD': '453672', (clave usuario postgres)
 
 
 --> Migrar BD: 
@@ -61,26 +59,25 @@ un repositorio:
 	python manage.py runserver
 
 
-# Proyecto integrado:
 
-* Materias: 
+# Proyecto integrado, materias: 
 
-Base de Datos (BD), 
+* Base de Datos (BD), 
 
-Ingeniería del Software (IS), 
+* Ingeniería del Software (IS), 
 
-Inteligencia Artificial (IA), 
+* Inteligencia Artificial (IA), 
 
-Sistemas Operativos (SO).
+* Sistemas Operativos (SO).
 
-* Integrantes: 
+# Integrantes: 
 
-Sarait Hernández (BD, IA, IS, SO), 
+* Sarait Hernández (BD, IA, IS, SO), 
 
-Heizel Ortega (IS), 
+* Heizel Ortega (IS), 
 
-Lizandro Zerpa (BD, IA, IS, SO), 
+* Lizandro Zerpa (BD, IA, IS, SO), 
 
-Kristo Lopez (BD), 
+* Kristo Lopez (BD), 
 
-Pedro Vilchez (IA).
+* Pedro Vilchez (IA).
