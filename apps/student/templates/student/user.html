@@ -1,101 +1,92 @@
+{% load static %}
+
 <!doctype html>
 <html lang="en">
 <head>
-	<meta charset="utf-8" />
-	<link rel="icon" type="image/png" href="assets/img/favicon.ico">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta charset="utf-8" />
+  <link rel="icon" type="image/png" href="{% static 'teacher/img/favicon.ico">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 
-	<title>Light Bootstrap Dashboard by Creative Tim</title>
+  <title>{% block title %}STI{% endblock %}</title>
 
-	<meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
+  <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
     <meta name="viewport" content="width=device-width" />
 
 
     <!-- Bootstrap core CSS     -->
-    <link href="assets/css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href= "{% static 'teacher/css/bootstrap.min.css' %}" />
 
     <!-- Animation library for notifications   -->
-    <link href="assets/css/animate.min.css" rel="stylesheet"/>
+    <link href="{% static 'teacher/css/animate.min.css' %}" rel="stylesheet"/>
 
     <!--  Light Bootstrap Table core CSS    -->
-    <link href="assets/css/light-bootstrap-dashboard.css?v=1.4.0" rel="stylesheet"/>
+    <link href="{% static 'teacher/css/light-bootstrap-dashboard.css' %}" rel="stylesheet"/>
 
 
-    <!--  CSS for Demo Purpose, don't include it in your project     -->
-    <link href="assets/css/demo.css" rel="stylesheet" />
+    <!--  CSS for Demo Purpose-->
+    <link href="{% static 'teacher/css/demo.css' %}" rel="stylesheet" />
 
 
     <!--     Fonts and icons     -->
     <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
     <link href='http://fonts.googleapis.com/css?family=Roboto:400,700,300' rel='stylesheet' type='text/css'>
-    <link href="assets/css/pe-icon-7-stroke.css" rel="stylesheet" />
+    <link href="{% static 'teacher/css/pe-icon-7-stroke.css' %}" rel="stylesheet" />
+
 </head>
 <body>
 
 <div class="wrapper">
-    <div class="sidebar" data-color="purple" data-image="assets/img/sidebar-5.jpg">
+    <div class="sidebar" data-color="blue" data-image="{% static 'teacher/img/sidebar-4.jpg' %}">
 
-    <!--   you can change the color of the sidebar using: data-color="blue | azure | green | orange | red | purple" -->
+    <!--
 
+        Tip 1: you can change the color of the sidebar using: data-color="blue | azure | green | orange | red | purple"
+        Tip 2: you can also add an image using data-image tag
 
-    	<div class="sidebar-wrapper">
+    -->
+
+     
+          <div class="sidebar-wrapper">
             <div class="logo">
-                <a href="http://www.creative-tim.com" class="simple-text">
-                    Creative Tim
+                 <a class="simple-text" href="/apps/student/">
+                    Programación  I
                 </a>
             </div>
 
             <ul class="nav">
-                <li>
-                    <a href="dashboard.html">
-                        <i class="pe-7s-graph"></i>
-                        <p>Dashboard</p>
-                    </a>
-                </li>
                 <li class="active">
-                    <a href="user.html">
-                        <i class="pe-7s-user"></i>
-                        <p>User Profile</p>
-                    </a>
-                </li>
-                <li>
-                    <a href="table.html">
+                    <a href="/apps/student/theme/">
                         <i class="pe-7s-note2"></i>
-                        <p>Table List</p>
+                        <p>Temas</p>
                     </a>
                 </li>
                 <li>
-                    <a href="typography.html">
+                    <a href="/apps/student/problem/">
                         <i class="pe-7s-news-paper"></i>
-                        <p>Typography</p>
+                        <p>Problemas</p>
                     </a>
                 </li>
                 <li>
-                    <a href="icons.html">
-                        <i class="pe-7s-science"></i>
-                        <p>Icons</p>
+                    <a href="/apps/student/results/">
+                        <i class="pe-7s-graph"></i>
+                        <p>Problemas resueltos</p>
                     </a>
                 </li>
                 <li>
-                    <a href="maps.html">
-                        <i class="pe-7s-map-marker"></i>
-                        <p>Maps</p>
+                    <a href="/apps/student/user/">
+                        <i class="pe-7s-user"></i>
+                        <p>Perfil</p>
                     </a>
                 </li>
-                <li>
-                    <a href="notifications.html">
-                        <i class="pe-7s-bell"></i>
-                        <p>Notifications</p>
-                    </a>
-                </li>
-				<li class="active-pro">
+               
+                <li class="active-pro">
                     <a href="upgrade.html">
                         <i class="pe-7s-rocket"></i>
-                        <p>Upgrade to PRO</p>
+                        <p>Cerrar sesión</p>
                     </a>
                 </li>
             </ul>
-    	</div>
+      </div>
     </div>
 
     <div class="main-panel">
@@ -274,7 +265,7 @@
                     <div class="col-md-4">
                         <div class="card card-user">
                             <div class="image">
-                                <img src="https://ununsplash.imgix.net/photo-1431578500526-4d9613015464?fit=crop&fm=jpg&h=300&q=75&w=400" alt="..."/>
+                                <img src="https://ununsplash.imgix.net/photo-1431578500526-4d9613015464?fit=crop&fm=jpg&h=30&q=75&w=400" alt="..."/>
                             </div>
                             <div class="content">
                                 <div class="author">
@@ -344,23 +335,15 @@
 
 </body>
 
-    <!--   Core JS Files   -->
-    <script src="assets/js/jquery.3.2.1.min.js" type="text/javascript"></script>
-	<script src="assets/js/bootstrap.min.js" type="text/javascript"></script>
+  <!--   Core JS Files   -->
+  <script src="{% static 'teacher/js/jquery.3.2.1.min.js' %}" type="text/javascript"></script>
+  <script src="{% static 'teacher/js/bootstrap.min.js' %}" type="text/javascript"></script>
 
-	<!--  Charts Plugin -->
-	<script src="assets/js/chartist.min.js"></script>
-
-    <!--  Notifications Plugin    -->
-    <script src="assets/js/bootstrap-notify.js"></script>
-
-    <!--  Google Maps Plugin    -->
-    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>
+  <!--  Charts Plugin -->
+  <script src="{% static 'teacher/js/chartist.min.js' %}"></script>
 
     <!-- Light Bootstrap Table Core javascript and methods for Demo purpose -->
-	<script src="assets/js/light-bootstrap-dashboard.js?v=1.4.0"></script>
-
-	<!-- Light Bootstrap Table DEMO methods, don't include it in your project! -->
-	<script src="assets/js/demo.js"></script>
+  <script src="{% static 'teacher/js/light-bootstrap-dashboard.js' %}"></script>
 
 </html>
+

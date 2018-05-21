@@ -6,11 +6,17 @@ def index(request):
 def login(request):
     return render(request, 'student/login.html')
 
-def table(request):
-	return render(request, 'student/table.html')
+def theme(request):
+	return render(request, 'student/theme.html')
+
+def problem(request):
+	return render(request, 'student/problem.html')
 
 def user(request):
 	return render(request, 'student/user.html')
 
 def register(request):
 	return render(request, 'student/register.html')
+
+def results(request):
+	return render(request, 'student/results.html')
