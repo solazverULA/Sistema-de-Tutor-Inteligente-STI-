@@ -1,5 +1,5 @@
 from django.db import models
-from apps.user.models import Student
+from apps.student.models import Student
 
 
 class Theme(models.Model):
