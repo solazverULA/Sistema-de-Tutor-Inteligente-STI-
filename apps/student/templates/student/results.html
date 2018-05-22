@@ -1,0 +1,63 @@
+{% extends "student/base.html" %}
+
+{% block content %}
+
+        <div class="content">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="card">
+                           <h3 class="navbar-brand">Listado de sus problemas resueltos</h3>
+                                <div class="card-body">
+                                    <div class="table-responsive">
+                                        <table class="table">
+                                          <thead>
+                                              <tr>
+                                                  <th class="text-center">#</th>
+                                                  <th class="text-center">Nombre</th>
+                                                  <th class="text-center">Nota</th>
+                                                  <th class="text-center">Ver</th>
+                                              </tr>
+                                          </thead>
+                                          <tbody>
+                                              <tr class="text-center">
+                                                  <td>1</td>
+                                                  <td>Problema 1</td>
+                                                  <td>20</td>
+                                                  <td class="td-actions text-center">
+                                                      <button type="button" rel="tooltip" class="btn btn-success" data-original-title="" title="">
+                                                          <i class="pe-7s-study"></i>
+                                                      </button>
+                                                  </td>
+                                              </tr>
+                                              <tr class="text-center">
+                                                  <td>2</td>
+                                                  <td>Problema 2</td>
+                                                  <td>5</td>
+                                                  <td class="td-actions text-center">
+                                                      <button type="button" rel="tooltip" class="btn btn-success" data-original-title="" title="">
+                                                          <i class="pe-7s-study"></i>
+                                                      </button>
+                                                  </td>
+                                              </tr>
+                                              <tr class="text-center">
+                                                  <td>3</td>
+                                                  <td>Problema 3</td>
+                                                  <td>10</td>
+                                                  <td class="td-actions text-center">
+                                                      <button type="button" rel="tooltip" class="btn btn-success" data-original-title="" title="">
+                                                          <i class="pe-7s-study"></i>
+                                                      </button>
+                                                  </td>
+                                              </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div> 
+                    </div>
+                </div>
+            </div>
+
+{% endblock %}

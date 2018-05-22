@@ -1,0 +1,13 @@
+;;extensions to ignore
+*.log
+*.pot
+*.pyc
+.vscode
+*~
+
+uploads
+/media/uploads
+/media/cache
+\.DS_Store
+\.idea/
+\.sti-core/
