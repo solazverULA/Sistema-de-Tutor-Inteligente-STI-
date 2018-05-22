@@ -16,25 +16,3 @@ class People(models.Model):
 
     def __str__(self):
         return self.user.username
-
-
-class Teacher(People):
-    """
-    Model for Teacher Type
-    """
-    root = models.BooleanField(default=False)
-
-    def __str__(self):
-        return self.user.username
-
-
-class Student(People):
-    """
-    Model for Student Type
-    """
-    progress = models.CharField(max_length=10)
-    teacherMentor = models.ForeignKey('user.Teacher',
-                                      on_delete=models.CASCADE)
-
-    def __str__(self):
-        return self.user.username
