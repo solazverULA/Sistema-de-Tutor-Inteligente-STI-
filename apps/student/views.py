@@ -20,3 +20,6 @@ def register(request):
 
 def results(request):
 	return render(request, 'student/results.html')
+
+def editor(request):
+	return render(request, 'student/editor.html')
