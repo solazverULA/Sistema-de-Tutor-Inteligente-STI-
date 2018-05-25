@@ -7,7 +7,7 @@
         <link rel="apple-touch-icon" sizes="76x76" href="http://demos.creative-tim.com/now-ui-dashboard-pro/assets/img/apple-icon.png">
         <link rel="icon" type="image/png" href="http://demos.creative-tim.com/now-ui-dashboard-pro/assets/img/favicon.png">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <title> Now UI Dashboard PRO  by Creative Tim</title>
+        <title>STI</title>
         <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no" name="viewport">
 
         <!--     Fonts and icons     -->
@@ -22,11 +22,6 @@
 
         <!-- CSS Just for demo purpose, don't include it in your project -->
         <link href="{% static 'student/login_style/css/demo.css' %}" rel="stylesheet">
-
-        <style type="text/css">/* Chart.js */
-        
-        @-webkit-keyframes chartjs-render-animation{from{opacity:0.99}to{opacity:1}}@keyframes chartjs-render-animation{from{opacity:0.99}to{opacity:1}}.chartjs-render-monitor{-webkit-animation:chartjs-render-animation 0.001s;animation:chartjs-render-animation 0.001s;}</style>
-
         <script type="text/javascript" charset="UTF-8" src="{% static 'student/login_style/common.js' %}"></script>
         <script type="text/javascript" charset="UTF-8" src="{% static 'student/login_style/util.js' %}"></script>
         <script type="text/javascript" charset="UTF-8" src="{% static 'student/login_style/stats.js' %}"></script>
@@ -45,7 +40,6 @@
                             <span class="navbar-toggler-bar bar3"></span>
                         </button>
                     </div>
-                    <a class="navbar-brand" href="">Bienvenido al Tutor Inteligente</a>
                 </div>
 
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
@@ -58,15 +52,15 @@
         
                 <ul class="navbar-nav">
                     <li class="nav-item ">
-                        <a href="http://demos.creative-tim.com/now-ui-dashboard-pro/examples/pages/register.html" class="nav-link">
+                        <a href="/apps/student/register/" class="nav-link">
                             <i class="pe-7s-add-user"></i>
-                            Register
+                            Registrarse
                         </a>
                     </li>
-                    <li class="nav-item  active ">
-                        <a href="http://demos.creative-tim.com/now-ui-dashboard-pro/examples/pages/login.html" class="nav-link">
+                    <li class="nav-item ">
+                        <a href="/apps/student/login/" class="nav-link">
                             <i class="pe-7s-glasses"></i>
-                            Login
+                            Entrar
                         </a>
                     </li>
                 </ul>
@@ -85,8 +79,9 @@
                     <div class="col-md-4 ml-auto mr-auto">
                         <form class="form" method="" action=" ">                
                             <div class="card card-login card-plain">                                
-                                <div class="card-header ">
+                                <div class="card-header " style="text-align:center">
                                     <h4> Sistema de tutor inteligente</h4>
+                                    <h5>Programación I</h5>
                                 </div>
                                 <div class="card-body ">                                
                                     <div class="input-group no-border form-control-lg">
@@ -103,9 +98,9 @@
                                     </div>    
                                 </div>
                                 <div class="card-footer ">
-                                    <a href=" " class="btn btn-primary btn-round btn-lg btn-block mb-3">Entrar</a>
+                                    <a href="/apps/student/" class="btn btn-primary btn-round btn-lg btn-block mb-3">Entrar</a>
                                     <div class="pull-left">
-                                        <h6><a href=" " class="link footer-link">Registrarse</a></h6>
+                                        <h6><a href="/apps/student/register/" class="link footer-link">Registrarse</a></h6>
                                     </div>
                                 </div>
                             </div>
@@ -115,246 +110,174 @@
             </div>
             <footer class="footer">
                 <div class="container-fluid">
-                    <div class="copyright">
-                        © <script async="" src="http://connect.facebook.net/en_US/fbevents.js"></script><script type="text/javascript" async="" src="./login_files/ga.js"></script><script>document.write(new Date().getFullYear())</script>2018, Designed by <a href="https://www.invisionapp.com/" target="_blank">Invision</a>. Coded by <a href="https://www.creative-tim.com/" target="_blank">Creative Tim</a>.
-                    </div>
+                    <p class="copyright pull-right">
+                        &copy; <script>document.write(new Date().getFullYear())</script> <a href="https://github.com/solazverULA/Sistema-de-Tutor-Inteligente-STI-/tree/development">Proyecto integrado</a>, Universidad de los Andes, Mérida-Venezuela
+                    </p>
                 </div>
             </footer>
             <div class="full-page-background" style="background-image: url({% static 'student/login_style/images/fondo3.jpg' %}) "></div></div>  
         </div>
        
-        <!--   Core JS Files   -->
-        <script src="{% static 'student/login_style/js/jquery.min.js' %}"></script>
-        <script src="{% static 'student/login_style/js/popper.min.js' %}"></script>
-        <script src="{% static 'student/login_style/js/bootstrap.min.js' %}"></script>
-        <script src="{% static 'student/login_style/js/perfect-scrollbar.jquery.min.js' %}"></script>
+   <script src="{% static 'student/register_style/js/jquery.min.js' %}"></script>
+    <script src="{% static 'student/register_style/js/popper.min.js' %}"></script>
+    <script src="{% static 'student/register_style/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'student/register_style/js/perfect-scrollbar.jquery.min.js' %}"></script>
+    <script src="{% static 'student/register_style/js/moment.min.js' %}"></script>
 
-        <script src="{% static 'student/login_style/js/moment.min.js' %}"></script>
+  
 
+    <!-- Forms Validations Plugin -->
+    <script src="{% static 'student/register_style/js/jquery.validate.min.js' %}"></script>
+    <!-- Now Ui Dashboard DEMO methods, don't include it in your project! -->
+    <script src="{% static 'student/register_style/js/demo.js' %}"></script>
+    <script>
+      $(document).ready(function(){
+        $().ready(function(){
+            $sidebar = $('.sidebar');
+            $sidebar_img_container = $sidebar.find('.sidebar-background');
 
+            $full_page = $('.full-page');
 
-        <!--  Plugin for Switches, full documentation here: http://www.jque.re/plugins/version3/bootstrap.switch/ -->
-        <script src="{% static 'student/login_style/js/bootstrap-switch.js' %}"></script>
+            $sidebar_responsive = $('body > .navbar-collapse');
+            sidebar_mini_active = true;
 
-        <!--  Plugin for Sweet Alert -->
-        <script src="{% static 'student/login_style/js/sweetalert2.min.js' %}"></script>
+            window_width = $(window).width();
 
-        <!-- Forms Validations Plugin -->
-        <script src="{% static 'student/login_style/js/jquery.validate.min.js' %}"></script>
+            fixed_plugin_open = $('.sidebar .sidebar-wrapper .nav li.active a p').html();
 
-        <!--  Plugin for the Wizard, full documentation here: https://github.com/VinceG/twitter-bootstrap-wizard -->
-        <script src="{% static 'student/login_style/js/jquery.bootstrap-wizard.js' %}"></script>
+            // if( window_width > 767 && fixed_plugin_open == 'Dashboard' ){
+            //     if($('.fixed-plugin .dropdown').hasClass('show-dropdown')){
+            //         $('.fixed-plugin .dropdown').addClass('show');
+            //     }
+            //
+            // }
 
-
-        <script src="{% static 'student/login_style/js/bootstrap-selectpicker.js' %}"></script>
-
-        <!--  Plugin for the DateTimePicker, full documentation here: https://eonasdan.github.io/bootstrap-datetimepicker/ -->
-        <script src="{% static 'student/login_style/js/bootstrap-datetimepicker.js' %}"></script>
-
-        <!--  DataTables.net Plugin, full documentation here: https://datatables.net/    -->
-        <script src="{% static 'student/login_style/js/jquery.dataTables.min.js' %}"></script>
-
-        <!--    Plugin for Tags, full documentation here: https://github.com/bootstrap-tagsinput/bootstrap-tagsinputs  -->
-
-        <script src="{% static 'student/login_style/js/bootstrap-tagsinput.js' %}"></script>
-
-        <!-- Plugin for Fileupload, full documentation here: http://www.jasny.net/bootstrap/javascript/#fileinput -->
-        <script src="{% static 'student/login_style/js/jasny-bootstrap.min.js' %}"></script>
-
-        <!--  Full Calendar Plugin, full documentation here: https://github.com/fullcalendar/fullcalendar    -->
-        <script src="{% static 'student/login_style/js/fullcalendar.min.js' %}"></script>
-
-        <!-- Vector Map plugin, full documentation here: http://jvectormap.com/documentation/ -->
-        <script src="{% static 'student/login_style/js/jquery-jvectormap.js' %}"></script>
-
-        <!--  Plugin for the Sliders, full documentation here: http://refreshless.com/nouislider/ -->
-        <script src="{% static 'student/login_style/js/nouislider.min.js' %}"></script>
-
-
-        <!--  Google Maps Plugin    -->
-
-        <script src="{% static 'student/login_style/js/js' %}"></script>
-
-
-        <!-- Place this tag in your head or just before your close body tag. -->
-        <script async="" defer="" src="{% static 'student/login_style/js/buttons.js' %}"></script>
-
-
-        <!-- Chart JS -->
-        <script src="{% static 'student/login_style/js/chartjs.min.js' %}"></script>
-
-        <!--  Notifications Plugin    -->
-        <script src="{% static 'student/login_style/js/bootstrap-notify.js' %}"></script>
-
-        <!-- Control Center for Now Ui Dashboard: parallax effects, scripts for the example pages etc -->
-
-        <script src="{% static 'student/login_style/js/now-ui-dashboard.min.js' %}"></script>
-
-
-        <!-- Now Ui Dashboard DEMO methods, don't include it in your project! -->
-        <script src="{% static 'student/login_style/js/demo.js' %}"></script>
-
-
-          <!-- Sharrre libray -->
-        <script src="{% static 'student/login_style/js/jquery.sharrre.js' %}"></script>
-
-
-          <script>
-          $(document).ready(function(){
-            $().ready(function(){
-                $sidebar = $('.sidebar');
-                $sidebar_img_container = $sidebar.find('.sidebar-background');
-
-                $full_page = $('.full-page');
-
-                $sidebar_responsive = $('body > .navbar-collapse');
-                sidebar_mini_active = true;
-
-                window_width = $(window).width();
-
-                fixed_plugin_open = $('.sidebar .sidebar-wrapper .nav li.active a p').html();
-
-                // if( window_width > 767 && fixed_plugin_open == 'Dashboard' ){
-                //     if($('.fixed-plugin .dropdown').hasClass('show-dropdown')){
-                //         $('.fixed-plugin .dropdown').addClass('show');
-                //     }
-                //
-                // }
-
-                $('.fixed-plugin a').click(function(event){
-                  // Alex if we click on switch, stop propagation of the event, so the dropdown will not be hide, otherwise we set the  section active
-                    if($(this).hasClass('switch-trigger')){
-                        if(event.stopPropagation){
-                            event.stopPropagation();
-                        }
-                        else if(window.event){
-                           window.event.cancelBubble = true;
-                        }
+            $('.fixed-plugin a').click(function(event){
+              // Alex if we click on switch, stop propagation of the event, so the dropdown will not be hide, otherwise we set the  section active
+                if($(this).hasClass('switch-trigger')){
+                    if(event.stopPropagation){
+                        event.stopPropagation();
                     }
-                });
-
-                $('.fixed-plugin .background-color span').click(function(){
-                    $(this).siblings().removeClass('active');
-                    $(this).addClass('active');
-
-                    var new_color = $(this).data('color');
-
-                    if($sidebar.length != 0){
-                        $sidebar.attr('data-color',new_color);
+                    else if(window.event){
+                       window.event.cancelBubble = true;
                     }
-
-                    if($full_page.length != 0){
-                        $full_page.attr('filter-color',new_color);
-                    }
-
-                    if($sidebar_responsive.length != 0){
-                        $sidebar_responsive.attr('data-color',new_color);
-                    }
-                });
-
-                $('.fixed-plugin .img-holder').click(function(){
-                    $full_page_background = $('.full-page-background');
-
-                    $(this).parent('li').siblings().removeClass('active');
-                    $(this).parent('li').addClass('active');
-
-
-                    var new_image = $(this).find("img").attr('src');
-
-                    if( $sidebar_img_container.length !=0 && $('.switch-sidebar-image input:checked').length != 0 ){
-                        $sidebar_img_container.fadeOut('fast', function(){
-                           $sidebar_img_container.css('background-image','url("' + new_image + '")');
-                           $sidebar_img_container.fadeIn('fast');
-                        });
-                    }
-
-                    if($full_page_background.length != 0 && $('.switch-sidebar-image input:checked').length != 0 ) {
-                        var new_image_full_page = $('.fixed-plugin li.active .img-holder').find('img').data('src');
-
-                        $full_page_background.fadeOut('fast', function(){
-                           $full_page_background.css('background-image','url("' + new_image_full_page + '")');
-                           $full_page_background.fadeIn('fast');
-                        });
-                    }
-
-                    if( $('.switch-sidebar-image input:checked').length == 0 ){
-                        var new_image = $('.fixed-plugin li.active .img-holder').find("img").attr('src');
-                        var new_image_full_page = $('.fixed-plugin li.active .img-holder').find('img').data('src');
-
-                        $sidebar_img_container.css('background-image','url("' + new_image + '")');
-                        $full_page_background.css('background-image','url("' + new_image_full_page + '")');
-                    }
-
-                    if($sidebar_responsive.length != 0){
-                        $sidebar_responsive.css('background-image','url("' + new_image + '")');
-                    }
-                });
-
-                $('.switch-sidebar-image input').on("switchChange.bootstrapSwitch", function(){
-                    $full_page_background = $('.full-page-background');
-
-                    $input = $(this);
-
-                    if($input.is(':checked')){
-                        if($sidebar_img_container.length != 0){
-                            $sidebar_img_container.fadeIn('fast');
-                            $sidebar.attr('data-image','#');
-                        }
-
-                        if($full_page_background.length != 0){
-                            $full_page_background.fadeIn('fast');
-                            $full_page.attr('data-image','#');
-                        }
-
-                        background_image = true;
-                    } else {
-                        if($sidebar_img_container.length != 0){
-                            $sidebar.removeAttr('data-image');
-                            $sidebar_img_container.fadeOut('fast');
-                        }
-
-                        if($full_page_background.length != 0){
-                            $full_page.removeAttr('data-image','#');
-                            $full_page_background.fadeOut('fast');
-                        }
-
-                        background_image = false;
-                    }
-                });
-
-                $('.switch-sidebar-mini input').on("switchChange.bootstrapSwitch", function(){
-                  var $btn = $(this);
-
-                  if(sidebar_mini_active == true){
-                      $('body').removeClass('sidebar-mini');
-                      sidebar_mini_active = false;
-                      nowuiDashboard.showSidebarMessage('Sidebar mini deactivated...');
-                  }else{
-                      $('body').addClass('sidebar-mini');
-                      sidebar_mini_active = true;
-                      nowuiDashboard.showSidebarMessage('Sidebar mini activated...');
-                  }
-
-                  // we simulate the window Resize so the charts will get updated in realtime.
-                  var simulateWindowResize = setInterval(function(){
-                      window.dispatchEvent(new Event('resize'));
-                  },180);
-
-                  // we stop the simulation of Window Resize after the animations are completed
-                  setTimeout(function(){
-                      clearInterval(simulateWindowResize);
-                  },1000);
-                });
+                }
             });
-          });
-        </script>
+
+            $('.fixed-plugin .background-color span').click(function(){
+                $(this).siblings().removeClass('active');
+                $(this).addClass('active');
+
+                var new_color = $(this).data('color');
+
+                if($sidebar.length != 0){
+                    $sidebar.attr('data-color',new_color);
+                }
+
+                if($full_page.length != 0){
+                    $full_page.attr('filter-color',new_color);
+                }
+
+                if($sidebar_responsive.length != 0){
+                    $sidebar_responsive.attr('data-color',new_color);
+                }
+            });
+
+            $('.fixed-plugin .img-holder').click(function(){
+                $full_page_background = $('.full-page-background');
+
+                $(this).parent('li').siblings().removeClass('active');
+                $(this).parent('li').addClass('active');
 
 
-          <script>
-          $(document).ready(function(){
-            demo.checkFullPageBackgroundImage();
-          });
-        </script>
+                var new_image = $(this).find("img").attr('src');
 
+                if( $sidebar_img_container.length !=0 && $('.switch-sidebar-image input:checked').length != 0 ){
+                    $sidebar_img_container.fadeOut('fast', function(){
+                       $sidebar_img_container.css('background-image','url("' + new_image + '")');
+                       $sidebar_img_container.fadeIn('fast');
+                    });
+                }
+
+                if($full_page_background.length != 0 && $('.switch-sidebar-image input:checked').length != 0 ) {
+                    var new_image_full_page = $('.fixed-plugin li.active .img-holder').find('img').data('src');
+
+                    $full_page_background.fadeOut('fast', function(){
+                       $full_page_background.css('background-image','url("' + new_image_full_page + '")');
+                       $full_page_background.fadeIn('fast');
+                    });
+                }
+
+                if( $('.switch-sidebar-image input:checked').length == 0 ){
+                    var new_image = $('.fixed-plugin li.active .img-holder').find("img").attr('src');
+                    var new_image_full_page = $('.fixed-plugin li.active .img-holder').find('img').data('src');
+
+                    $sidebar_img_container.css('background-image','url("' + new_image + '")');
+                    $full_page_background.css('background-image','url("' + new_image_full_page + '")');
+                }
+
+                if($sidebar_responsive.length != 0){
+                    $sidebar_responsive.css('background-image','url("' + new_image + '")');
+                }
+            });
+
+            $('.switch-sidebar-image input').on("switchChange.bootstrapSwitch", function(){
+                $full_page_background = $('.full-page-background');
+
+                $input = $(this);
+
+                if($input.is(':checked')){
+                    if($sidebar_img_container.length != 0){
+                        $sidebar_img_container.fadeIn('fast');
+                        $sidebar.attr('data-image','#');
+                    }
+
+                    if($full_page_background.length != 0){
+                        $full_page_background.fadeIn('fast');
+                        $full_page.attr('data-image','#');
+                    }
+
+                    background_image = true;
+                } else {
+                    if($sidebar_img_container.length != 0){
+                        $sidebar.removeAttr('data-image');
+                        $sidebar_img_container.fadeOut('fast');
+                    }
+
+                    if($full_page_background.length != 0){
+                        $full_page.removeAttr('data-image','#');
+                        $full_page_background.fadeOut('fast');
+                    }
+
+                    background_image = false;
+                }
+            });
+
+            $('.switch-sidebar-mini input').on("switchChange.bootstrapSwitch", function(){
+              var $btn = $(this);
+
+              if(sidebar_mini_active == true){
+                  $('body').removeClass('sidebar-mini');
+                  sidebar_mini_active = false;
+                  nowuiDashboard.showSidebarMessage('Sidebar mini deactivated...');
+              }else{
+                  $('body').addClass('sidebar-mini');
+                  sidebar_mini_active = true;
+                  nowuiDashboard.showSidebarMessage('Sidebar mini activated...');
+              }
+
+              // we simulate the window Resize so the charts will get updated in realtime.
+              var simulateWindowResize = setInterval(function(){
+                  window.dispatchEvent(new Event('resize'));
+              },180);
+
+              // we stop the simulation of Window Resize after the animations are completed
+              setTimeout(function(){
+                  clearInterval(simulateWindowResize);
+              },1000);
+            });
+        });
+      });
+    </script>
     </body>
 </html>
