@@ -1,526 +1,181 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en" class="perfect-scrollbar-off">
-    <head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title> Now UI Dashboard PRO  by Creative Tim</title>
-    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no" name="viewport">
-    <!--     Fonts and icons     -->
-    <link href="{% static 'student/register_style/css/css" rel="stylesheet">
-    <link href="{% static 'student/register_style/css/all.css" rel="stylesheet">
+    <head>
 
-    <!-- CSS Files -->
-    <link href="{% static 'student/register_style/css/bootstrap.min.css' %}" rel="stylesheet">
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title> Now UI Dashboard PRO  by Creative Tim</title>
+        <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no" name="viewport">
+        <!--     Fonts and icons     -->
+        <link href="{% static 'student/register_style/css/css" rel="stylesheet">
+        <link href="{% static 'teacher/css/pe-icon-7-stroke.css' %}" rel="stylesheet" />
+        <link href="{% static 'student/register_style/css/all.css" rel="stylesheet">
+        <!-- CSS Files -->
+        <link href="{% static 'student/register_style/css/bootstrap.min.css' %}" rel="stylesheet">
+        <link href="{% static 'student/register_style/css/now-ui-dashboard.min.css' %}" rel="stylesheet">
+        <!-- CSS Just for demo purpose, don't include it in your project -->
+        <link href="{% static 'student/register_style/css/demo.css' %}" rel="stylesheet">
+  
+        <script type="text/javascript" charset="UTF-8" src="{% static 'student/register_style/js/common.js' %}"></script>
+        <script type="text/javascript" charset="UTF-8" src="{% static 'student/register_style/js/util.js' %}"></script>
+        <script type="text/javascript" charset="UTF-8" src="{% static 'student/register_style/js/stats.js' %}"></script>
 
-    <link href="{% static 'student/register_style/css/now-ui-dashboard.min.css' %}" rel="stylesheet">
-
-
-
-
-
-    <!-- CSS Just for demo purpose, don't include it in your project -->
-    <link href="{% static 'student/register_style/css/demo.css' %}" rel="stylesheet">
-
-
-        <style type="text/css">/* Chart.js */
-    @-webkit-keyframes chartjs-render-animation{from{opacity:0.99}to{opacity:1}}@keyframes chartjs-render-animation{from{opacity:0.99}to{opacity:1}}.chartjs-render-monitor{-webkit-animation:chartjs-render-animation 0.001s;animation:chartjs-render-animation 0.001s;}</style><script type="text/javascript" charset="UTF-8" src="{% static 'student/register_style/js/common.js' %}"></script><script type="text/javascript" charset="UTF-8" src="{% static 'student/register_style/js/util.js' %}"></script><script type="text/javascript" charset="UTF-8" src="{% static 'student/register_style/js/stats.js' %}"></script></head>
-
-        <body class=" sidebar-mini">
+    </head>
+    <body class=" sidebar-mini">
             
-            <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-transparent  navbar-absolute bg-primary fixed-top">
-    	<div class="container-fluid">
-        <div class="navbar-wrapper">
-    			<div class="navbar-toggle">
-    				<button type="button" class="navbar-toggler">
-    					<span class="navbar-toggler-bar bar1"></span>
-    					<span class="navbar-toggler-bar bar2"></span>
-    					<span class="navbar-toggler-bar bar3"></span>
-    				</button>
-    			</div>
-    			<a class="navbar-brand" href="http://demos.creative-tim.com/now-ui-dashboard-pro/examples/pages/register.html#pablo">Register Page</a>
-    		</div>
-
-    		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
-    			<span class="navbar-toggler-bar navbar-kebab"></span>
-    			<span class="navbar-toggler-bar navbar-kebab"></span>
-    			<span class="navbar-toggler-bar navbar-kebab"></span>
-    		</button>
-
-    	    <div class="collapse navbar-collapse justify-content-end" id="navigation">
-          
-            
-              <ul class="navbar-nav">
-        <li class="nav-item">
-            <a href="http://demos.creative-tim.com/now-ui-dashboard-pro/examples/dashboard.html" class="nav-link">
-                <i class="now-ui-icons design_app"></i>
-                Dashboard
-            </a>
-        </li>
-        <li class="nav-item  active ">
-            <a href="http://demos.creative-tim.com/now-ui-dashboard-pro/examples/pages/register.html" class="nav-link">
-                <i class="now-ui-icons tech_mobile"></i>
-                Register
-            </a>
-        </li>
-        <li class="nav-item ">
-            <a href="http://demos.creative-tim.com/now-ui-dashboard-pro/examples/pages/login.html" class="nav-link">
-                <i class="now-ui-icons users_circle-08"></i>
-                Login
-            </a>
-        </li>
-
-        <li class="nav-item ">
-            <a href="http://demos.creative-tim.com/now-ui-dashboard-pro/examples/pages/pricing.html" class="nav-link">
-                <i class="now-ui-icons now-ui-icons business_money-coins"></i>
-                Pricing
-            </a>
-        </li>
-
-        <li class="nav-item ">
-            <a href="http://demos.creative-tim.com/now-ui-dashboard-pro/examples/pages/lock.html" class="nav-link">
-                <i class="now-ui-icons ui-1_lock-circle-open"></i>
-                Lock
-            </a>
-        </li>
-    </ul>
-
-            
-          
-
-          
+        <!-- Navbar -->
+        <nav class="navbar navbar-expand-lg navbar-transparent  navbar-absolute bg-primary fixed-top">
+        	<div class="container-fluid">
+                <div class="navbar-wrapper">
+        			<div class="navbar-toggle">
+        				<button type="button" class="navbar-toggler">
+        					<span class="navbar-toggler-bar bar1"></span>
+        					<span class="navbar-toggler-bar bar2"></span>
+        					<span class="navbar-toggler-bar bar3"></span>
+        				</button>
+        			</div>
+        			<a class="navbar-brand" href="http://demos.creative-tim.com/now-ui-dashboard-pro/examples/pages/register.html#pablo">Register Page</a>
+        		</div>
+        		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
+        			<span class="navbar-toggler-bar navbar-kebab"></span>
+        			<span class="navbar-toggler-bar navbar-kebab"></span>
+        			<span class="navbar-toggler-bar navbar-kebab"></span>
+        		</button> 
+        	    <div class="collapse navbar-collapse justify-content-end" id="navigation">
+                    <ul class="navbar-nav">   
+                        <li class="nav-item  active ">
+                            <a href="http://demos.creative-tim.com/now-ui-dashboard-pro/examples/pages/register.html" class="nav-link">
+                                <i class="now-ui-icons tech_mobile"></i>
+                                Register
+                            </a>
+                        </li>
+                        <li class="nav-item ">
+                            <a href="http://demos.creative-tim.com/now-ui-dashboard-pro/examples/pages/login.html" class="nav-link">
+                                <i class="now-ui-icons users_circle-08"></i>
+                                Login
+                            </a>
+                        </li>
+                    </ul>
+    	        </div>
     	    </div>
-    	</div>
-    </nav>
-    <!-- End Navbar -->
+        </nav>
+        <!-- End Navbar -->
 
-            
-
-            <div class="wrapper wrapper-full-page ">
-              
-                
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    <div class="full-page register-page section-image" filter-color="black" data-image="../../assets/img/bg16.jpg">
-        <div class="content">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-5 ml-auto">
-                        <div class="info-area info-horizontal mt-5">
-                            <div class="icon icon-primary">
-                                <i class="now-ui-icons media-2_sound-wave"></i>
-                            </div>
-                            <div class="description">
-                                <h5 class="info-title">Marketing</h5>
-                                <p class="description">
-                                    We've created the marketing campaign of the website. It was a very interesting collaboration.
-                                </p>
-                            </div>
-                        </div>
-
-                        <div class="info-area info-horizontal">
-                            <div class="icon icon-primary">
-                                <i class="now-ui-icons media-1_button-pause"></i>
-                            </div>
-                            <div class="description">
-                                <h5 class="info-title">Fully Coded in HTML5</h5>
-                                <p class="description">
-                                    We've developed the website with HTML5 and CSS3. The client has access to the code using GitHub.
-                                </p>
-                            </div>
-                        </div>
-
-                        <div class="info-area info-horizontal">
-                            <div class="icon icon-info">
-                                <i class="now-ui-icons users_single-02"></i>
-                            </div>
-                            <div class="description">
-                                <h5 class="info-title">Built Audience</h5>
-                                <p class="description">
-                                    There is also a Fully Customizable CMS Admin Dashboard for this product.
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4 mr-auto">
-                        
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    <div class="card card-signup text-center">
-        
-        <div class="card-header ">
-         <h4 class="card-title">Register</h4>
-                                <div class="social">
-                                    <button class="btn btn-icon btn-round btn-twitter">
-                                        <i class="fab fa-twitter"></i>
-                                    </button>
-                                    <button class="btn btn-icon btn-round btn-dribbble">
-                                        <i class="fab fa-dribbble"></i>
-                                    </button>
-                                    <button class="btn btn-icon btn-round btn-facebook">
-                                        <i class="fab fa-facebook-f"></i>
-                                    </button>
-                                <h5 class="card-description"> or be classical </h5>
+        <div class="wrapper wrapper-full-page ">
+            <div class="full-page register-page section-image" filter-color="black" data-image="../../assets/img/bg16.jpg">
+            <div class="content">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-5 ml-auto">
+                            <div class="info-area info-horizontal mt-5">
+                                <div class="icon icon-primary">
+                                    <i class="now-ui-icons media-2_sound-wave"></i>
                                 </div>
-        </div>
-        
-        <div class="card-body ">
-            
-
-            
-
-            
-
-            
-                <form class="form" method="" action="http://demos.creative-tim.com/now-ui-dashboard-pro/examples/pages/register.html">
-                                    <div class="input-group">
-                                        <span class="input-group-addon">
-                                            <i class="now-ui-icons users_circle-08"></i>
-                                        </span>
-                                        <input type="text" class="form-control" placeholder="First Name...">
-                                    </div>
-
-                                    <div class="input-group">
-                                        <span class="input-group-addon">
-                                            <i class="now-ui-icons text_caps-small"></i>
-                                        </span>
-                                        <input type="text" placeholder="Last Name..." class="form-control">
-                                    </div>
-
-                                    <div class="input-group">
-                                        <span class="input-group-addon">
-                                            <i class="now-ui-icons ui-1_email-85"></i>
-                                        </span>
-                                        <input type="text" class="form-control" placeholder="Email...">
-                                    </div>
-
-                                    <div class="form-check text-left">
-                                        <label class="form-check-label">
-                                            <input class="form-check-input" type="checkbox">
-                                            <span class="form-check-sign"></span>
-                                            I agree to the <a href="http://demos.creative-tim.com/now-ui-dashboard-pro/examples/pages/register.html#something">terms and conditions</a>.
-                                        </label>
-                                    </div>
-                                </form>
-            
-
-            
-        </div>
-        
-        
-        
-        <div class="card-footer ">
-            <a href="http://demos.creative-tim.com/now-ui-dashboard-pro/examples/pages/register.html#pablo" class="btn btn-primary btn-round btn-lg">Get Started</a>
-        </div>
-        
-    </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+                                <div class="description">
+                                    <h5 class="info-title">Marketing</h5>
+                                    <p class="description">
+                                        We've created the marketing campaign of the website. It was a very interesting collaboration.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="info-area info-horizontal">
+                                <div class="icon icon-primary">
+                                    <i class="now-ui-icons media-1_button-pause"></i>
+                                </div>
+                                <div class="description">
+                                    <h5 class="info-title">Fully Coded in HTML5</h5>
+                                    <p class="description">
+                                        We've developed the website with HTML5 and CSS3. The client has access to the code using GitHub.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="info-area info-horizontal">
+                                <div class="icon icon-info">
+                                    <i class="now-ui-icons users_single-02"></i>
+                                </div>
+                                <div class="description">
+                                    <h5 class="info-title">Built Audience</h5>
+                                    <p class="description">
+                                        There is also a Fully Customizable CMS Admin Dashboard for this product.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 mr-auto">
+                            <div class="card card-signup text-center">
+                                <div class="card-header ">
+                                 <h4 class="card-title">Register</h4>
+                                </div>
+                                <div class="card-body ">
+                                    <form class="form" method="" action=" ">
+                                        <div class="input-group">
+                                            <span class="input-group-addon">
+                                                <i class="pe-7s-study"></i>
+                                            </span>
+                                            <input type="text" class="form-control" placeholder="Nombre">
+                                        </div>
+                                        <div class="input-group">
+                                            <span class="input-group-addon">
+                                                <i class="pe-7s-id"></i>
+                                            </span>
+                                        <input type="text" placeholder="Apellido" class="form-control">
+                                        </div>
+                                        <div class="input-group">
+                                            <span class="input-group-addon">
+                                                <i class="pe-7s-mail"></i>
+                                            </span>
+                                            <input type="text" class="form-control" placeholder="Correo electronico">
+                                        </div>
+                                        <div class="input-group">
+                                            <span class="input-group-addon">
+                                                <i class="pe-7s-key"></i>
+                                            </span>
+                                            <input type="text" class="form-control" placeholder="Clave">
+                                        </div>
+                                        <div class="input-group">
+                                            <span class="input-group-addon">
+                                                <i class="pe-7s-smile"></i>
+                                            </span>
+                                            <input type="text" class="form-control" placeholder="Profesor">
+                                        </div>
+                                    </form>
+                                </div>
+                                <div class="card-footer ">
+                                    <a href="" class="btn btn-primary btn-round btn-lg">Registrarse</a>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <footer class="footer">
-        <div class="container-fluid">
-            <nav>
-                <ul>
-                    <li>
-                        <a href="https://www.creative-tim.com/">
-                            Creative Tim
-                        </a>
-                    </li>
-                    <li>
-                        <a href="http://presentation.creative-tim.com/">
-                           About Us
-                        </a>
-                    </li>
-                    <li>
-                        <a href="http://blog.creative-tim.com/">
-                           Blog
-                        </a>
-                    </li>
-                </ul>
-            </nav>
-            <div class="copyright">
-                © <script async="" src="http://connect.facebook.net/en_US/fbevents.js"></script><script type="text/javascript" async="" src="{% static 'student/register_style/css/ga.js"></script><script>document.write(new Date().getFullYear())</script>2018, Designed by <a href="https://www.invisionapp.com/" target="_blank">Invision</a>. Coded by <a href="https://www.creative-tim.com/" target="_blank">Creative Tim</a>.
-            </div>
-        </div>
-    </footer>
 
-    <div class="full-page-background" style="background-image: url(../../assets/img/bg16.jpg) "></div></div>
+            <footer class="footer">
+                <div class="container-fluid">
+                    <div class="copyright">
+                        © <script async="" src="http://connect.facebook.net/en_US/fbevents.js"></script><script type="text/javascript" async="" src="{% static 'student/register_style/css/ga.js"></script><script>document.write(new Date().getFullYear())</script>2018, Designed by <a href="https://www.invisionapp.com/" target="_blank">Invision</a>. Coded by <a href="https://www.creative-tim.com/" target="_blank">Creative Tim</a>.
+                    </div>
+                </div>
+            </footer>
 
-              
-            </div>
-            
-            <div class="fixed-plugin">
-        <div class="dropdown show-dropdown">
-            <a href="http://demos.creative-tim.com/now-ui-dashboard-pro/examples/pages/register.html#" data-toggle="dropdown">
-            <i class="fa fa-cog fa-2x"> </i>
-            </a>
-            <ul class="dropdown-menu">
-    			<li class="header-title"> Sidebar Background</li>
-                <li class="adjustments-line">
-                    <a href="javascript:void(0)" class="switch-trigger background-color">
-                        <div class="badge-colors text-center">
-    						<span class="badge filter badge-yellow" data-color="yellow"></span>
-                            <span class="badge filter badge-blue" data-color="blue"></span>
-                            <span class="badge filter badge-green" data-color="green"></span>
-                            <span class="badge filter badge-orange active" data-color="orange"></span>
-                            <span class="badge filter badge-red" data-color="red"></span>
-                        </div>
-                        <div class="clearfix"></div>
-                    </a>
-                </li>
-
-                
-                <li class="header-title">
-                    Sidebar Mini
-                </li>
-                <li class="adjustments-line">
-
-                  <div class="togglebutton switch-sidebar-mini">
-                    <span class="label-switch">OFF</span>
-                    <div class="bootstrap-switch bootstrap-switch-wrapper bootstrap-switch-on bootstrap-switch-animate" style="width: 72px;"><div class="bootstrap-switch-container" style="width: 122px; margin-left: 0px;"><span class="bootstrap-switch-handle-on bootstrap-switch-primary" style="width: 50px;"></span><span class="bootstrap-switch-label" style="width: 30px;">&nbsp;</span><span class="bootstrap-switch-handle-off bootstrap-switch-default" style="width: 50px;"></span><input type="checkbox" name="checkbox" checked="" class="bootstrap-switch" data-on-label="" data-off-label=""></div></div>
-                    <span class="label-switch label-right">ON</span>
-                  </div>
-                </li>
-
-                <li class="button-container">
-                    <a href="https://www.creative-tim.com/product/now-ui-dashboard-pro" target="_blank" class="btn btn-primary btn-block btn-round">Buy Now</a>
-                    <a href="http://demos.creative-tim.com/now-ui-dashboard-pro/docs/1.0/getting-started/introduction.html" target="_blank" class="btn btn-info btn-block btn-round">
-                        <i class="now-ui-icons files_single-copy-04"></i>
-                        Documentation
-                    </a>
-                </li>
-                
-
-                
-
-                <li class="header-title">Thank you for 95 shares!</li>
-
-                <li class="button-container text-center">
-                    <button id="twitter" class="btn btn-round btn-info sharrre"><i class="fab fa-twitter"></i> · 45</button>
-                    <button id="facebook" class="btn btn-round btn-info sharrre"><i class="fab fa-facebook-f"></i> · 50</button>
-                    <br>
-                    <br>
-                    <iframe allowtransparency="true" scrolling="no" frameborder="0" src="{% static 'student/register_style/css/buttons.html" style="width: 97px; height: 28px; border: none;"></iframe>
-                </li>
-            </ul>
-        </div>
+            <div class="full-page-background" style="background-image: url(../../assets/img/bg16.jpg) "></div>
+        </div>          
     </div>
-
             
-        
-
-        <!--   Core JS Files   -->
+    <!--   Core JS Files   -->
     <script src="{% static 'student/register_style/js/jquery.min.js' %}"></script>
     <script src="{% static 'student/register_style/js/popper.min.js' %}"></script>
     <script src="{% static 'student/register_style/js/bootstrap.min.js' %}"></script>
     <script src="{% static 'student/register_style/js/perfect-scrollbar.jquery.min.js' %}"></script>
-
     <script src="{% static 'student/register_style/js/moment.min.js' %}"></script>
 
-
-
-    <!--  Plugin for Switches, full documentation here: http://www.jque.re/plugins/version3/bootstrap.switch/ -->
-    <script src="{% static 'student/register_style/js/bootstrap-switch.js' %}"></script>
-
-    <!--  Plugin for Sweet Alert -->
-    <script src="{% static 'student/register_style/js/sweetalert2.min.js' %}"></script>
+  
 
     <!-- Forms Validations Plugin -->
     <script src="{% static 'student/register_style/js/jquery.validate.min.js' %}"></script>
-
-    <!--  Plugin for the Wizard, full documentation here: https://github.com/VinceG/twitter-bootstrap-wizard -->
-    <script src="{% static 'student/register_style/js/jquery.bootstrap-wizard.js' %}"></script>
-
-    <!--	Plugin for Select, full documentation here: http://silviomoreto.github.io/bootstrap-select -->
-    <script src="{% static 'student/register_style/js/bootstrap-selectpicker.js' %}"></script>
-
-    <!--  Plugin for the DateTimePicker, full documentation here: https://eonasdan.github.io/bootstrap-datetimepicker/ -->
-    <script src="{% static 'student/register_style/js/bootstrap-datetimepicker.js' %}"></script>
-
-    <!--  DataTables.net Plugin, full documentation here: https://datatables.net/    -->
-    <script src="{% static 'student/register_style/js/jquery.dataTables.min.js' %}"></script>
-
-    <!--	Plugin for Tags, full documentation here: https://github.com/bootstrap-tagsinput/bootstrap-tagsinputs  -->
-    <script src="{% static 'student/register_style/js/bootstrap-tagsinput.js' %}"></script>
-
-    <!-- Plugin for Fileupload, full documentation here: http://www.jasny.net/bootstrap/javascript/#fileinput -->
-    <script src="{% static 'student/register_style/js/jasny-bootstrap.min.js' %}"></script>
-
-    <!--  Full Calendar Plugin, full documentation here: https://github.com/fullcalendar/fullcalendar    -->
-    <script src="{% static 'student/register_style/js/fullcalendar.min.js' %}"></script>
-
-    <!-- Vector Map plugin, full documentation here: http://jvectormap.com/documentation/ -->
-    <script src="{% static 'student/register_style/js/jquery-jvectormap.js' %}"></script>
-
-    <!--  Plugin for the Sliders, full documentation here: http://refreshless.com/nouislider/ -->
-    <script src="{% static 'student/register_style/js/nouislider.min.js' %}"></script>
-
-
-    <!--  Google Maps Plugin    -->
-
-    <script src="{% static 'student/register_style/js/js' %}"></script>
-
-    <!-- Place this tag in your head or just before your close body tag. -->
-    <script async="" defer="" src="{% static 'student/register_style/js/buttons.js' %}"></script>
-
-
-    <!-- Chart JS -->
-    <script src="{% static 'student/register_style/js/chartjs.min.js' %}"></script>
-
-    <!--  Notifications Plugin    -->
-    <script src="{% static 'student/register_style/js/bootstrap-notify.js' %}"></script>
-
-    <!-- Control Center for Now Ui Dashboard: parallax effects, scripts for the example pages etc -->
-
-    <script src="{% static 'student/register_style/js/now-ui-dashboard.min.js' %}"></script>
-
-
     <!-- Now Ui Dashboard DEMO methods, don't include it in your project! -->
     <script src="{% static 'student/register_style/js/demo.js' %}"></script>
-
-
-      <!-- Sharrre libray -->
-    <script src="{% static 'student/register_style/js/jquery.sharrre.js' %}"></script>
-
     <script>
-      $(document).ready(function(){
-        
-        
-        $('#facebook').sharrre({
-      share: {
-        facebook: true
-      },
-      enableHover: false,
-      enableTracking: false,
-      enableCounter: false,
-      click: function(api, options){
-        api.simulateClick();
-        api.openPopup('facebook');
-      },
-      template: '<i class="fab fa-facebook-f"></i> Facebook',
-      url: 'https://demos.creative-tim.com/now-ui-dashboard-pro/examples/dashboard.html'
-    });
-
-        $('#google').sharrre({
-      share: {
-        googlePlus: true
-      },
-      enableCounter: false,
-      enableHover: false,
-      enableTracking: true,
-      click: function(api, options){
-        api.simulateClick();
-        api.openPopup('googlePlus');
-      },
-      template: '<i class="fa fa-google-plus"></i> Google',
-      url: 'https://demos.creative-tim.com/now-ui-dashboard-pro/examples/dashboard.html'
-    });
-
-        $('#twitter').sharrre({
-      share: {
-        twitter: true
-      },
-      enableHover: false,
-      enableTracking: false,
-      enableCounter: false,
-      buttons: { twitter: {via: 'CreativeTim'}},
-      click: function(api, options){
-        api.simulateClick();
-        api.openPopup('twitter');
-      },
-      template: '<i class="fab fa-twitter"></i> Twitter',
-      url: 'https://demos.creative-tim.com/now-ui-dashboard-pro/examples/dashboard.html'
-    });
-
-        
-        var _gaq = _gaq || [];
-    _gaq.push(['_setAccount', 'UA-46172202-1']);
-    _gaq.push(['_trackPageview']);
-
-    (function() {
-        var ga = document.createElement('script');
-        ga.type = 'text/javascript';
-        ga.async = true;
-        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-        var s = document.getElementsByTagName('script')[0];
-        s.parentNode.insertBefore(ga, s);
-    })();
-
-        // Facebook Pixel Code Don't Delete
-    !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-    n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
-    n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
-    t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
-    document,'script','//connect.facebook.net/en_US/fbevents.js');
-
-    try{
-      fbq('init', '111649226022273');
-      fbq('track', "PageView");
-
-    }catch(err) {
-      console.log('Facebook Track Error:', err);
-    }
-
-      });
-    </script>
-    <noscript>
-      <img height="1" width="1" style="display:none"
-    src="https://www.facebook.com/tr?id=111649226022273&ev=PageView&noscript=1"
-    />
-
-    </noscript>
-
-      <script>
       $(document).ready(function(){
         $().ready(function(){
             $sidebar = $('.sidebar');
@@ -669,44 +324,5 @@
         });
       });
     </script>
-
-
-
-
-
-
-
-
-
-
-
-
-      <script>
-      $(document).ready(function(){
-        demo.checkFullPageBackgroundImage();
-      });
-    </script>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    </body></html>
+    </body>
+</html>
