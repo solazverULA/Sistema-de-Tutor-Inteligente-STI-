@@ -8,10 +8,10 @@ class People(models.Model):
     Model for User Type
     """
     user = models.OneToOneField(User, on_delete=models.CASCADE)
-    ci = models.CharField(max_length=10, unique=True,
+    ci = models.CharField(max_length=10,
                           validators=[RegexValidator
-                                      (regex="^[0-9]{10}$",
-                                       message="Invalid format for CI")])
+                                      (regex="[0-9]{7,10}",
+                                       message="Invalid format for CI, must be just numbers of your CI, and must be ALIVE!")])
     profileImage = models.FileField(upload_to='uploads/')
 
     def __str__(self):
