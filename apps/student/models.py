@@ -6,7 +6,7 @@ class Student(People):
     """
     Model for Student Type
     """
-    progress = models.CharField(max_length=10)
+    progress = models.CharField(max_length=10, blank=True, null=True)
     teacherMentor = models.ForeignKey('teacher.Teacher', on_delete=models.CASCADE)
 
     def __str__(self):
