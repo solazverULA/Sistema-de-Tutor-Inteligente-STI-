@@ -1,6 +1,8 @@
 from django.db import models
 from apps.user.models import People
-from apps.teacher.models import Teacher
+from django.contrib.auth.models import User
+from django.db.models.signals import post_save
+from django.dispatch import receiver
 
 
 class Student(People):
@@ -12,6 +14,13 @@ class Student(People):
 
     def __str__(self):
         return self.user.username
+
+
+@receiver(post_save, sender=User)
+def update_student_profile(sender, instance, created, **kwargs):
+    if created:
+        Student.objects.create(user=instance)
+    instance.people.student.save()
 
 
 class Theme(models.Model):
