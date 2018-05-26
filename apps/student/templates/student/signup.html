@@ -1,4 +1,5 @@
 {% load static %}
+{% load widget_tweaks %}
 <!DOCTYPE html>
 
 <html lang="en" class="perfect-scrollbar-off">
@@ -70,7 +71,7 @@
     <!-- End Navbar -->
 
         
-
+    {% block content %}
     <div class="wrapper wrapper-full-page ">
         <div class="full-page login-page section-image" filter-color="black" data-image="{% static 'student/login_style/images/fondo3.jpg' %}">
             <!--   you can change the color of the filter page using: data-color="blue | purple | green | orange | red | rose " -->
@@ -115,10 +116,36 @@
                         <div class="col-md-4 mr-auto">
                             <div class="card card-signup text-center">
                                 <div class="card-header ">
-                                 <h4 class="card-title">Register</h4>
+                                    <h4 class="card-title">Register</h4>
                                 </div>
-                                <div class="card-body ">
-                                    <form class="form" method="" action=" ">
+
+                                {% if form.errors %}
+                                    {% for field in form %}
+                                        {% for error in field.errors %}
+                                            <div class="alert alert-danger">
+                                                <strong>{{ error|escape }}</strong>
+                                            </div>
+                                        {% endfor %}
+                                    {% endfor %}
+                                    {% for error in form.non_field_errors %}
+                                        <div class="alert alert-danger">
+                                            <strong>{{ error|escape }}</strong>
+                                        </div>
+                                    {% endfor %}
+                                {% endif %}
+
+                                <form class="form" method="post">
+                                    <div class="card-body ">
+                                    {% csrf_token %}
+
+                                    {% for field in form.visible_fields %}
+                                        <div class="input-group">
+                                            <span class="input-group-addon">
+                                                <i class="pe-7s-study"></i>
+                                            </span>
+                                            {% render_field field class="form-control" placeholder=field.label %}
+                                        </div>
+                                        <!--
                                         <div class="input-group">
                                             <span class="input-group-addon">
                                                 <i class="pe-7s-study"></i>
@@ -149,11 +176,15 @@
                                             </span>
                                             <input type="text" class="form-control" placeholder="Profesor">
                                         </div>
-                                    </form>
-                                </div>
-                                <div class="card-footer ">
-                                    <a href="" class="btn btn-primary btn-round btn-lg">Registrarse</a>
-                                </div>
+                                        -->
+                                    {% endfor %}
+
+                                    </div>
+                                    <div class="card-footer ">
+                                        <button type="submit" class="btn btn-primary btn-round btn-lg">Registrarse</button>
+                                    </div>
+                                </form>
+
                             </div>
                         </div>
                     </div>
@@ -171,7 +202,7 @@
             </div>
         </div>  
     </div>
-       
+    {% endblock %}
 
             
     <!--   Core JS Files   -->
