@@ -41,7 +41,6 @@ INSTALLED_APPS = [
     'apps.user',
     'apps.teacher',
     'apps.student',
-
     'widget_tweaks',
 ]
 
@@ -83,8 +82,8 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'sti',
-        'USER': 'LizanLycan',
-        'PASSWORD': 'lizandro17011996',
+        'USER': 'postgres',
+        'PASSWORD': '453672',
         'HOST': 'localhost',
         'PORT': 5432,
     }
