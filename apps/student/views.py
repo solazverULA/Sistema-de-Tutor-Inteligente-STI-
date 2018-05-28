@@ -1,17 +1,22 @@
-from django.shortcuts import render
+# from django.shortcuts import render
 from django.contrib.auth import login, authenticate
-from django.contrib.auth.models import User
 from django.shortcuts import render, redirect
-from apps.teacher.models import Teacher
-from .forms import SignUpForm
+from .forms import SignUpForm, LoginForm
 
 
 def index(request):
     return render(request, 'student/index.html')
 
 
-def login(request):
-    return render(request, 'student/login.html')
+def login_view(request):
+    if request.method == 'POST':
+        form = LoginForm(data=request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('/apps/student/signup')
+    else:
+        form = LoginForm()
+    return render(request, 'student/login.html', {'form': form})
 
 
 def theme(request):
@@ -31,7 +36,7 @@ def signup(request):
         form = SignUpForm(request.POST)
         if form.is_valid():
             user = form.save()
-            user.refresh_from_db()  # load the profile instance created by the signal
+            user.refresh_from_db()  # load the People/Student instance created by the signal
             user.people.student.ci = form.cleaned_data.get('ci')
             user.people.student.teacherMentor = form.cleaned_data.get('teacherMentor')
             user.save()

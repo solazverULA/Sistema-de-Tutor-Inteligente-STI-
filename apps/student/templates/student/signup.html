@@ -120,13 +120,6 @@
                                 </div>
 
                                 {% if form.errors %}
-                                    {% for field in form %}
-                                        {% for error in field.errors %}
-                                            <div class="alert alert-danger">
-                                                <strong>{{ error|escape }}</strong>
-                                            </div>
-                                        {% endfor %}
-                                    {% endfor %}
                                     {% for error in form.non_field_errors %}
                                         <div class="alert alert-danger">
                                             <strong>{{ error|escape }}</strong>
@@ -141,42 +134,15 @@
                                     {% for field in form.visible_fields %}
                                         <div class="input-group">
                                             <span class="input-group-addon">
-                                                <i class="pe-7s-study"></i>
+                                                <i class="pe-7s-{{field.help_text}}"></i>
                                             </span>
                                             {% render_field field class="form-control" placeholder=field.label %}
+                                            {% for error in field.errors %}
+                                                <div class="alert alert-danger">
+                                                    <strong>{{ error|escape }}</strong>
+                                                </div>
+                                            {% endfor %}
                                         </div>
-                                        <!--
-                                        <div class="input-group">
-                                            <span class="input-group-addon">
-                                                <i class="pe-7s-study"></i>
-                                            </span>
-                                            <input type="text" class="form-control" placeholder="Nombre">
-                                        </div>
-                                        <div class="input-group">
-                                            <span class="input-group-addon">
-                                                <i class="pe-7s-id"></i>
-                                            </span>
-                                        <input type="text" placeholder="Apellido" class="form-control">
-                                        </div>
-                                        <div class="input-group">
-                                            <span class="input-group-addon">
-                                                <i class="pe-7s-mail"></i>
-                                            </span>
-                                            <input type="text" class="form-control" placeholder="Correo electronico">
-                                        </div>
-                                        <div class="input-group">
-                                            <span class="input-group-addon">
-                                                <i class="pe-7s-key"></i>
-                                            </span>
-                                            <input type="text" class="form-control" placeholder="Clave">
-                                        </div>
-                                        <div class="input-group">
-                                            <span class="input-group-addon">
-                                                <i class="pe-7s-smile"></i>
-                                            </span>
-                                            <input type="text" class="form-control" placeholder="Profesor">
-                                        </div>
-                                        -->
                                     {% endfor %}
 
                                     </div>
