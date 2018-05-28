@@ -1,4 +1,5 @@
 {% extends "student/base.html" %}
+{% load static %}
 
 {% block content %}
 
@@ -12,7 +13,10 @@
                                 <p class="category">Selecione para ver el listado de temas</p>
                             </div>
                             <div class="content">
-                                <div id="" class=""></div>
+                                <div id="" class="">
+                                    <a href="/apps/student/theme/"><img  style="width: 28em; height: 25em; display:block;
+margin:auto" src="{% static 'student/img/tema2.jpg' %}"></a>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -24,7 +28,9 @@
                                 <p class="category">Seleccione para que el tutor le asigne un problema</p>
                             </div>
                             <div class="content">
-                                <div class="table-full-width">
+                                <div class="table-full-width" >
+                                    <a href="/apps/student/problem/"><img  style="width: 28em; height: 25em; display:block;
+margin:auto"  src="{% static 'student/img/problema.jpg' %}"></a>
                                 </div>
                             </div>
                         </div>
