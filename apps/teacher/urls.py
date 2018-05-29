@@ -5,7 +5,16 @@ from . import views
 app_name = 'teacher'
 
 urlpatterns = [
-    path('', views.index, name='index'),
-    path('table/', views.table, name='table'),
+
+	path('table/', views.table, name='table'),
     path('user/', views.user, name='user'),
+
+    path('', views.index, name='index'),
+    path('students/', views.students, name='students'),
+    path('studentProfile/', views.studentProfile, name='studentProfile'),
+    path('themes/', views.themes, name='themes'),
+    path('problems/', views.problems, name='problems'),
+    path('editProblem/', views.editProblem, name='editProblem'),
+
+    path('profile/', views.profile, name='profile'),
 ]

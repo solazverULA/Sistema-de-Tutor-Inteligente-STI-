@@ -1,10 +1,30 @@
 from django.shortcuts import render
 
-def index(request):
-    return render(request, 'teacher/dashboard.html')
-
 def table(request):
 	return render(request, 'teacher/table.html')
 
 def user(request):
 	return render(request, 'teacher/user.html')
+
+
+
+def index(request):
+    return render(request, 'teacher/index.html')
+
+def students(request):
+	return render(request, 'teacher/students.html')
+
+def studentProfile(request):
+	return render(request, 'teacher/studentProfile.html')
+	
+def themes(request):
+	return render(request, 'teacher/themes.html')
+	
+def problems(request):
+	return render(request, 'teacher/problems.html')
+	
+def editProblem(request):
+	return render(request, 'teacher/editProblem.html')
+	
+def profile(request):
+	return render(request, 'teacher/profile.html')

@@ -1,0 +1,67 @@
+{% extends "teacher/base.html" %}
+
+{% block content %}
+
+        <div class="content">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="card">
+                           <h3 class="navbar-brand">Listado de los problemas del tema X</h3>
+                                <div class="card-body">
+                                    <div class="table-responsive">
+                                        <table class="table">
+                                          <thead>
+                                              <tr>
+                                                  <th class="text-center">#</th>
+                                                  <th class="text-center">Título</th>
+                                                  <th class="text-center">Descripción</th>
+                                                  <th class="text-center">Ver</th>
+                                              </tr>
+                                          </thead>
+                                          <tbody>
+                                              <tr class="text-center">
+                                                  <td>1</td>
+                                                  <td>Variables enteras</td>
+                                                  <td>Declaracion de variables del tipo entero</td>
+                                                  <td class="td-actions text-center">
+                                                      <a href=""><button type="button" rel="tooltip" class="btn btn-success" data-original-title="" title="">
+                                                          <i class="pe-7s-study"></i>
+                                                      </button></a>
+                                                  </td>
+                                              </tr>
+                                              <tr class="text-center">
+                                                  <td>2</td>
+                                                  <td>Variables tipo flotante</td>
+                                                  <td>Declaracion de variables del tipo flotantes</td>
+                                                  <td class="td-actions text-center">
+                                                      <a href=""><button type="button" rel="tooltip" class="btn btn-success" data-original-title="" title="">
+                                                          <i class="pe-7s-study"></i>
+                                                      </button></a>
+                                                  </td>
+                                              </tr>
+                                              <tr class="text-center">
+                                                  <td>3</td>
+                                                  <td>Variables tipo bool</td>
+                                                  <td>Declaracion de variables del tipo bool</td>
+                                                  <td class="td-actions text-center">
+                                                      <a href=""><button type="button" rel="tooltip" class="btn btn-success" data-original-title="" title="">
+                                                          <i class="pe-7s-study"></i>
+                                                      </button></a>
+                                                  </td>
+                                              </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div> 
+                    </div>
+
+                    <a href="/apps/teacher/editProblem/"> <button type="submit" class="btn btn-info btn-fill pull-right">Agregar problema</button></a>
+                                    <div class="clearfix"></div>
+
+                </div>
+            </div>
+
+{% endblock %}
