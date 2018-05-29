@@ -12,6 +12,7 @@ urlpatterns = [
     path('login/', auth_views.LoginView.as_view(template_name='student/login.html',
                                                 authentication_form=LoginForm),
                                                 name='login'),
+    path('logout/', views.logout, name='logout'),
     path('signup/', views.signup, name='signup'),
     path('user/', views.user_view, name='user_view'),
     path('results/', views.results, name='results'),

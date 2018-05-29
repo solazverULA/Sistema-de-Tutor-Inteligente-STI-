@@ -1,9 +1,11 @@
 # from django.shortcuts import render
-from django.contrib.auth import login, authenticate
+from django.contrib.auth import logout as core_logout, authenticate
 from django.shortcuts import render, redirect
 from .forms import SignUpForm, LoginForm
+from django.contrib.auth.decorators import login_required
 
 
+@login_required
 def index(request):
     return render(request, 'student/index.html')
 
@@ -19,14 +21,22 @@ def login_view(request):
     return render(request, 'student/login.html', {'form': form})
 
 
+def logout(request):
+    core_logout(request)
+    return redirect('/apps/student/login')
+
+
+@login_required
 def theme(request):
     return render(request, 'student/theme.html')
 
 
+@login_required
 def problem(request):
     return render(request, 'student/problem.html')
 
 
+@login_required
 def user_view(request):
     return render(request, 'student/user.html')
 
@@ -50,9 +60,11 @@ def signup(request):
     return render(request, 'student/signup.html', {'form': form})
 
 
+@login_required
 def results(request):
     return render(request, 'student/results.html')
 
 
+@login_required
 def editor(request):
     return render(request, 'student/editor.html')

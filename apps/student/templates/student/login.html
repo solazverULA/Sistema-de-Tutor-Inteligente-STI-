@@ -31,21 +31,17 @@
 
 
                                     {% csrf_token %}
-                                    <div class="input-group no-border form-control-lg">
-                                        <span class="input-group-addon">
-                                            <i class="pe-7s-{{form.username.help_text}}"></i>
-                                        </span>
-                                        {% render_field form.username class="form-control" placeholder=form.username.label %}
 
-                                    </div>
+                                    {% for field in form %}
+                                        <div class="input-group no-border form-control-lg">
+                                            <span class="input-group-addon">
+                                                <i class="pe-7s-{{field.help_text}}"></i>
+                                            </span>
+                                            {% render_field field class="form-control" placeholder=field.label %}
 
-                                    <div class="input-group no-border form-control-lg">
-                                        <span class="input-group-addon">
-                                            <i class="pe-7s-{{form.password.help_text}}"></i>
-                                        </span>
-                                        {% render_field form.password type="password" class="form-control" placeholder=form.password.label %}
+                                        </div>
+                                    {% endfor %}
 
-                                    </div>
 
 
                                     <div class="card-footer ">
