@@ -1,0 +1,96 @@
+{% load static %}
+{% load widget_tweaks %}
+<!DOCTYPE html>
+
+<html lang="en" class="perfect-scrollbar-off">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+            <link rel="icon" type="image/png" href="{% static 'teacher/img/icon.png' %}">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>STI</title>
+        <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no" name="viewport">
+
+        <!--     Fonts and icons     -->
+  
+        <link href="{% static 'teacher/css/pe-icon-7-stroke.css' %}" rel="stylesheet">
+
+        <!-- CSS Files -->
+        <link href="{% static 'student/login_style/css/bootstrap.min.css' %}" rel="stylesheet">
+
+        <link href="{% static 'student/login_style/css/now-ui-dashboard.min.css' %}" rel="stylesheet">
+
+    </head>
+
+    <body class=" sidebar-mini">
+        
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-transparent  navbar-absolute bg-primary fixed-top">
+        <div class="container-fluid">
+            <div class="navbar-wrapper">
+                    <div class="navbar-toggle">
+                        <button type="button" class="navbar-toggler">
+                            <span class="navbar-toggler-bar bar1"></span>
+                            <span class="navbar-toggler-bar bar2"></span>
+                            <span class="navbar-toggler-bar bar3"></span>
+                        </button>
+                    </div>
+                </div>
+
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-bar navbar-kebab"></span>
+                    <span class="navbar-toggler-bar navbar-kebab"></span>
+                    <span class="navbar-toggler-bar navbar-kebab"></span>
+                </button>
+
+                <div class="collapse navbar-collapse justify-content-end" id="navigation">
+        
+                <ul class="navbar-nav">
+                    <li class="nav-item ">
+                        <a href="/apps/student/signup/" class="nav-link">
+                            <i class="pe-7s-add-user"></i>
+                            Registrarse
+                        </a>
+                    </li>
+                    <li class="nav-item ">
+                        <a href="/apps/student/login/" class="nav-link">
+                            <i class="pe-7s-glasses"></i>
+                            Entrar
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- End Navbar -->
+
+    <div class="wrapper wrapper-full-page ">
+        <div class="full-page login-page section-image" filter-color="black" data-image="{% static 'student/login_style/images/fondo3.jpg' %}">
+            <!--   you can change the color of the filter page using: data-color="blue | purple | green | orange | red | rose " -->
+    {% block content %}
+    {% endblock %}
+
+
+
+
+     <footer class="footer">
+                <div class="container-fluid">
+                    <p class="copyright pull-right">
+                        &copy; <script>document.write(new Date().getFullYear())</script> <a href="https://github.com/solazverULA/Sistema-de-Tutor-Inteligente-STI-/tree/development">Proyecto integrado</a>, Universidad de los Andes, Mérida-Venezuela
+                    </p>
+                </div>
+            </footer>
+            <div class="full-page-background" style="background-image: url({% static 'student/login_style/images/fondo3.jpg' %}) "></div></div>  
+        </div>
+       
+   <script src="{% static 'student/register_style/js/jquery.min.js' %}"></script>
+    <script src="{% static 'student/register_style/js/popper.min.js' %}"></script>
+    <script src="{% static 'student/register_style/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'student/register_style/js/perfect-scrollbar.jquery.min.js' %}"></script>
+    <script src="{% static 'student/register_style/js/moment.min.js' %}"></script>
+
+    <!-- Forms Validations Plugin -->
+    <script src="{% static 'student/register_style/js/jquery.validate.min.js' %}"></script>
+  
+    
+    </body>
+</html>

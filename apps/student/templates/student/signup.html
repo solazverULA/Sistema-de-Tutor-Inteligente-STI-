@@ -1,0 +1,85 @@
+{% extends "student/basels.html" %}
+{% load static %}
+{% load widget_tweaks %}
+
+{% block content %}
+            <div class="content">
+                <div class="container">
+                    <div class="row">
+                    <div class="col-md-5 ml-auto">
+                            </br>
+                            <h3 class="info-title">Sistema de tutor inteligente</h3> 
+                            <div class="info-area info-horizontal mt-5">
+                                <div class="description">
+                                    <h5 class="info-title">Aprenda a programar</h5>
+                                    <p class="description">
+                                        Contamos con 10 temas que le harán comprender todo lo relacionado a la matería programación I. 
+                                    </p>
+                                    </br>
+                                </div>
+                            </div>
+                            <div class="info-area info-horizontal">
+                                <div class="description">
+                                    <h5 class="info-title">Tutor inteligente</h5>
+                                    <p class="description">
+                                        Usando métodos y heurísticas de inteligencia artificial, el tutor aprende de usted, para así poder guiarlo por el camino más conveniente en su aprendizaje. 
+                                    </p>
+                                    </br>
+                                </div>
+                            </div>
+                            <div class="info-area info-horizontal">
+                                <div class="description">
+                                    <h5 class="info-title">Universidad de los Andes, Mérida-Venezuela</h5>
+                                    <p class="description">
+                                        En este proyecto se colocaron en práctica los conocimientos obtenidos de las materias: Bases de Datos, Ingeniería del Software e Inteligencia Artificial. 
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-5 mr-auto ml-auto">
+                            <div class="card card-login card-plain">
+                                <div class="card-header ">
+                                    <h4 class="card-title" style="text-align:center">Registro de estudiante</h4>
+                                </div>
+
+                                {% if form.errors %}
+                                    {% for error in form.non_field_errors %}
+                                        <div class="alert alert-danger">
+                                            <strong>{{ error|escape }}</strong>
+                                        </div>
+                                    {% endfor %}
+                                {% endif %}
+ 
+                                <form class="form" method="post">
+                                    <div class="card-body ">
+                                    {% csrf_token %}
+
+                                    {% for field in form.visible_fields %}
+                                        <div class="input-group no-border ">
+                                            <span class="input-group-addon">
+                                                <i class="pe-7s-{{field.help_text}}"></i>
+                                            </span>
+                                            {% render_field field class="form-control" placeholder=field.label %}
+                                            {% for error in field.errors %}
+                                                <div class="alert alert-danger">
+                                                    <strong>{{ error|escape }}</strong>
+                                                </div>
+                                            {% endfor %}
+                                        </div>
+                                    {% endfor %}
+
+                                    </div>
+                                    <div class="card-footer ">
+                                        <button type="submit" class="btn btn-primary btn-round btn-lg">Registrarse</button>
+                                    </div>
+                                </form>
+
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+{% endblock %}
+
+            

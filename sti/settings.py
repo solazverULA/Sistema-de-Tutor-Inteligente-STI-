@@ -39,9 +39,9 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django_extensions',
     'apps.user',
-    'apps.learn',
     'apps.teacher',
     'apps.student',
+    'widget_tweaks',
 ]
 
 MIDDLEWARE = [
@@ -108,6 +108,8 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+LOGIN_URL = 'student:login'
+LOGIN_REDIRECT_URL = 'student:index'
 
 # Internationalization
 # https://docs.djangoproject.com/en/2.0/topics/i18n/

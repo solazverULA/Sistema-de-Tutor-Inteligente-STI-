@@ -1,5 +1,5 @@
 from django.db import models
-from apps.user.models import Student
+from apps.student.models import Student
 
 
 class Theme(models.Model):
@@ -45,7 +45,7 @@ class MakingProblem(models.Model):
     """
     Model for Making Problem Type
     """
-    student = models.ForeignKey('user.Student', on_delete=models.CASCADE)
+    student = models.ForeignKey(Student, on_delete=models.CASCADE)
     problem = models.ForeignKey(Problem, on_delete=models.CASCADE)
     score = models.FloatField()
 
