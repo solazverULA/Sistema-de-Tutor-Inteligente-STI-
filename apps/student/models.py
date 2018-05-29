@@ -3,6 +3,7 @@ from apps.user.models import People
 from django.contrib.auth.models import User
 from django.db.models.signals import post_save
 from django.dispatch import receiver
+from apps.teacher.models import Teacher
 
 
 class Student(People):
@@ -10,17 +11,18 @@ class Student(People):
     Model for Student Type
     """
     progress = models.CharField(max_length=10, blank=True, null=True)
-    teacherMentor = models.ForeignKey('teacher.Teacher', on_delete=models.CASCADE)
+    teacherMentor = models.ForeignKey(Teacher, null=True, on_delete=models.CASCADE)
 
     def __str__(self):
         return self.user.username
 
-
+"""
 @receiver(post_save, sender=User)
 def update_student_profile(sender, instance, created, **kwargs):
     if created:
         Student.objects.create(user=instance)
     instance.people.student.save()
+"""
 
 
 class Theme(models.Model):
