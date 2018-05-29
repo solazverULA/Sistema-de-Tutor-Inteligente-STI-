@@ -7,7 +7,7 @@ from apps.teacher.models import Teacher
 
 class LoginForm(AuthenticationForm):
     username = forms.CharField(max_length=30, required=True, label='Nombre de Usuario', help_text="study")
-    password = forms.CharField(max_length=30, required=True, label="Contrasenia", help_text="key")
+    password = forms.CharField(max_length=30, required=True, label="Contrasenia", help_text="key", widget=forms.PasswordInput)
 
     class Meta:
         model = User
@@ -26,8 +26,8 @@ class SignUpForm(UserCreationForm):
     last_name = forms.CharField(max_length=30, required=False, label="Apellido", help_text="study")
     email = forms.EmailField(max_length=254, label="Correo Electrónico", help_text="mail")
     teacherMentor = TeacherModelChoiceField(queryset=Teacher.objects.all(), help_text="smile")
-    password1 = forms.CharField(max_length=30, required=True, label="Contrasenia", help_text="key")
-    password2 = forms.CharField(max_length=30, required=True, label="Repita Contrasenia", help_text="key")
+    password1 = forms.CharField(max_length=30, required=True, label="Contrasenia", help_text="key", widget=forms.PasswordInput)
+    password2 = forms.CharField(max_length=30, required=True, label="Repita Contrasenia", help_text="key", widget=forms.PasswordInput)
 
     class Meta:
         model = User
