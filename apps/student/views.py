@@ -3,7 +3,7 @@ from django.contrib.auth import logout as core_logout, authenticate
 from django.shortcuts import render, redirect
 from .forms import SignUpForm, LoginForm
 from django.contrib.auth.decorators import login_required
-
+from apps.student.models import *
 
 @login_required
 def index(request):

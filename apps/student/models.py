@@ -45,7 +45,7 @@ class Problem(models.Model):
     referenceOutput = models.FileField(upload_to='uploads/')
 
     def __str__(self):
-        return self.name
+        return self.title
 
 
 class LearningTheme(models.Model):

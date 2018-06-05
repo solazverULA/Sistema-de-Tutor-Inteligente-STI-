@@ -1,3 +1,4 @@
+
 from django.urls import path
 
 from . import views
@@ -15,6 +16,9 @@ urlpatterns = [
     path('themes/', views.themes, name='themes'),
     path('problems/', views.problems, name='problems'),
     path('editProblem/', views.editProblem, name='editProblem'),
+    path('createProblem/', views.createProblem, name='createProblem'),
+
+    path('createNewProblem/', views.createNewProblem, name='createNewProblem'),
 
     path('profile/', views.profile, name='profile'),
 ]
