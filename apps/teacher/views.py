@@ -36,6 +36,9 @@ def problems(request):
 def editProblem(request):
 	return render(request, 'teacher/editProblem.html')
 
+def seeProblem(request):
+	return render(request, 'teacher/seeProblem.html')
+
 def createProblem(request):
 	return render(request, 'teacher/createProblem.html') 
 
