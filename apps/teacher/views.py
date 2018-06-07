@@ -58,3 +58,12 @@ def createNewProblem(request):
 	
 def profile(request):
 	return render(request, 'teacher/profile.html')
+
+def teachers(request):
+	return render(request, 'teacher/teachers.html')
+
+def createTeacher(request):
+	return render(request, 'teacher/createTeacher.html')
+
+def seeTeacher(request):
+	return render(request, 'teacher/seeTeacher.html')

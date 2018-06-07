@@ -22,4 +22,8 @@ urlpatterns = [
     path('createNewProblem/', views.createNewProblem, name='createNewProblem'),
 
     path('profile/', views.profile, name='profile'),
+
+    path('teachers/', views.teachers, name='teachers'),
+    path('createTeacher/', views.createTeacher, name='createTeacher'),
+    path('seeTeacher/', views.seeTeacher, name='seeTeacher'),
 ]

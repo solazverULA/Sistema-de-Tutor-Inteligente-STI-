@@ -7,51 +7,49 @@
                 <div class="row">
                     <div class="col-md-12">
                         <div class="card">
-                           <h3 class="navbar-brand">Listado de los problemas del tema X</h3>
+                           <h3 class="navbar-brand">Listado de profesores</h3>
                                 <div class="card-body">
                                     <div class="table-responsive">
                                         <table class="table">
                                           <thead>
                                               <tr>
                                                   <th class="text-center">#</th>
-                                                  <th class="text-center">Título</th>
-                                                  <th class="text-center">Descripción</th>
+                                                  <th class="text-center">Nombre</th>
+                                                  <th class="text-center">Cédula</th>
                                                   <th class="text-center">Ver</th>
                                               </tr>
                                           </thead>
                                           <tbody>
-                                            {% for i in pro %}
                                               <tr class="text-center">
-                                                  <td>{{i.id}}</td>
-                                                  <td>{{i.title}}</td>
-                                                  <td>{{i.description}}</td>
+                                                  <td>1</td>
+                                                  <td>José Pérez</td>
+                                                  <td>20.123.456</td>
                                                   <td class="td-actions text-center">
-                                                      <a href="/apps/teacher/seeProblem/"><button type="button" rel="tooltip" class="btn btn-success" data-original-title="" title="">
+                                                      <a href="/apps/teacher/seeTeacher/"><button type="button" rel="tooltip" class="btn btn-success" data-original-title="" title="">
                                                           <i class="pe-7s-study"></i>
                                                       </button></a>
                                                   </td>
                                               </tr>
-                                            {% endfor %}
-                                              <!--<tr class="text-center">
+                                              <tr class="text-center">
                                                   <td>2</td>
-                                                  <td>Variables tipo flotante</td>
-                                                  <td>Declaracion de variables del tipo flotantes</td>
+                                                  <td>María Rodríguez</td>
+                                                  <td>23.456.123</td>
                                                   <td class="td-actions text-center">
-                                                      <a href=""><button type="button" rel="tooltip" class="btn btn-success" data-original-title="" title="">
+                                                      <a href="/apps/teacher/seeTeacher/"><button type="button" rel="tooltip" class="btn btn-success" data-original-title="" title="">
                                                           <i class="pe-7s-study"></i>
                                                       </button></a>
                                                   </td>
                                               </tr>
                                               <tr class="text-center">
                                                   <td>3</td>
-                                                  <td>Variables tipo bool</td>
-                                                  <td>Declaracion de variables del tipo bool</td>
+                                                  <td>Ana Rojas</td>
+                                                  <td>19.159.753</td>
                                                   <td class="td-actions text-center">
-                                                      <a href=""><button type="button" rel="tooltip" class="btn btn-success" data-original-title="" title="">
+                                                      <a href="/apps/teacher/seeTeacher/"><button type="button" rel="tooltip" class="btn btn-success" data-original-title="" title="">
                                                           <i class="pe-7s-study"></i>
                                                       </button></a>
                                                   </td>
-                                              </tr>-->
+                                              </tr>
                                             </tbody>
                                         </table>
                                     </div>
@@ -60,7 +58,7 @@
                         </div> 
                     </div>
 
-                    <a href="/apps/teacher/createProblem/"> <button type="submit" class="btn btn-info btn-fill pull-right">Agregar Problema</button></a>
+                    <a href="/apps/teacher/createTeacher/"> <button type="submit" class="btn btn-info btn-fill pull-right">Agregar Profesor</button></a>
                                     <div class="clearfix"></div>
 
                 </div>
