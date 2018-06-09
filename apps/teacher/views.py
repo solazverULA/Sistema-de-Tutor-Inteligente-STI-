@@ -49,7 +49,7 @@ def createNewProblem(request):
 
 	p1 = Problem()
 	p1.title = title
-	p1.desdescription = description
+	p1.description = description
 	p1.difficult = request.POST['difficult']
 	p1.save()
 
