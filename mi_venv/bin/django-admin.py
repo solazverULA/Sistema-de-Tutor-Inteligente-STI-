@@ -1,4 +1,4 @@
-#!/home/heyzel/Documents/ProyectoIS/Sistema-de-Tutor-Inteligente-STI-/mi_venv/bin/python3.6
+#!/home/erik/Heyzel/Sistema-de-Tutor-Inteligente-STI-/mi_venv/bin/python3.6
 from django.core import management
 
 if __name__ == "__main__":

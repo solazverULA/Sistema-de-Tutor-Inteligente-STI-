@@ -26,7 +26,7 @@
                                                   <td>{{i.title}}</td>
                                                   <td>{{i.description}}</td>
                                                   <td class="td-actions text-center">
-                                                      <a href="/apps/teacher/seeProblem/"><button type="button" rel="tooltip" class="btn btn-success" data-original-title="" title="">
+                                                      <a href="{% url 'teacher:seeProblem' i.id %}"><button type="button" rel="tooltip" class="btn btn-success" data-original-title="" title="">
                                                           <i class="pe-7s-study"></i>
                                                       </button></a>
                                                   </td>
@@ -60,8 +60,8 @@
                         </div> 
                     </div>
 
-                    <a href="/apps/teacher/createProblem/"> <button type="submit" class="btn btn-info btn-fill pull-right">Agregar Problema</button></a>
-                                    <div class="clearfix"></div>
+                    <a href="{% url 'teacher:createProblem' %}"> <button type="submit" class="btn btn-info btn-fill pull-right">Agregar Problema</button></a>
+                    <div class="clearfix"></div>
 
                 </div>
             </div>

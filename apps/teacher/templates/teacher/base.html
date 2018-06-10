@@ -46,7 +46,7 @@
 
     	<div class="sidebar-wrapper">
             <div class="logo">
-                 <a class="simple-text" href="/apps/student/">
+                 <a class="simple-text" href="{% url 'teacher:index' %}">
                     Programación  I<br>
                 </a>
 
@@ -54,38 +54,38 @@
 
             <ul class="nav">
                 <li>
-                    <a href="/apps/teacher/students/">
+                    <a href="{% url 'teacher:students' %}">
                         <i class="pe-7s-note2"></i>
                         <p>Estudiantes</p>
                     </a>
                 </li>
                 <li>
-                    <a href="/apps/teacher/teachers/">
+                    <a href="{% url 'teacher:teachers' %}">
                         <i class="pe-7s-note2"></i>
                         <p>Profesores</p>
                     </a>
                 </li>
                 <li>
-                    <a href="/apps/teacher/themes/">
+                    <a href="{% url 'teacher:themes' %}">
                         <i class="pe-7s-news-paper"></i>
                         <p>Temas</p>
                     </a>
                 </li>
                 <li>
-                    <a href="/apps/teacher/problems/">
+                    <a href="{% url 'teacher:problems' %}">
                         <i class="pe-7s-graph"></i>
                         <p>Problemas</p>
                     </a>
                 </li>
                 <li>
-                    <a href="/apps/teacher/profile/">
+                    <a href="{% url 'teacher:profile' %}">
                         <i class="pe-7s-user"></i>
                         <p>Perfil</p>
                     </a>
                 </li>
 
 				<li class="active-pro">
-                    <a href="/apps/student/logout/">
+                    <a href="{% url 'teacher:logoutTeacher' %}">
                         <i class="pe-7s-rocket"></i>
                         <p>Cerrar sesión</p>
                     </a>
@@ -109,7 +109,7 @@
                 <div class="collapse navbar-collapse">
                     <ul class="nav navbar-nav navbar-right">
                         <li>
-                            <a href="/apps/student/">
+                            <a href="{% url 'teacher:profile' %}">
                                 <p>{{user}}</p>
                             </a>
                         </li>

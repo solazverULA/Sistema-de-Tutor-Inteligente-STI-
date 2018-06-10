@@ -18,7 +18,7 @@
                                         <div class="col-md-12">
                                             <div class="form-group">
                                                 <label>Título</label>
-                                                <input type="text" disabled class="form-control" placeholder="Título" value="Variables enteras">
+                                                <input type="text" disabled class="form-control" placeholder="Título" value="{{problem.title}}">
                                             </div>
                                         </div>
                                     </div>
@@ -27,7 +27,7 @@
                                         <div class="col-md-12">
                                             <div class="form-group">
                                                 <label for="exampleInputEmail1">Descripción</label>
-                                                <input type="text" disabled class="form-control" placeholder="Descripción" value="Declarar variables del tipo enterar y asignar los valores obtenidos por el archivo de entrada, imprimir cada variable por pantalla.">
+                                                <input type="text" disabled class="form-control" placeholder="Descripción" value="{{problem.description}}">
                                             </div>
                                         </div>
                                     </div>
@@ -37,13 +37,13 @@
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label>Archivo de entrada</label>
-                                                <input type="text" disabled class="form-control" placeholder="Archivo de entrada" value="entrada.txt">
+                                                <input type="text" disabled class="form-control" placeholder="Archivo de entrada" value="{{problem.referenceInput}}">
                                             </div>
                                         </div>
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label>Archivo de salida</label>
-                                                <input type="text" disabled class="form-control" placeholder="Archivo de salida" value="salida.txt">
+                                                <input type="text" disabled class="form-control" placeholder="Archivo de salida" value="{{problem.referenceOutput}}">
                                             </div>
                                         </div>
                                     </div>
@@ -51,7 +51,7 @@
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label>Dificultad para tema 1</label>
-                                                <input type="text" disabled class="form-control" placeholder="Dificultad" value="2">
+                                                <input type="text" disabled class="form-control" placeholder="Dificultad" value="{{problem.difficult}}">
                                             </div>
                                         </div>
                                     </div>
@@ -59,7 +59,7 @@
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label>Dificultad para tema 2</label>
-                                                <input type="text" disabled class="form-control" placeholder="Dificultad" value="1">
+                                                <input type="text" disabled class="form-control" placeholder="Dificultad" value="{{problem.difficult}}">
                                             </div>
                                         </div>
                                     </div>
@@ -68,13 +68,13 @@
                                         </div>
                                         <div class="col-md-8">
                                           <div class="col-md-4">
-                                            <a href="/apps/teacher/problems/"><button type="defoult" class="btn btn-defoutl btn-fill pull-left">Ver todos los problemas</button></a>
+                                            <a href="{% url 'teacher:problems' %}" class="btn btn-defoutl btn-fill pull-left">Ver todos los problemas</a>
                                           </div>
                                           <div class="col-md-4">
-                                            <a href="/apps/teacher/editProblem/"><button class="btn btn-info btn-fill pull-right">Modificar</button></a>
+                                            <a href="{% url 'teacher:editProblem' problem.id %}" class="btn btn-info btn-fill pull-right">Modificar</a>
                                           </div>
                                           <div class="col-md-4">
-                                            <a href=""><button class="btn btn-danger btn-fill pull-right">Eliminar</button></a>
+                                            <a href="{% url 'teacher:deleteProblem' problem.id %}" class="btn btn-danger btn-fill pull-right">Eliminar</a>
                                           </div>
                                                                                        
                                         </div>

@@ -11,4 +11,4 @@ uploads
 \.DS_Store
 \.idea/
 \.sti-core/
-mi_venv
+mi_venv/

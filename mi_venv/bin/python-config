@@ -1,4 +1,4 @@
-#!/home/heyzel/Documents/ProyectoIS/Sistema-de-Tutor-Inteligente-STI-/mi_venv/bin/python
+#!/home/erik/Heyzel/Sistema-de-Tutor-Inteligente-STI-/mi_venv/bin/python
 
 import sys
 import getopt
