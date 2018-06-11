@@ -20,18 +20,71 @@ def students(request):
 def studentProfile(request):
 	return render(request, 'teacher/studentProfile.html')
 	
+
+
+
+
+
+
+
 def themes(request):
-	return render(request, 'teacher/themes.html')
+	themes_ = Theme.objects.all()
+	return render(request, 'teacher/themes.html', {'themes':themes_})
+
+def seeTheme(request, id):
+	theme = Theme.objects.get(id=id)
+	#print(pro)
+	return render(request, 'teacher/seeTheme.html', {'theme':theme})
+
+def createTheme(request):
+	return render(request, 'teacher/createTheme.html') 
 	
+def createNewTheme(request):
+
+	print(request.POST)
+	name = request.POST['name']
+	referenceContent = request.POST['referenceContent']
+
+	p1 = Theme()
+	p1.name = name
+	p1.referenceContent = referenceContent
+	p1.save()
+
+	return redirect('/apps/teacher/themes/')
+
+def editTheme(request, id):
+	theme = Theme.objects.get(id=id)
+	return render(request, 'teacher/editTheme.html', {'theme':theme})
+
+def editNewTheme(request,id):
+	print(request.POST)
+	name = request.POST['name']
+	referenceContent = request.POST['referenceContent']
+
+	p1 = Theme.objects.get(id=id)
+	p1.name = name
+	p1.referenceContent = referenceContent
+	p1.save()
+	return redirect('/apps/teacher/themes/')
+
+def deleteTheme(request, id):
+	theme = Theme.objects.get(id=id)
+	theme.delete()
+	#print(pro)
+	return redirect('/apps/teacher/themes/')
+
+
+
+
+
+
+
+
+
+
 def problems(request):
 
 	problemas = Problem.objects.all()
-	
-	"""p1 = Problem()
-	p1.title = "asjhd"
-	p1.save()
-	print(p1)"""
-	#print(len(problemas))
 	return render(request, 'teacher/problems.html', {'pro':problemas})
 	
 def editProblem(request, id):

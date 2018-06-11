@@ -20,7 +20,20 @@
                                               </tr>
                                           </thead>
                                           <tbody>
+
+                                            {% for theme in themes %}
                                               <tr class="text-center">
+                                                  <td>{{theme.id}}</td>
+                                                  <td>{{theme.name}}</td>
+                                                  <td>{{theme.referenceContent}}</td>
+                                                  <td class="td-actions text-center">
+                                                      <a href="{% url 'teacher:seeTheme' theme.id %}"><button type="button" rel="tooltip" class="btn btn-success" data-original-title="" title="">
+                                                          <i class="pe-7s-study"></i>
+                                                      </button></a>
+                                                  </td>
+                                              </tr>
+                                            {% endfor %}
+                                              <!--<tr class="text-center">
                                                   <td>0</td>
                                                   <td>Introducción</td>
                                                   <td>Algunos conceptos importantes antes de empezar</td>
@@ -129,7 +142,7 @@
                                                           <i class="pe-7s-study"></i>
                                                       </button></a>
                                                   </td>
-                                              </tr>
+                                              </tr>-->
                                             </tbody>
                                         </table>
                                     </div>
@@ -154,6 +167,8 @@
                             </div>
                         </div> 
                     </div>
+                    <a href="{% url 'teacher:createTheme' %}"> <button type="submit" class="btn btn-info btn-fill pull-right">Agregar Tema</button></a>
+                    <div class="clearfix"></div>
                 </div>
             </div>
 {% endblock %}
