@@ -1,0 +1,159 @@
+{% extends "teacher/base.html" %}
+
+{% block content %}
+
+        <div class="content">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="card">
+                           <h3 class="navbar-brand">Seleccione un tema para ver los problemas asignados</h3>
+                                <div class="card-body">
+                                    <div class="table-responsive">
+                                        <table class="table">
+                                          <thead>
+                                              <tr>
+                                                  <th class="text-center">#</th>
+                                                  <th class="text-center">Nombre</th>
+                                                  <th class="text-center">Descripción</th>
+                                                  <th class="text-center">Ver</th>
+                                              </tr>
+                                          </thead>
+                                          <tbody>
+                                              <tr class="text-center">
+                                                  <td>0</td>
+                                                  <td>Introducción</td>
+                                                  <td>Algunos conceptos importantes antes de empezar</td>
+                                                  <td class="td-actions text-center">
+                                                      <a href="/apps/teacher/problems/"><button type="button" rel="tooltip" class="btn btn-success" data-original-title="" title="">
+                                                          <i class="pe-7s-study"></i>
+                                                      </button></a>
+                                                  </td>
+                                              </tr>
+                                              <tr class="text-center">
+                                                  <td>1</td>
+                                                  <td>Sintaxis</td>
+                                                  <td>Formalidades para la comprensión de instrucciones que el computador necesita</td>
+                                                  <td class="td-actions text-center">
+                                                      <a href="/apps/teacher/problems/"><button type="button" rel="tooltip" class="btn btn-success" data-original-title="" title="">
+                                                          <i class="pe-7s-study"></i>
+                                                      </button></a>
+                                                  </td>
+                                              </tr>
+                                              <tr class="text-center">
+                                                  <td>2</td>
+                                                  <td>Tipos de datos</td>
+                                                  <td>Conceptos de variable y su declaración</td>
+                                                  <td class="td-actions text-center">
+                                                      <a href="/apps/teacher/problems/"><button type="button" rel="tooltip" class="btn btn-success" data-original-title="" title="">
+                                                          <i class="pe-7s-study"></i>
+                                                      </button></a>
+                                                  </td>
+                                              </tr>
+                                              <tr class="text-center">
+                                                  <td>3</td>
+                                                  <td>Sentencias</td>
+                                                  <td>Instrucciones básicas para manejo de variables</td>
+                                                  <td class="td-actions text-center">
+                                                      <a href="/apps/teacher/problems/"><button type="button" rel="tooltip" class="btn btn-success" data-original-title="" title="">
+                                                          <i class="pe-7s-study"></i>
+                                                      </button></a>
+                                                  </td>
+                                              </tr>
+                                              <tr class="text-center">
+                                                  <td>4</td>
+                                                  <td>Impresión y lectura</td>
+                                                  <td>Entrada y salida de datos por consola</td>
+                                                  <td class="td-actions text-center">
+                                                      <a href="/apps/teacher/problems/"><button type="button" rel="tooltip" class="btn btn-success" data-original-title="" title="">
+                                                          <i class="pe-7s-study"></i>
+                                                      </button></a>
+                                                  </td>
+                                              </tr>
+                                              <tr class="text-center">
+                                                  <td>5</td>
+                                                  <td>Decisiones</td>
+                                                  <td>Manejo de Casos de decisión en un algoritmo</td>
+                                                  <td class="td-actions text-center">
+                                                      <a href="/apps/teacher/problems/"><button type="button" rel="tooltip" class="btn btn-success" data-original-title="" title="">
+                                                          <i class="pe-7s-study"></i>
+                                                      </button></a>
+                                                  </td>
+                                              </tr>
+                                              <tr class="text-center">
+                                                  <td>6</td>
+                                                  <td>Arreglos</td>
+                                                  <td> Manejo de múltiples variables de un mismo tipo</td>
+                                                  <td class="td-actions text-center">
+                                                      <a href="/apps/teacher/problems/"><button type="button" rel="tooltip" class="btn btn-success" data-original-title="" title="">
+                                                          <i class="pe-7s-study"></i>
+                                                      </button></a>
+                                                  </td>
+                                              </tr>
+                                              <tr class="text-center">
+                                                  <td>7</td>
+                                                  <td>Cadena de caracteres</td>
+                                                  <td> Manejo de múltiples caracteres que representan un solo segmento</td>
+                                                  <td class="td-actions text-center">
+                                                      <a href="/apps/teacher/problems/"><button type="button" rel="tooltip" class="btn btn-success" data-original-title="" title="">
+                                                          <i class="pe-7s-study"></i>
+                                                      </button></a>
+                                                  </td>
+                                              </tr>
+                                              <tr class="text-center">
+                                                  <td>8</td>
+                                                  <td>Ciclos de repetición</td>
+                                                  <td>Instrucciones que se repiten bajo condiciones</td>
+                                                  <td class="td-actions text-center">
+                                                      <a href="/apps/teacher/problems/"><button type="button" rel="tooltip" class="btn btn-success" data-original-title="" title="">
+                                                          <i class="pe-7s-study"></i>
+                                                      </button></a>
+                                                  </td>
+                                              </tr>
+                                              <tr class="text-center">
+                                                  <td>9</td>
+                                                  <td>Funciones y procedimientos</td>
+                                                  <td>Declaración, definición y llamadas de funciones y procedimientos</td>
+                                                  <td class="td-actions text-center">
+                                                      <a href="/apps/teacher/problems/"><button type="button" rel="tooltip" class="btn btn-success" data-original-title="" title="">
+                                                          <i class="pe-7s-study"></i>
+                                                      </button></a>
+                                                  </td>
+                                              </tr>
+                                              <tr class="text-center">
+                                                  <td>10</td>
+                                                  <td>Librerias</td>
+                                                  <td>Manejo y creación de librerias</td>
+                                                  <td class="td-actions text-center">
+                                                      <a href="/apps/teacher/problems/"><button type="button" rel="tooltip" class="btn btn-success" data-original-title="" title="">
+                                                          <i class="pe-7s-study"></i>
+                                                      </button></a>
+                                                  </td>
+                                              </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                <!--  <div class="fixed-table-pagination">
+                                        <div class="pull-right pagination">
+                                            <ul class="pagination">
+                                                <li class="page-pre">
+                                                    <a href="javascript:void(0)">‹</a>
+                                                </li>
+                                                <li class="page-number">
+                                                    <a href="javascript:void(0)">1</a>
+                                                </li>
+                                                <li class="page-number">
+                                                    <a href="javascript:void(0)">2</a>
+                                                </li>
+
+                                                <li class="page-next"><a href="javascript:void(0)">›</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>-->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+{% endblock %}

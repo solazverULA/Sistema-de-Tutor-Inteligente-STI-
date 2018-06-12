@@ -1,5 +1,5 @@
 from django import forms
-from django.forms import ModelChoiceField
+from django.forms import ModelChoiceField, Form
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth.models import User
 from apps.teacher.models import Teacher
@@ -32,3 +32,7 @@ class SignUpForm(UserCreationForm):
     class Meta:
         model = User
         fields = ('username', 'ci', 'first_name', 'last_name', 'email', 'password1', 'password2', 'teacherMentor')
+
+
+class ProblemForm(Form):
+    code = forms.CharField(widget=forms.Textarea(attrs={'style': 'display: none;'}))

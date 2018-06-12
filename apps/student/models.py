@@ -16,6 +16,7 @@ class Student(People):
     def __str__(self):
         return self.user.username
 
+
 """
 @receiver(post_save, sender=User)
 def update_student_profile(sender, instance, created, **kwargs):
