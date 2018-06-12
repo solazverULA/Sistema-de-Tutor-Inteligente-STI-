@@ -1,82 +1,53 @@
 {% extends "teacher/base.html" %}
 {% load static %}
+{% load widget_tweaks %}
 
 {% block content %}
 
         <div class="content">
             <div class="container-fluid">
                 <div class="row">
-                    <div class="col-md-12">
+                    <div class="col-md-3"></div>
+                    <div class="col-md-6">
                         <div class="card">
                             <div class="header">
                                 <h4 class="title">Agregar un profesor al sistema</h4>
                             </div>
                             <div class="content">
                                 <form method="post" action="">
-                                    <!--{% csrf_token %}-->
-                                    <div class="row">
-                                        
-                                        <div class="col-md-12">
-                                            <div class="form-group">
-                                                <label>Nombre de Usuario</label>
-                                                <input name="username" type="text" class="form-control" placeholder="Nombre de Usuario">
+                                    {% csrf_token %}
+                                    {% if form.errors %}
+                                        {% for error in form.non_field_errors %}
+                                            <div class="alert alert-danger">
+                                                <strong>{{ error|escape }}</strong>
                                             </div>
-                                        </div>
-                                    </div>
+                                        {% endfor %}
+                                    {% endif %}
 
-                                    <div class="row">
-                                        <div class="col-md-12">
-                                            <div class="form-group">
-                                                <label for="exampleInputEmail1">Cédula</label>
-                                                <input name="cedula" type="text" class="form-control" placeholder="Cédula" >
-                                            </div>
-                                        </div>
-                                    </div>
+                                    {% for field in form.visible_fields %}
 
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="form-group">
+                                                    <label>{{field.label}}</label>
+                                                    {% render_field field class="form-control" placeholder=field.label %}
+                                                </div>
+                                            </div>
+                                            <div class="col-md-12">
+                                                {% for error in field.errors %}
+                                                <div class="alert alert-danger">
+                                                    <strong>{{ error|escape }}</strong>
+                                                </div>
+                                                {% endfor %}
+                                            </div>
+                                        </div>
+                                    {% endfor %}
 
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <label>Nombre</label>
-                                                <input name="nombre" type="text" class="form-control" placeholder="Nombre" >
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <label>Apellido</label>
-                                                <input name="apellido" type="text" class="form-control" placeholder="Apellido">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-md-12">
-                                            <div class="form-group">
-                                                <label>Correo Electrónico</label>
-                                                <input name="email" type="email" class="form-control" placeholder="Correo Electrónico">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-md-12">
-                                            <div class="form-group">
-                                                <label>Contraseña</label>
-                                                <input name="clave" type="password" class="form-control" placeholder="Contraseña">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-md-12">
-                                            <div class="form-group">
-                                                <label>Contraseña</label>
-                                                <input name="repetirClave" type="password" class="form-control" placeholder="Contraseña">
-                                            </div>
-                                        </div>
-                                    </div>
                                     <div class="row">
                                         <div class="col-md-3">
                                         </div>
                                         <div class="col-md-6">
-                                            <button type="defoult" class="btn btn-defoutl btn-fill pull-left">Cancelar</button>
+                                            <button type="button" class="btn btn-defoutl btn-fill pull-left">Cancelar</button>
                                             <button type="submit" class="btn btn-info btn-fill pull-right">Aceptar</button>
                                         </div>
                                         <div class="col-md-3">
@@ -88,7 +59,7 @@
                             </div>
                         </div>
                     </div>
-
+                    <div class="col-md-3"></div>
                 </div>
             </div>
         </div>

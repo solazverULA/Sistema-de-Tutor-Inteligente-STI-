@@ -1,43 +1,71 @@
 {% extends "student/base.html" %}
 {% load static %} <!--ya fue añadido en base.html-->
+{% load widget_tweaks %}
 {% block content %}
-
+<style>
+    .error {
+        position:absolute;
+        border-bottom: 2px dotted red;
+    }
+</style>
  <div class="content">
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col-md-4">
-                        <div class="card ">
-                            <div class="header">
-                                <h4 class="title">Nombre del problema</h4>
-                            </div>
-                            <div class="content">
-                                <div id="" class="">
-                                    <p class="category">Descripción del problema</p>
-                                </div>
-                            </div>
-                          
+     <form method="post" action=".">
+         <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="card ">
+                        <div class="header">
+                            <h4 class="title">Nombre del problema</h4>
                         </div>
-                        
+                        <div class="content">
+                            <div id="" class="">
+                                <p class="category">Descripción del problema</p>
+                            </div>
+                        </div>
+
                     </div>
 
-                    <div class="col-md-8">
-                        <div class="card ">
-                            <div class="content">
-                                <div id="editor">//Escriba su código aquí
-int main()
-{   
-    return 0;
-}</div>
-                                <div class="card-footer" style="margin-top: 10px">
-                                    <a href=" " class="btn btn-primary btn-round btn-lg ">Enviar código</a>
+                </div>
+
+                <div class="col-md-8">
+                    <div class="card ">
+                        <div class="content">
+                            {% if form.errors %}
+                                <div class="alert alert-danger">
+                                    <strong>Aun no has confirmado el codigo que vas a corregir.</strong>
                                 </div>
+                            {% endif %}
+
+                            {% csrf_token %}
+
+                            <div id="editor">
+#include"stdio.h"
+
+//Escriba su codigo aqui
+int main()
+{
+    return 0;
+}
+                            </div>
+
+                            {% for field in form %}
+                                {% render_field field class="form-control" %}
+                            {% endfor %}
+
+                            <button type="button" rel="tooltip" class="btn btn-success" onclick="confirm()" data-original-title="" title="">
+                              <i class="pe-7s-study"></i> Confirmar
+                            </button>
+                            <div class="card-footer" style="margin-top: 10px">
+                                <button type="submit" class="btn btn-primary btn-round btn-lg btn-block mb-3">Enviar código</button>
                             </div>
                         </div>
                     </div>
                 </div>
-              
             </div>
+
         </div>
+     </form>
+ </div>
        
 
 <script src="{% static 'student/acebuilds/src-noconflict/ace.js' %}" type="text/javascript" charset="utf-8"></script>
@@ -50,8 +78,13 @@ int main()
         wrap: true,
         autoScrollEditorIntoView: true
     });
+
+    function confirm() {
+        var code = document.getElementById("id_code")
+        code.value = editor.getValue();
+        var range = new ace.Range(4, 1, 4, editor.session.getScreenLastRowColumn(1) - 1 );
+        editor.session.addMarker(range, "error", "line");
+    };
 </script>
-
-
 
 {% endblock %}

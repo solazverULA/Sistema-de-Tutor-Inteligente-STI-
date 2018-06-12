@@ -36,8 +36,8 @@ urlpatterns = [
     path('profile/', views.profile, name='profile'),
 
     path('teachers/', views.teachers, name='teachers'),
-    path('createTeacher/', views.createTeacher, name='createTeacher'),
-    path('seeTeacher/', views.seeTeacher, name='seeTeacher'),
-    path('logout/', views.logoutTeacher, name='logoutTeacher'),
+    path('createTeacher/', views.create_teacher, name='createTeacher'),
+    path('seeTeacher/', views.see_teacher, name='seeTeacher'),
+    path('logout/', views.logout_teacher, name='logoutTeacher'),
 
 ]

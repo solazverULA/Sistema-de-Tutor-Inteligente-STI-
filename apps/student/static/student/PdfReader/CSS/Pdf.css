@@ -1,0 +1,82 @@
+.BackButton {
+    background-color: rgb(58,58,58, 0.95 );
+    border: none;
+    outline: none;
+    color: white;
+    padding: 14px 22px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    position: relative;
+
+}
+
+.BackButton:hover {
+    background-color: rgba(64,64,64, 0.65);
+    color: white;
+}
+
+#BackButtonArrow {
+    border: solid rgb(255, 255, 255);
+    border-width: 0 3px 3px 0;
+    display: inline-block;
+    padding: 3px;
+    }
+ 
+.BackButtonArrowLeft {
+    transform: rotate(135deg);
+    -webkit-transform: rotate(135deg);
+}
+
+.BackButtonPos{
+     left: 25px; top:10px;
+    
+}
+
+.CheckButton {
+    background-color: rgb(58,58,58, 0.95);
+    border: none;
+    outline: none;
+    color: white;
+    padding: 13px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    position: relative;
+
+}
+
+
+.CheckButton:hover{
+    background-color: rgba(64,64,64, 0.65);
+    color: white;
+}
+
+.CheckButtonPos{
+    left: 89%; top:89%;
+
+}
+
+.circle {
+    border-radius: 15%;
+}
+
+.overlayPdf {
+    position: fixed;
+    display: none;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0,0,0,0.5);
+    z-index: 2;
+    cursor: pointer;
+}
