@@ -48,7 +48,7 @@ class Problem(models.Model):
     referenceOutput = models.FileField(upload_to='uploads/')
 
     def __str__(self):
-        return self.name
+        return self.title
 
 
 class LearningTheme(models.Model):
@@ -60,6 +60,7 @@ class LearningTheme(models.Model):
 
     student = models.ForeignKey(Student, on_delete=models.CASCADE)
     theme = models.ForeignKey(Theme, on_delete=models.CASCADE)
+    ready = models.BooleanField(default=False)
 
     def __str__(self):
         return self.student.user.username + " " + self.theme.name

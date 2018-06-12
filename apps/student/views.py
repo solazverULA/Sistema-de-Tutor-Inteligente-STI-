@@ -6,11 +6,10 @@ from django.contrib.auth import logout as core_logout, authenticate
 from django.shortcuts import render, redirect
 from .forms import SignUpForm, LoginForm, ProblemForm
 from django.contrib.auth.decorators import login_required
-from apps.student.models import Student
+from apps.student.models import *
 
 
-@login_required
-def index(request):
+def student_required(request):
     try:
         Student.objects.get(user=request.user)
         return render(request, 'student/index.html')
@@ -19,20 +18,18 @@ def index(request):
         return redirect('/apps/teacher/')
 
 
+@login_required
+def index(request):
+    return student_required(request)
+
+
 def login_view(request):
     if request.method == 'POST':
         form = LoginForm(data=request.POST)
         if form.is_valid():
             user = form.save()
 
-            try:
-                Student.objects.get(user=user)
-                return redirect('student/index.html')
-
-            except Student.DoesNotExist:
-                return redirect('/apps/teacher/')
-
-            return redirect('/apps/student/signup')
+            return student_required(request)
     else:
         form = LoginForm()
     return render(request, 'student/login.html', {'form': form})

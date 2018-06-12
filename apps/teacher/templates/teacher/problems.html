@@ -20,17 +20,19 @@
                                               </tr>
                                           </thead>
                                           <tbody>
+                                            {% for i in pro %}
                                               <tr class="text-center">
-                                                  <td>1</td>
-                                                  <td>Variables enteras</td>
-                                                  <td>Declaracion de variables del tipo entero</td>
+                                                  <td>{{i.id}}</td>
+                                                  <td>{{i.title}}</td>
+                                                  <td>{{i.description}}</td>
                                                   <td class="td-actions text-center">
-                                                      <a href=""><button type="button" rel="tooltip" class="btn btn-success" data-original-title="" title="">
+                                                      <a href="{% url 'teacher:seeProblem' i.id %}"><button type="button" rel="tooltip" class="btn btn-success" data-original-title="" title="">
                                                           <i class="pe-7s-study"></i>
                                                       </button></a>
                                                   </td>
                                               </tr>
-                                              <tr class="text-center">
+                                            {% endfor %}
+                                              <!--<tr class="text-center">
                                                   <td>2</td>
                                                   <td>Variables tipo flotante</td>
                                                   <td>Declaracion de variables del tipo flotantes</td>
@@ -49,17 +51,17 @@
                                                           <i class="pe-7s-study"></i>
                                                       </button></a>
                                                   </td>
-                                              </tr>
+                                              </tr>-->
                                             </tbody>
                                         </table>
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </div> 
                     </div>
 
-                    <a href="/apps/teacher/editProblem/"> <button type="submit" class="btn btn-info btn-fill pull-right">Agregar problema</button></a>
-                                    <div class="clearfix"></div>
+                    <a href="{% url 'teacher:createProblem' %}"> <button type="submit" class="btn btn-info btn-fill pull-right">Agregar Problema</button></a>
+                    <div class="clearfix"></div>
 
                 </div>
             </div>

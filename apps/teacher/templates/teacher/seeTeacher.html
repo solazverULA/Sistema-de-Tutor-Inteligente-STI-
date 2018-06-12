@@ -1,0 +1,80 @@
+{% extends "teacher/base.html" %}
+{% load static %}
+
+{% block content %}
+
+        <div class="content">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-8">
+                        <div class="card">
+                            <div class="header">
+                                <h4 class="title">Perfil del Profesor</h4>
+                            </div>
+                            <div class="content">
+                                <form>
+                                    <div class="row">
+                                        
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label>Nombre de usuario</label>
+                                                <input type="text" class="form-control" disabled placeholder="Username" value="Solazver">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label for="exampleInputEmail1">Correo electrónico</label>
+                                                <input type="email" class="form-control" disabled placeholder="Correo electrónico" value="Solazver@ula.com">
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label>Nombre</label>
+                                                <input type="text" class="form-control" disabled placeholder="Nombre" value="Solazver">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label>Apellido</label>
+                                                <input type="text" class="form-control" disabled placeholder="Apellido" value="Solé">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label>Cédula</label>
+                                                <input type="text" class="form-control" disabled placeholder="Cédula" value="60.486.695">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card card-user">
+                            <div class="image">
+                                <img src="" alt="">
+                            </div>
+                            <div class="content">
+                                <div class="author">
+                                     <a href="#">
+                                        <img  class="avatar border-gray"  src="{% static 'teacher/img/perfil.png' %}">
+                                      <h4 class="title">Solazver Solé<br /></h4>
+                                    </a>
+                                </div>   
+                            </div>
+                            <hr>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+{% endblock %}
