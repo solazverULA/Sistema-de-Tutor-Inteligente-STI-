@@ -268,7 +268,12 @@ def editNewTeacher(request,id):
     p1.user.email = email
     p1.user.save()
     p1.save()
+
+
+
+
     
+
     return redirect('/apps/teacher/teachers/')
 
 
