@@ -9,22 +9,23 @@
                     <div class="col-md-8">
                         <div class="card">
                             <div class="header">
-                                <h4 class="title">Perfil del Profesor</h4>
+                                <h4 class="title">Editar Profesor</h4>
                             </div>
                             <div class="content">
-                                <form>
+                                <form method="post" action="{% url 'teacher:editNewTeacher' teacher.id %}">
+                                    {% csrf_token %}
                                     <div class="row">
                                         
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label>Nombre de Usuario</label>
-                                                <input type="text" class="form-control" disabled placeholder="Username" value="{{teacher.user.username}}">
+                                                <input name="username" type="text" class="form-control"  placeholder="Username" value="{{teacher.user.username}}">
                                             </div>
                                         </div>
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label for="exampleInputEmail1">Correo electrónico</label>
-                                                <input type="email" class="form-control" disabled placeholder="Correo electrónico" value="{{teacher.user.email}}">
+                                                <input name="email" type="email" class="form-control"  placeholder="Correo electrónico" value="{{teacher.user.email}}">
                                             </div>
                                         </div>
                                     </div>
@@ -33,13 +34,13 @@
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label>Nombre</label>
-                                                <input type="text" class="form-control" disabled placeholder="Nombre" value="{{teacher.user.first_name}}">
+                                                <input name="first_name" type="text" class="form-control"  placeholder="Nombre" value="{{teacher.user.first_name}}">
                                             </div>
                                         </div>
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label>Apellido</label>
-                                                <input type="text" class="form-control" disabled placeholder="Apellido" value="{{teacher.user.last_name}}">
+                                                <input name="last_name" type="text" class="form-control"  placeholder="Apellido" value="{{teacher.user.last_name}}">
                                             </div>
                                         </div>
                                     </div>
@@ -47,29 +48,22 @@
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label>Cédula</label>
-                                                <input type="text" class="form-control" disabled placeholder="Cédula" value="{{teacher.ci}}">
+                                                <input name="ci" type="text" class="form-control"  placeholder="Cédula" value="{{teacher.ci}}">
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="clearfix"></div>
-                                                                        <div class="row">
-                                        <div class="col-md-2">
+                                    <div class="row">
+                                        <div class="col-md-3">
                                         </div>
-                                        <div class="col-md-8">
-                                          <div class="col-md-4">
-                                            <a href="{% url 'teacher:teachers' %}" class="btn btn-defoutl btn-fill pull-left">Ver todos los profesores</a>
-                                          </div>
-                                          <div class="col-md-4">
-                                            <a href="{% url 'teacher:editTeacher' teacher.id %}" class="btn btn-info btn-fill pull-right">Modificar</a>
-                                          </div>
-                                          <div class="col-md-4">
-                                            <a href="{% url 'teacher:deleteTeacher' teacher.id %}" class="btn btn-danger btn-fill pull-right">Eliminar</a>
-                                          </div>
-                                                                                       
+                                        <div class="col-md-6">
+                                            <a href="{% url 'teacher:teachers' %}" class="btn btn-defoutl btn-fill pull-left">Cancelar </a>
+                                            <button type="submit" class="btn btn-info btn-fill pull-right">Aceptar</button>
                                         </div>
-                                        <div class="col-md-2">
+                                        <div class="col-md-3">
                                         </div>
                                     </div>
+                                    
+                                    <div class="clearfix"></div>
 
                                 </form>
                             </div>

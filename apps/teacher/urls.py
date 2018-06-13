@@ -33,11 +33,18 @@ urlpatterns = [
     path('createNewProblem/', views.createNewProblem, name='createNewProblem'),
     path('editNewProblem/<int:id>/', views.editNewProblem, name='editNewProblem'),
 
-    path('profile/', views.profile, name='profile'),
 
     path('teachers/', views.teachers, name='teachers'),
-    path('createTeacher/', views.create_teacher, name='createTeacher'),
-    path('seeTeacher/', views.see_teacher, name='seeTeacher'),
+    path('seeTeacher/<int:id>/', views.seeTeacher, name='seeTeacher'),
+    path('createTeacher/', views.createTeacher, name='createTeacher'),
+    path('createNewTeacher/', views.createNewTeacher, name='createNewTeacher'),
+    path('editTeacher/<int:id>/', views.editTeacher, name='editTeacher'),
+    path('deleteTeacher/<int:id>/', views.deleteTeacher, name='deleteTeacher'),
+    path('editNewTeacher/<int:id>/', views.editNewTeacher, name='editNewTeacher'),
+
+
+    path('profile/', views.profile, name='profile'),
+    
     path('logout/', views.logout_teacher, name='logoutTeacher'),
 
 ]
