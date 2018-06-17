@@ -29,12 +29,7 @@ def index(request):
     return teacher_required(request)
 
 
-def students(request):
-    return render(request, 'teacher/students.html')
 
-
-def studentProfile(request):
-    return render(request, 'teacher/studentProfile.html')
 
 
 def themes(request):
@@ -269,11 +264,6 @@ def editNewTeacher(request,id):
     p1.user.save()
     p1.save()
 
-
-
-
-    
-
     return redirect('/apps/teacher/teachers/')
 
 
@@ -282,3 +272,87 @@ def deleteTeacher(request, id):
     teacher.delete()
     #print(pro)
     return redirect('/apps/teacher/teachers/')
+
+
+
+
+
+
+
+
+
+def students(request):
+    students = Student.objects.all()
+    return render(request, 'teacher/students.html', {'students':students})
+
+
+def seeStudent(request, id):
+    student = Student.objects.get(id=id)
+    #print(pro)
+    return render(request, 'teacher/seeStudent.html', {'student':student})
+
+
+def createStudent(request):
+    teachers = Teacher.objects.all()
+    return render(request, 'teacher/createStudent.html', {'teachers':teachers})
+
+
+def createNewStudent(request):
+    print(request.POST)
+
+    username = request.POST['username']
+    ci = request.POST['ci']
+    first_name = request.POST['first_name']
+    last_name = request.POST['last_name']
+    email = request.POST['email']
+    password = request.POST['password']
+    teacherMentor = request.POST['teacherMentor']
+
+    p1 = Student()
+    user = User()
+    user.username = username
+    p1.ci = ci
+    p1.root = False
+    user.first_name = first_name
+    user.last_name = last_name
+    user.email = email
+    user.set_password(password)
+    user.save()
+    p1.user = user
+    p1.teacherMentor = Teacher.objects.get(id=teacherMentor)
+    p1.save()
+
+    return redirect('/apps/teacher/students/')
+
+
+def editStudent(request, id):
+    student = Student.objects.get(id=id)
+    return render(request, 'teacher/editStudent.html', {'student':student})
+
+
+def editNewStudent(request,id):
+    print(request.POST)
+
+    username = request.POST['username']
+    ci = request.POST['ci']
+    first_name = request.POST['first_name']
+    last_name = request.POST['last_name']
+    email = request.POST['email']
+
+    p1 = Student.objects.get(id=id)
+    p1.user.username = username
+    p1.ci = ci
+    p1.user.first_name = first_name
+    p1.user.last_name = last_name
+    p1.user.email = email
+    p1.user.save()
+    p1.save()
+
+    return redirect('/apps/teacher/students/')
+
+
+def deleteStudent(request, id):
+    student = Student.objects.get(id=id)
+    student.delete()
+    #print(pro)
+    return redirect('/apps/teacher/students/')
