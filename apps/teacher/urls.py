@@ -11,9 +11,6 @@ urlpatterns = [
     path('user/', views.user, name='user'),
 
     path('', views.index, name='index'),
-    path('students/', views.students, name='students'),
-    path('studentProfile/', views.studentProfile, name='studentProfile'),
-
 
 
     path('themes/', views.themes, name='themes'),
@@ -43,8 +40,17 @@ urlpatterns = [
     path('editNewTeacher/<int:id>/', views.editNewTeacher, name='editNewTeacher'),
 
 
+    path('students/', views.students, name='students'),
+    path('seeStudent/<int:id>/', views.seeStudent, name='seeStudent'),
+    path('createStudent/', views.createStudent, name='createStudent'),
+    path('createNewStudent/', views.createNewStudent, name='createNewStudent'),
+    path('editStudent/<int:id>/', views.editStudent, name='editStudent'),
+    path('deleteStudent/<int:id>/', views.deleteStudent, name='deleteStudent'),
+    path('editNewStudent/<int:id>/', views.editNewStudent, name='editNewStudent'),
+
+
     path('profile/', views.profile, name='profile'),
-    
+
     path('logout/', views.logout_teacher, name='logoutTeacher'),
 
 ]
