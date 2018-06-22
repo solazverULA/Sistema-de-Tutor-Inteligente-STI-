@@ -9,94 +9,17 @@
 <script type="text/javascript" charset="UTF-8" src="{% static 'student/register_style/js/common.js' %}"></script>
 <!--&#10004-->
 
-<div class="overlayPdf">	
-	<object id="PDF" data="{% static "student/PdfReader/Content/Part1/Intro.pdf" %}" type="application/pdf" height="100%" width="80%" style=" position: absolute; left: 12%; top: 0%; ">
-	</object>
-	<button class="BackButton circle BackButtonPos" onclick="BackButtonOff(0)"><i id="BackButtonArrow" class="BackButtonArrowLeft"></i>
-	</button>	
-	<button class="CheckButton circle CheckButtonPos" onclick="CheckButtonOff(0)">&#10004
-	</button>
-</div>
-<div class="overlayPdf">	
-	<object id="PDF" data="{% static "student/PdfReader/Content/Part1/Sintaxis.pdf" %}" type="application/pdf" height="100%" width="80%" style=" position: absolute; left: 12%; top: 0%; ">
-	</object>
-	<button class="BackButton circle BackButtonPos" onclick="BackButtonOff(1)"><i id="BackButtonArrow" class="BackButtonArrowLeft"></i>
-	</button>	
-	<button class="CheckButton circle CheckButtonPos" onclick="CheckButtonOff(1)">&#10004
-	</button>
-</div>
-<div class="overlayPdf">	
-	<object id="PDF" data="{% static "student/PdfReader/Content/Part1/Tipos_de_Datos.pdf" %}" type="application/pdf" height="100%" width="80%" style=" position: absolute; left: 12%; top: 0%; ">
-	</object>
-	<button class="BackButton circle BackButtonPos" onclick="BackButtonOff(2)"><i id="BackButtonArrow" class="BackButtonArrowLeft"></i>
-	</button>	
-	<button class="CheckButton circle CheckButtonPos" onclick="CheckButtonOff(2)">&#10004
-	</button>
-</div>
-<div class="overlayPdf">	
-	<object id="PDF" data="{% static "student/PdfReader/Content/Part1/Sentencias.pdf" %}" type="application/pdf" height="100%" width="80%" style=" position: absolute; left: 12%; top: 0%; ">
-	</object>
-	<button class="BackButton circle BackButtonPos" onclick="BackButtonOff(3)"><i id="BackButtonArrow" class="BackButtonArrowLeft"></i>
-	</button>	
-	<button class="CheckButton circle CheckButtonPos" onclick="CheckButtonOff(3)">&#10004
-	</button>
-</div>
-<div class="overlayPdf">	
-	<object id="PDF" data="{% static "student/PdfReader/Content/Part1/Impresión y Lectura.pdf" %}" type="application/pdf" height="100%" width="80%" style=" position: absolute; left: 12%; top: 0%; ">
-	</object>
-	<button class="BackButton circle BackButtonPos" onclick="BackButtonOff(4)"><i id="BackButtonArrow" class="BackButtonArrowLeft"></i>
-	</button>	
-	<button class="CheckButton circle CheckButtonPos" onclick="CheckButtonOff(4)">&#10004
-	</button>
-</div>
-<div class="overlayPdf">	
-	<object id="PDF" data="{% static "student/PdfReader/Content/Part1/Decisiones.pdf" %}" type="application/pdf" height="100%" width="80%" style=" position: absolute; left: 12%; top: 0%; ">
-	</object>
-	<button class="BackButton circle BackButtonPos" onclick="BackButtonOff(5)"><i id="BackButtonArrow" class="BackButtonArrowLeft"></i>
-	</button>	
-	<button class="CheckButton circle CheckButtonPos" onclick="CheckButtonOff(5)">&#10004
-	</button>
-</div>
-<div class="overlayPdf">	
-	<object id="PDF" data="{% static "student/PdfReader/Content/Part2/Arreglos.pdf" %}" type="application/pdf" height="100%" width="80%" style=" position: absolute; left: 12%; top: 0%; ">
-	</object>
-	<button class="BackButton circle BackButtonPos" onclick="BackButtonOff(6)"><i id="BackButtonArrow" class="BackButtonArrowLeft"></i>
-	</button>	
-	<button class="CheckButton circle CheckButtonPos" onclick="CheckButtonOff(6)">&#10004
-	</button>
-</div>
-<div class="overlayPdf">	
-	<object id="PDF" data="{% static "student/PdfReader/Content/Part2/Cadenas de caracteres.pdf" %}" type="application/pdf" height="100%" width="80%" style=" position: absolute; left: 12%; top: 0%; ">
-	</object>
-	<button class="BackButton circle BackButtonPos" onclick="BackButtonOff(7)"><i id="BackButtonArrow" class="BackButtonArrowLeft"></i>
-	</button>	
-	<button class="CheckButton circle CheckButtonPos" onclick="CheckButtonOff(7)">&#10004
-	</button>
-</div>
-<div class="overlayPdf">		
-	<object id="PDF" data="{% static "student/PdfReader/Content/Part2/Ciclos de Repetición.pdf" %}" type="application/pdf" height="100%" width="80%" style=" position: absolute; left: 12%; top: 0%; ">
-	</object>
-	<button class="BackButton circle BackButtonPos" onclick="BackButtonOff(8)"><i id="BackButtonArrow" class="BackButtonArrowLeft"></i>
-	</button>	
-	<button class="CheckButton circle CheckButtonPos" onclick="CheckButtonOff(8)">&#10004
-	</button>
-</div>
-<div class="overlayPdf">	
-	<object id="PDF" data="{% static "student/PdfReader/Content/Part3/Funciones y Procedimientos.pdf" %}" type="application/pdf" height="100%" width="80%" style=" position: absolute; left: 12%; top: 0%; ">
-	</object>
-	<button class="BackButton circle BackButtonPos" onclick="BackButtonOff(9)"><i id="BackButtonArrow" class="BackButtonArrowLeft"></i>
-	</button>	
-	<button class="CheckButton circle CheckButtonPos" onclick="CheckButtonOff(9)">&#10004
-	</button>
-</div>
-<div class="overlayPdf">	
-	<object id="PDF" data="{% static "student/PdfReader/Content/Part3/Librerías.pdf" %}" type="application/pdf" height="100%" width="80%" style=" position: absolute; left: 12%; top: 0%; ">
-	</object>
-	<button class="BackButton circle BackButtonPos" onclick="BackButtonOff(10)"><i id="BackButtonArrow" class="BackButtonArrowLeft"></i>
-	</button>	
-	<button class="CheckButton circle CheckButtonPos" onclick="CheckButtonOff(10)">&#10004
-	</button>
-</div>
+{% for theme in themes %}
+    <div class="overlayPdf">
+        <object id="PDF" data="{% static theme.theme.initial_address %}" type="application/pdf" height="100%" width="80%" style=" position: absolute; left: 12%; top: 0%; ">
+        </object>
+        <button class="BackButton circle BackButtonPos" onclick="BackButtonOff( {{ theme.theme.pk }} )"><i id="BackButtonArrow" class="BackButtonArrowLeft"></i>
+        </button>
+        <button class="CheckButton circle CheckButtonPos" onclick="CheckButtonOff( {{ theme.theme.pk }} )">&#10004
+        </button>
+    </div>
+{% endfor %}
+
         <div class="content">
             <div class="container-fluid">
                 <div class="row">
@@ -115,6 +38,23 @@
                                               </tr>
                                           </thead>
                                           <tbody>
+                                          {% for theme in themes %}
+                                            <!--
+                                            {{ forloop.counter }} {# starting index 1 #}
+                                            {{ forloop.counter0 }} {# starting index 0 #}
+                                            -->
+                                            <tr class="text-center">
+                                              <td>{{ theme.theme.pk }}</td>
+                                              <td>{{ theme.theme.name }}</td>
+                                              <td>{{ theme.theme.description}}</td>
+                                              <td class="td-actions text-center">
+                                                  <button type="button" rel="tooltip" class="btn btn-success" onclick="onPdf({{ theme.theme.pk }})" data-original-title="" title="">
+                                                      <i class="pe-7s-study"></i>
+                                                  </button>
+                                              </td>
+                                            </tr>
+                                          {% endfor %}
+                                          <!--
                                               <tr class="text-center">
                                                   <td>1</td>
                                                   <td>Introducción</td>
@@ -225,6 +165,7 @@
                                                       </button>
                                                   </td>
                                               </tr>
+                                              -->
                                             </tbody>
                                         </table>
                                     </div>

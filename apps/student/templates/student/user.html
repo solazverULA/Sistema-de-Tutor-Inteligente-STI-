@@ -12,19 +12,28 @@
                                 <h4 class="title">Perfil</h4>
                             </div>
                             <div class="content">
-                                <form>
+                                <form class="form" method="post">
+                                    {% csrf_token %}
                                     <div class="row">
                                         
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label>Nombre de usuario</label>
-                                                <input type="text" class="form-control" disabled placeholder="Username" value="SaraitHernandez">
+                                                <input type="text" class="form-control"
+                                                       name="username"
+                                                       id="id_username"
+                                                       placeholder="Nombre de usuario"
+                                                       value="{{ user.username }}">
                                             </div>
                                         </div>
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label for="exampleInputEmail1">Correo electrónico</label>
-                                                <input type="email" class="form-control" placeholder="Correo electrónico" value="saraithernandez0205@gmail.com">
+                                                <input type="email" class="form-control"
+                                                       placeholder="Correo electrónico"
+                                                       name="email"
+                                                       id="id_email"
+                                                       value="{{ user.email }}">
                                             </div>
                                         </div>
                                     </div>
@@ -33,13 +42,21 @@
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label>Nombre</label>
-                                                <input type="text" class="form-control" placeholder="Nombre" value="Sarait">
+                                                <input type="text" class="form-control"
+                                                       name="first_name"
+                                                       id="id_first_name"
+                                                       placeholder="Nombre"
+                                                       value="{{ user.first_name }}">
                                             </div>
                                         </div>
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label>Apellido</label>
-                                                <input type="text" class="form-control" placeholder="Apellido" value="Hernández">
+                                                <input type="text" class="form-control"
+                                                       name="last_name"
+                                                       id="id_last_name"
+                                                       placeholder="Apellido"
+                                                       value="{{ user.last_name }}">
                                             </div>
                                         </div>
                                     </div>
@@ -47,14 +64,32 @@
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label>Cédula</label>
-                                                <input type="text" class="form-control" placeholder="Cédula" value="23.722.515">
+                                                <input type="text" class="form-control"
+                                                       name="ci"
+                                                       id="id_ci"
+                                                       placeholder="Cédula"
+                                                       value="{{ user.people.student.ci }}">
                                             </div>
                                         </div>
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label>Profesor</label>
-                                                <input type="text" class="form-control" disabled placeholder="Company" value="Solazver Solé">
+                                                <input type="text" class="form-control"
+                                                       placeholder="Profesor"
+                                                       value="{{ user.people.student.teacherMentor }}"
+                                                       disabled >
                                             </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            {% if form.errors %}
+                                                {% for error in form.non_field_errors %}
+                                                    <div class="alert alert-danger">
+                                                        <strong>{{ error|escape }}</strong>
+                                                    </div>
+                                                {% endfor %}
+                                            {% endif %}
                                         </div>
                                     </div>
                                     <button type="submit" class="btn btn-info btn-fill pull-right">Actualizar perfil</button>
@@ -72,7 +107,7 @@
                                 <div class="author">
                                      <a href="#">
                                         <img  class="avatar border-gray"  src="{% static 'teacher/img/perfil.jpg' %}">
-                                      <h4 class="title">Sarait Hernández<br /></h4>
+                                      <h4 class="title">{{ user.username }}<br /></h4>
                                     </a>
                                 </div>   
                             </div>
