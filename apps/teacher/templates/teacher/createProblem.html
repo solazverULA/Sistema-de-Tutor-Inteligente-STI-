@@ -12,7 +12,7 @@
                                 <h4 class="title">Crear problema</h4>
                             </div>
                             <div class="content">
-                                <form method="post" action="{% url 'teacher:createNewProblem' %}">
+                                <form method="post" action="" enctype="multipart/form-data">
                                     {% csrf_token %}
                                     <div class="row">
                                         
@@ -37,23 +37,24 @@
                                     <div class="row">
                                         <div class="col-md-6">
                                             <div class="form-group">
-                                                <label>Archivo de entrada</label>
-                                                <input name="referenceInput" type="text" class="form-control" placeholder="Archivo de entrada" >
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <div class="form-group">
                                                 <label>Archivo de salida</label>
-                                                <input name="referenceOutput" type="text" class="form-control" placeholder="Archivo de salida">
+                                                <input type="file" id="id_referenceOutput" name="referenceOutput" class="form-control" placeholder="Archivo de salida">
                                             </div>
                                         </div>
                                     </div>
                                     <div class="row">
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <label>Dificultad: </label>
-                                                <input name="difficult" type="text" class="form-control" placeholder="Dificultad">
+                                        <div class="col-md-12">
+                                            <div class="row">
+                                                {% for theme in themes %}
+                                                <div class="col-md-3">
+                                                    <div class="form-group">
+                                                        <label>Dificultad {{ theme.name }}: </label>
+                                                        <input name="difficult_{{theme.pk}}" type="text" class="form-control" placeholder="Dificultad">
+                                                    </div>
+                                                </div>
+                                                {% endfor %}
                                             </div>
+
                                         </div>
                                     </div>
                                     <!--<div class="row">

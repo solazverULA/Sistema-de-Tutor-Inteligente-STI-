@@ -4,6 +4,7 @@ from apps.teacher.models import *
 from django.contrib.auth import logout as core_logout, authenticate
 from django.contrib.auth.decorators import login_required
 from .forms import CreateTeacherForm
+from django.core.files.storage import FileSystemStorage
 
 
 def teacher_required(request):
@@ -27,9 +28,6 @@ def user(request):
 def index(request):
     #return render(request, 'teacher/index.html')
     return teacher_required(request)
-
-
-
 
 
 def themes(request):
@@ -108,22 +106,26 @@ def deleteProblem(request, id):
 
 
 def createProblem(request):
-    return render(request, 'teacher/createProblem.html')
 
+    themes = Theme.objects.all()
 
-def createNewProblem(request):
-    print(request.POST)
-    title = request.POST['title']
-    description = request.POST['description']
+    if request.method == 'POST' and request.FILES['referenceOutput']:
+        title = request.POST['title']
+        description = request.POST['description']
 
-    p1 = Problem()
-    p1.title = title
-    p1.description = description
-    p1.difficult = request.POST['difficult']
-    p1.referenceInput = request.POST['referenceInput']
-    p1.referenceOutput = request.POST['referenceOutput']
-    p1.save()
-    return redirect('/apps/teacher/problems/')
+        myfile = request.FILES['referenceOutput']
+        fs = FileSystemStorage()
+        fs.save(myfile.name, myfile)
+
+        p1 = Problem()
+        p1.title = title
+        p1.description = description
+        p1.difficult = request.POST['difficult']
+        p1.referenceOutput = myfile
+        p1.save()
+        return redirect('/apps/teacher/problems/')
+
+    return render(request, 'teacher/createProblem.html', {'themes': themes})
 
 
 def editNewProblem(request, id):
@@ -135,7 +137,7 @@ def editNewProblem(request, id):
     p1.title = title
     p1.description = description
     p1.difficult = request.POST['difficult']
-    p1.referenceInput = request.POST['referenceInput']
+    # p1.referenceInput = request.POST['referenceInput']
     p1.referenceOutput = request.POST['referenceOutput']
     p1.save()
     return redirect('/apps/teacher/problems/')

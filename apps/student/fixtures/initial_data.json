@@ -1,0 +1,112 @@
+[
+{
+    "model": "student.theme",
+    "pk": 1,
+    "fields": {
+        "name": "Introducci\u00f3n",
+        "description": "Algunos conceptos importantes antes de empezar",
+        "initial_address": "student/PdfReader/Content/Part1/Intro.pdf",
+        "referenceContent": ""
+    }
+},
+{
+    "model": "student.theme",
+    "pk": 2,
+    "fields": {
+        "name": "Sintaxis",
+        "description": "Formalidades que el computador necesita para la comprensi\u00f3n de instrucciones",
+        "initial_address": "student/PdfReader/Content/Part1/Sintaxis.pdf",
+        "referenceContent": ""
+    }
+},
+{
+    "model": "student.theme",
+    "pk": 3,
+    "fields": {
+        "name": "Tipos de datos",
+        "description": "Concepto de variable y su declaraci\u00f3n",
+        "initial_address": "student/PdfReader/Content/Part1/Tipos_de_Datos.pdf",
+        "referenceContent": ""
+    }
+},
+{
+    "model": "student.theme",
+    "pk": 4,
+    "fields": {
+        "name": "Sentencias",
+        "description": "Instrucciones b\u00e1sicas para manejo de variables",
+        "initial_address": "student/PdfReader/Content/Part1/Sentencias.pdf",
+        "referenceContent": ""
+    }
+},
+{
+    "model": "student.theme",
+    "pk": 5,
+    "fields": {
+        "name": "Impresi\u00f3n y lectura",
+        "description": "Entrada y salida de datos por consola",
+        "initial_address": "student/PdfReader/Content/Part1/Impresi\u00f3n y Lectura.pdf",
+        "referenceContent": ""
+    }
+},
+{
+    "model": "student.theme",
+    "pk": 6,
+    "fields": {
+        "name": "Decisiones",
+        "description": "Manejo de Casos de decisi\u00f3n en un algoritmo",
+        "initial_address": "student/PdfReader/Content/Part1/Decisiones.pdf",
+        "referenceContent": ""
+    }
+},
+{
+    "model": "student.theme",
+    "pk": 7,
+    "fields": {
+        "name": "Arreglos",
+        "description": "Manejo de m\u00faltiples variables de un mismo tipo",
+        "initial_address": "student/PdfReader/Content/Part2/Arreglos.pdf",
+        "referenceContent": ""
+    }
+},
+{
+    "model": "student.theme",
+    "pk": 8,
+    "fields": {
+        "name": "Cadena de caracteres",
+        "description": "Manejo de m\u00faltiples caracteres que representan un solo segmento",
+        "initial_address": "student/PdfReader/Content/Part2/Cadenas de caracteres.pdf",
+        "referenceContent": ""
+    }
+},
+{
+    "model": "student.theme",
+    "pk": 9,
+    "fields": {
+        "name": "Ciclos de repetici\u00f3n",
+        "description": "Instrucciones que se repiten bajo condiciones",
+        "initial_address": "student/PdfReader/Content/Part2/Ciclos de Repetici\u00f3n.pdf",
+        "referenceContent": ""
+    }
+},
+{
+    "model": "student.theme",
+    "pk": 10,
+    "fields": {
+        "name": "Funciones y procedimientos",
+        "description": "Definici\u00f3n, declaraci\u00f3n y llamadas de funciones y procedimientos",
+        "initial_address": "student/PdfReader/Content/Part3/Funciones y Procedimientos.pdf",
+        "referenceContent": ""
+    }
+},
+{
+    "model": "student.theme",
+    "pk": 11,
+    "fields": {
+        "name": "Librer\u00edas",
+        "description": "Manejo y creaci\u00f3n de librer\u00edas",
+        "initial_address": "student/PdfReader/Content/Part3/Librer\u00edas.pdf",
+        "referenceContent": ""
+    }
+}
+]

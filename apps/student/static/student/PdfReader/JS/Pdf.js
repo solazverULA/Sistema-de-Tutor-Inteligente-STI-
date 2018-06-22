@@ -1,18 +1,17 @@
 function onPdf(i) {
-
-    document.getElementsByClassName("overlayPdf")[i].style.display = "block";
+    document.getElementsByClassName("overlayPdf")[i - 1 ].style.display = "block";
 }
 
 function BackButtonOff(i) {
-    document.getElementsByClassName("overlayPdf")[i].style.display = "none";
+    document.getElementsByClassName("overlayPdf")[i - 1].style.display = "none";
 }
 
 function CheckButtonOff(i) {
-	document.getElementsByClassName("overlayPdf")[i].style.display = "none";
+	document.getElementsByClassName("overlayPdf")[i - 1].style.display = "none";
 }
 
 function OffNextSubject(i) {
-    document.getElementsByClassName("ButtonLocked")[i].disabled = true;
+    document.getElementsByClassName("ButtonLocked")[i - 1].disabled = true;
 }
 
 

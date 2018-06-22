@@ -99,6 +99,7 @@ class LoginTest(unittest.TestCase):
         self.driver = webdriver.Chrome('C:/Python27/chromedriver.exe')
 
     def test_search_in_python_org(self):
+        # all_options = element.find_elements_by_tag_name("option")
         driver = self.driver
         driver.get("http://localhost:8000")
         self.assertIn("STI", driver.title)

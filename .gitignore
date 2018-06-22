@@ -12,3 +12,4 @@ uploads
 \.idea/
 \.sti-core/
 mi_venv/
+public/

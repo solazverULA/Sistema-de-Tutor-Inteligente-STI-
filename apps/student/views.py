@@ -4,7 +4,7 @@ from django.conf import settings
 from django.core.files import File
 from django.contrib.auth import logout as core_logout, authenticate
 from django.shortcuts import render, redirect
-from .forms import SignUpForm, LoginForm, ProblemForm
+from .forms import SignUpForm, LoginForm, ProblemForm, StudentProfileForm
 from django.contrib.auth.decorators import login_required
 from apps.student.models import *
 
@@ -42,11 +42,20 @@ def logout(request):
 
 @login_required
 def theme(request):
-    return render(request, 'student/theme.html')
+
+    learned = LearningTheme.objects.filter(student=request.user.people.student)
+
+    return render(request, 'student/theme.html', {'themes': learned})
 
 
 @login_required
 def problem(request):
+
+    progress = Progress.objects.filter(student=request.user.people.student)
+    # values_list('id', flat=True).order_by('id')
+    # Book.objects.select_related('author__hometown').get(id=4) retorna la ciudad
+    print(Difficult.objects.all().values())
+
     if request.method == 'POST':
         form = ProblemForm(request.POST)
         if form.is_valid():
@@ -81,7 +90,25 @@ def problem(request):
 
 @login_required
 def user_view(request):
-    return render(request, 'student/user.html')
+    form = ProblemForm()
+    if request.method == 'POST':
+        form = StudentProfileForm(request.POST)
+        if form.is_valid():
+            user = User.objects.get(username=request.user.username)
+            user.username = form.cleaned_data.get('username')
+            user.first_name = form.cleaned_data.get('first_name')
+            user.last_name = form.cleaned_data.get('last_name')
+            user.email = form.cleaned_data.get('email')
+            user.people.student.ci = form.cleaned_data.get('ci')
+
+            user.save()
+
+            return render(request, 'student/user.html', {'form': form,
+                                                         'user': user})
+
+        else:
+            print(form.errors)
+    return render(request, 'student/user.html', {'form': form})
 
 
 def signup(request):

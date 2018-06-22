@@ -27,7 +27,6 @@ urlpatterns = [
     path('createProblem/', views.createProblem, name='createProblem'),
     path('seeProblem/<int:id>/', views.seeProblem, name='seeProblem'),
     path('deleteProblem/<int:id>/', views.deleteProblem, name='deleteProblem'),
-    path('createNewProblem/', views.createNewProblem, name='createNewProblem'),
     path('editNewProblem/<int:id>/', views.editNewProblem, name='editNewProblem'),
 
 

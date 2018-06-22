@@ -1,5 +1,5 @@
 from django import forms
-from django.forms import ModelChoiceField, Form
+from django.forms import ModelChoiceField, Form, ModelForm
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth.models import User
 from apps.teacher.models import Teacher
@@ -42,3 +42,16 @@ class SignUpForm(UserCreationForm):
 
 class ProblemForm(Form):
     code = forms.CharField(widget=forms.Textarea(attrs={'style': 'display: none;'}))
+
+
+class StudentProfileForm(Form):
+    username = forms.CharField(max_length=50, required=False,
+                               label='Nombre de usuario', help_text="user")
+    ci = forms.CharField(max_length=10, label="Cédula de identidad",
+                         help_text="id")
+    first_name = forms.CharField(max_length=30, required=False, label='Nombre',
+                                 help_text="smile")
+    last_name = forms.CharField(max_length=30, required=False,
+                                label="Apellido", help_text="wallet")
+    email = forms.EmailField(max_length=254, label="Correo electrónico",
+                             help_text="mail")
