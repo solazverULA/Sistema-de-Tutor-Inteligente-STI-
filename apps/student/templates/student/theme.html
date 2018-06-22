@@ -9,6 +9,18 @@
 <script type="text/javascript" charset="UTF-8" src="{% static 'student/register_style/js/common.js' %}"></script>
 <!--&#10004-->
 
+{% for theme in themes %}
+    <div class="overlayPdf">
+        <object id="PDF" data="{% static theme.theme.initial_address %}" type="application/pdf" height="100%" width="80%" style=" position: absolute; left: 12%; top: 0%; ">
+        </object>
+        <button class="BackButton circle BackButtonPos" onclick="BackButtonOff( {{ theme.theme.pk }} )"><i id="BackButtonArrow" class="BackButtonArrowLeft"></i>
+        </button>
+        <button class="CheckButton circle CheckButtonPos" onclick="CheckButtonOff( {{ theme.theme.pk }} )">&#10004
+        </button>
+    </div>
+{% endfor %}
+
+<!--
 <div class="overlayPdf">	
 	<object id="PDF" data="{% static "student/PdfReader/Content/Part1/Intro.pdf" %}" type="application/pdf" height="100%" width="80%" style=" position: absolute; left: 12%; top: 0%; ">
 	</object>
@@ -97,6 +109,7 @@
 	<button class="CheckButton circle CheckButtonPos" onclick="CheckButtonOff(10)">&#10004
 	</button>
 </div>
+-->
         <div class="content">
             <div class="container-fluid">
                 <div class="row">
@@ -115,6 +128,23 @@
                                               </tr>
                                           </thead>
                                           <tbody>
+                                          {% for theme in themes %}
+                                            <!--
+                                            {{ forloop.counter }} {# starting index 1 #}
+                                            {{ forloop.counter0 }} {# starting index 0 #}
+                                            -->
+                                            <tr class="text-center">
+                                              <td>{{ theme.theme.pk }}</td>
+                                              <td>{{ theme.theme.name }}</td>
+                                              <td>{{ theme.theme.description}}</td>
+                                              <td class="td-actions text-center">
+                                                  <button type="button" rel="tooltip" class="btn btn-success" onclick="onPdf({{ theme.theme.pk }})" data-original-title="" title="">
+                                                      <i class="pe-7s-study"></i>
+                                                  </button>
+                                              </td>
+                                            </tr>
+                                          {% endfor %}
+                                          <!--
                                               <tr class="text-center">
                                                   <td>1</td>
                                                   <td>Introducción</td>
@@ -225,6 +255,7 @@
                                                       </button>
                                                   </td>
                                               </tr>
+                                              -->
                                             </tbody>
                                         </table>
                                     </div>

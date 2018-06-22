@@ -17,13 +17,14 @@ class Student(People):
         return self.user.username
 
 
-"""
-@receiver(post_save, sender=User)
+@receiver(post_save, sender=Student)
 def update_student_profile(sender, instance, created, **kwargs):
     if created:
-        Student.objects.create(user=instance)
-    instance.people.student.save()
-"""
+        # Student.objects.create(user=instance)
+        for theme in Theme.objects.all():
+            learning = LearningTheme.objects.create(student=instance,
+                                                    theme=theme, ready=False)
+            learning.save()
 
 
 class Theme(models.Model):
@@ -31,10 +32,22 @@ class Theme(models.Model):
     Model for Theme Type
     """
     name = models.CharField(max_length=150)
-    referenceContent = models.FileField(upload_to='uploads/')
+    description = models.CharField(max_length=400, null=True, blank=True)
+    initial_address = models.CharField(max_length=300, null=True, blank=True)
+    referenceContent = models.FileField(upload_to='uploads/', null=True, blank=True)
 
     def __str__(self):
         return self.name
+
+
+@receiver(post_save, sender=Theme)
+def update_student_profile(sender, instance, created, **kwargs):
+    if created:
+        # Student.objects.create(user=instance)
+        for student in Student.objects.all():
+            learning = LearningTheme.objects.create(student=student,
+                                                    theme=instance, ready=False)
+            learning.save()
 
 
 class Problem(models.Model):
@@ -44,7 +57,7 @@ class Problem(models.Model):
     title = models.CharField(max_length=150)
     difficult = models.CharField(max_length=10)
     description = models.CharField(max_length=300)
-    referenceInput = models.FileField(upload_to='uploads/')
+    # referenceInput = models.FileField(upload_to='uploads/')
     referenceOutput = models.FileField(upload_to='uploads/')
 
     def __str__(self):
