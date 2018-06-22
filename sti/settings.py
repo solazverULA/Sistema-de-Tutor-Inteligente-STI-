@@ -108,6 +108,7 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+LOGIN_URL = 'student:login'
 LOGIN_REDIRECT_URL = 'student:index'
 
 # Internationalization

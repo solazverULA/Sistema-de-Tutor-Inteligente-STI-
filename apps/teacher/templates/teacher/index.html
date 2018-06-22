@@ -1,0 +1,42 @@
+{% extends "teacher/base.html" %}
+{% load static %}
+
+{% block content %}
+
+        <div class="content">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="card ">
+                            <div class="header">
+                                <h4 class="title">Estudiantes</h4>
+                                <p class="category">Selecione para ver el listado de estudiantes.</p>
+                            </div>
+                            <div class="content">
+                                <div id="" class="">
+                                    <a href="/apps/teacher/students/"><img  style="width: 23em; height: 20em; display:block;
+margin:auto" src="{% static 'teacher/img/students.jpg' %}"></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="card ">
+                            <div class="header">
+                                <h4 class="title">Problemas</h4>
+                                <p class="category">Seleccione para ver los problemas disponibles en cada tema.</p>
+                            </div>
+                            <div class="content">
+                                <div class="table-full-width" >
+                                    <a href="/apps/teacher/themes/"><img  style="width: 23em; height: 20em; display:block;
+margin:auto"  src="{% static 'student/img/problema.jpg' %}"></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+{% endblock %}
