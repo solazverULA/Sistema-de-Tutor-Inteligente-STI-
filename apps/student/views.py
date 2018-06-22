@@ -50,6 +50,12 @@ def theme(request):
 
 @login_required
 def problem(request):
+
+    progress = Progress.objects.filter(student=request.user.people.student)
+    # values_list('id', flat=True).order_by('id')
+    # Book.objects.select_related('author__hometown').get(id=4) retorna la ciudad
+    print(Difficult.objects.all().values())
+
     if request.method == 'POST':
         form = ProblemForm(request.POST)
         if form.is_valid():

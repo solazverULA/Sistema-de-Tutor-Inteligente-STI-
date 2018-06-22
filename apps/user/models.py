@@ -12,7 +12,7 @@ class People(models.Model):
                           validators=[RegexValidator
                                       (regex="[0-9]{7,10}",
                                        message="Invalid format for CI, must be just numbers of your CI, and must be ALIVE!")])
-    profileImage = models.FileField(upload_to='uploads/')
+    profileImage = models.FileField(upload_to='uploads/', null=True, blank=True)
 
     def __str__(self):
         return self.user.username
