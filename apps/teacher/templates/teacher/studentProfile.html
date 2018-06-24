@@ -1,0 +1,141 @@
+{% extends "teacher/base.html" %}
+{% load static %}
+
+{% block content %}
+
+        <div class="content">
+            <div class="container-fluid">
+
+                <div class="row">
+                    <div class="col-md-8">
+                        <div class="card">
+                            <div class="header">
+                                <h4 class="title">Perfil del estudiante</h4>
+                            </div>
+                            <div class="content">
+                                <form>
+                                    <div class="row">
+                                        
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label>Nombre de usuario</label>
+                                                <input type="text" class="form-control" disabled placeholder="Username" value="SaraitHernandez">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label for="exampleInputEmail1">Correo electrónico</label>
+                                                <input type="email" class="form-control" placeholder="Correo electrónico" disabled value="saraithernandez0205@gmail.com">
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label>Nombre</label>
+                                                <input type="text" class="form-control" placeholder="Nombre" disabled value="Sarait">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label>Apellido</label>
+                                                <input type="text" class="form-control" placeholder="Apellido" disabled value="Hernández">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label>Cédula</label>
+                                                <input type="text" class="form-control" placeholder="Cédula" disabled value="23.722.515">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label>Profesor</label>
+                                                <input type="text" class="form-control" disabled placeholder="Company" value="Solazver Solé">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card card-user">
+                            <div class="image">
+                                <img src="" alt="">
+                            </div>
+                            <div class="content">
+                                <div class="author">
+                                     <a href="#">
+                                        <img  class="avatar border-gray"  src="{% static 'teacher/img/perfil.jpg' %}">
+                                      <h4 class="title">Sarait Hernández<br /></h4>
+                                    </a>
+                                </div>   
+                            </div>
+                            <hr>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="card">
+                           <h3 class="navbar-brand">Listado de problemas resueltos por el estudiente</h3>
+                                <div class="card-body">
+                                    <div class="table-responsive">
+                                        <table class="table">
+                                          <thead>
+                                              <tr>
+                                                  <th class="text-center">#</th>
+                                                  <th class="text-center">Nombre</th>
+                                                  <th class="text-center">Nota</th>
+                                                  <th class="text-center">Ver</th>
+                                              </tr>
+                                          </thead>
+                                          <tbody>
+                                              <tr class="text-center">
+                                                  <td>1</td>
+                                                  <td>Problema 1</td>
+                                                  <td>20</td>
+                                                  <td class="td-actions text-center">
+                                                      <button type="button" rel="tooltip" class="btn btn-success" data-original-title="" title="">
+                                                          <i class="pe-7s-study"></i>
+                                                      </button>
+                                                  </td>
+                                              </tr>
+                                              <tr class="text-center">
+                                                  <td>2</td>
+                                                  <td>Problema 2</td>
+                                                  <td>5</td>
+                                                  <td class="td-actions text-center">
+                                                      <button type="button" rel="tooltip" class="btn btn-success" data-original-title="" title="">
+                                                          <i class="pe-7s-study"></i>
+                                                      </button>
+                                                  </td>
+                                              </tr>
+                                              <tr class="text-center">
+                                                  <td>3</td>
+                                                  <td>Problema 3</td>
+                                                  <td>10</td>
+                                                  <td class="td-actions text-center">
+                                                      <button type="button" rel="tooltip" class="btn btn-success" data-original-title="" title="">
+                                                          <i class="pe-7s-study"></i>
+                                                      </button>
+                                                  </td>
+                                              </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div> 
+                    </div>
+
+            </div>
+        </div>
+
+{% endblock %}

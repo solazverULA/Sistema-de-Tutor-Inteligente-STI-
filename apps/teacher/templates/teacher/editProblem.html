@@ -1,0 +1,79 @@
+{% extends "teacher/base.html" %}
+{% load static %}
+
+{% block content %}
+
+        <div class="content">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="card">
+                            <div class="header">
+                                <h4 class="title">Editar problema</h4>
+                            </div>
+                            <div class="content">
+                                <form method="post" action="{% url 'teacher:editNewProblem' problem.id %}">
+                                    {% csrf_token %}
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <label>Título</label>
+                                                <input type="text" name="title" class="form-control" placeholder="Título" value="{{problem.title}}">
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <label for="exampleInputEmail1">Descripción</label>
+                                                <input type="text" name="description" class="form-control" placeholder="Descripción" value="{{problem.description}}">
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label>Archivo de entrada</label>
+                                                <input type="text" name="referenceInput" class="form-control" placeholder="Archivo de entrada" value="{{problem.referenceInput}}">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label>Archivo de salida</label>
+                                                <input type="text" name="referenceOutput" class="form-control" placeholder="Archivo de salida" value="{{problem.referenceOutput}}">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label>Dificultad: </label>
+                                                <input name="difficult" name="difficult" type="text" class="form-control" placeholder="Dificultad"  value="{{problem.difficult}}">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-3">
+                                        </div>
+                                        <div class="col-md-6">
+                                            <a href="{% url 'teacher:problems' %}" class="btn btn-defoutl btn-fill pull-left">Cancelar </a>
+                                            <button type="submit" class="btn btn-info btn-fill pull-right">Aceptar</button>
+                                        </div>
+                                        <div class="col-md-3">
+                                        </div>
+                                    </div>
+
+                                    <div class="clearfix"></div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+{% endblock %}

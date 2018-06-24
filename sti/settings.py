@@ -15,7 +15,6 @@ import os
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.0/howto/deployment/checklist/
 
@@ -82,8 +81,8 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'sti',
-        'USER': 'postgres',
-        'PASSWORD': '453672',
+        'USER': 'LizanLycan',
+        'PASSWORD': 'lizandro17011996',
         'HOST': 'localhost',
         'PORT': 5432,
     }

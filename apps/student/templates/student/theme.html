@@ -1,6 +1,24 @@
 {% extends "student/base.html" %}
 
+{% load staticfiles %} 
+
 {% block content %}
+
+<script src="{% static "student/PdfReader/JS/Pdf.js" %}" type="text/javascript"></script>
+<link rel="stylesheet" type="text/css" href="{% static "student/PdfReader/CSS/Pdf.css" %}">
+<script type="text/javascript" charset="UTF-8" src="{% static 'student/register_style/js/common.js' %}"></script>
+<!--&#10004-->
+
+{% for theme in themes %}
+    <div class="overlayPdf">
+        <object id="PDF" data="{% static theme.theme.initial_address %}" type="application/pdf" height="100%" width="80%" style=" position: absolute; left: 12%; top: 0%; ">
+        </object>
+        <button class="BackButton circle BackButtonPos" onclick="BackButtonOff( {{ theme.theme.pk }} )"><i id="BackButtonArrow" class="BackButtonArrowLeft"></i>
+        </button>
+        <button class="CheckButton circle CheckButtonPos" onclick="CheckButtonOff( {{ theme.theme.pk }} )">&#10004
+        </button>
+    </div>
+{% endfor %}
 
         <div class="content">
             <div class="container-fluid">
@@ -20,137 +38,138 @@
                                               </tr>
                                           </thead>
                                           <tbody>
+                                          {% for theme in themes %}
+                                            <!--
+                                            {{ forloop.counter }} {# starting index 1 #}
+                                            {{ forloop.counter0 }} {# starting index 0 #}
+                                            -->
+                                            <tr class="text-center">
+                                              <td>{{ theme.theme.pk }}</td>
+                                              <td>{{ theme.theme.name }}</td>
+                                              <td>{{ theme.theme.description}}</td>
+                                              <td class="td-actions text-center">
+                                                  <button type="button" rel="tooltip" class="btn btn-success" onclick="onPdf({{ theme.theme.pk }})" data-original-title="" title="">
+                                                      <i class="pe-7s-study"></i>
+                                                  </button>
+                                              </td>
+                                            </tr>
+                                          {% endfor %}
+                                          <!--
                                               <tr class="text-center">
-                                                  <td>0</td>
+                                                  <td>1</td>
                                                   <td>Introducción</td>
                                                   <td>Algunos conceptos importantes antes de empezar</td>
                                                   <td class="td-actions text-center">
-                                                      <button type="button" rel="tooltip" class="btn btn-success" data-original-title="" title="">
+                                                      <button type="button" rel="tooltip" class="btn btn-success" onclick="onPdf(0)" data-original-title="" title="">
                                                           <i class="pe-7s-study"></i>
                                                       </button>
                                                   </td>
                                               </tr>
-                                              <tr class="text-center">
-                                                  <td>1</td>
-                                                  <td>Sintaxis</td>
-                                                  <td>Formalidades para la comprensión de instrucciones que el computador necesita</td>
-                                                  <td class="td-actions text-center">
-                                                      <button type="button" rel="tooltip" class="btn btn-success" data-original-title="" title="">
-                                                          <i class="pe-7s-study"></i>
-                                                      </button>
-                                                  </td>
-                                              </tr>
-                                              <tr class="text-center">
+											   <tr class="text-center">
                                                   <td>2</td>
-                                                  <td>Tipos de datos</td>
-                                                  <td>Conceptos de variable y su declaración</td>
+                                                  <td>Sintaxis</td>
+                                                  <td>Formalidades que el computador necesita para la comprensión de instrucciones</td>
                                                   <td class="td-actions text-center">
-                                                      <button type="button" rel="tooltip" class="btn btn-success" data-original-title="" title="">
+                                                      <button type="button" rel="tooltip" class="btn btn-success ButtonLocked" onclick="onPdf(1)" data-original-title="" title="">
                                                           <i class="pe-7s-study"></i>
                                                       </button>
                                                   </td>
                                               </tr>
                                               <tr class="text-center">
                                                   <td>3</td>
-                                                  <td>Sentencias</td>
-                                                  <td>Instrucciones básicas para manejo de variables</td>
+                                                  <td>Tipos de datos</td>
+                                                  <td>Concepto de variable y su declaración</td>
                                                   <td class="td-actions text-center">
-                                                      <button type="button" rel="tooltip" class="btn btn-success" data-original-title="" title="">
+                                                      <button type="button" rel="tooltip" class="btn btn-success ButtonLocked" onclick="onPdf(2)" data-original-title="" title="">
                                                           <i class="pe-7s-study"></i>
                                                       </button>
                                                   </td>
                                               </tr>
                                               <tr class="text-center">
                                                   <td>4</td>
-                                                  <td>Impresión y lectura</td>
-                                                  <td>Entrada y salida de datos por consola</td>
+                                                  <td>Sentencias</td>
+                                                  <td>Instrucciones básicas para manejo de variables</td>
                                                   <td class="td-actions text-center">
-                                                      <button type="button" rel="tooltip" class="btn btn-success" data-original-title="" title="">
+                                                      <button type="button" rel="tooltip" class="btn btn-success ButtonLocked" onclick="onPdf(3)" data-original-title="" title="">
                                                           <i class="pe-7s-study"></i>
                                                       </button>
                                                   </td>
                                               </tr>
                                               <tr class="text-center">
                                                   <td>5</td>
-                                                  <td>Decisiones</td>
-                                                  <td>Manejo de Casos de decisión en un algoritmo</td>
+                                                  <td>Impresión y lectura</td>
+                                                  <td>Entrada y salida de datos por consola</td>
                                                   <td class="td-actions text-center">
-                                                      <button type="button" rel="tooltip" class="btn btn-success" data-original-title="" title="">
+                                                      <button type="button" rel="tooltip" class="btn btn-success ButtonLocked" onclick="onPdf(4)" data-original-title="" title="">
                                                           <i class="pe-7s-study"></i>
                                                       </button>
                                                   </td>
                                               </tr>
                                               <tr class="text-center">
                                                   <td>6</td>
-                                                  <td>Arreglos</td>
-                                                  <td> Manejo de múltiples variables de un mismo tipo</td>
+                                                  <td>Decisiones</td>
+                                                  <td>Manejo de Casos de decisión en un algoritmo</td>
                                                   <td class="td-actions text-center">
-                                                      <button type="button" rel="tooltip" class="btn btn-success" data-original-title="" title="">
+                                                      <button type="button" rel="tooltip" class="btn btn-success ButtonLocked" onclick="onPdf(5)" data-original-title="" title="">
                                                           <i class="pe-7s-study"></i>
                                                       </button>
                                                   </td>
                                               </tr>
                                               <tr class="text-center">
                                                   <td>7</td>
-                                                  <td>Cadena de caracteres</td>
-                                                  <td> Manejo de múltiples caracteres que representan un solo segmento</td>
+                                                  <td>Arreglos</td>
+                                                  <td>Manejo de múltiples variables de un mismo tipo</td>
                                                   <td class="td-actions text-center">
-                                                      <button type="button" rel="tooltip" class="btn btn-success" data-original-title="" title="">
+                                                      <button type="button" rel="tooltip" class="btn btn-success ButtonLocked" onclick="onPdf(6)" data-original-title="" title="">
                                                           <i class="pe-7s-study"></i>
                                                       </button>
                                                   </td>
                                               </tr>
                                               <tr class="text-center">
                                                   <td>8</td>
-                                                  <td>Ciclos de repetición</td>
-                                                  <td>Instrucciones que se repiten bajo condiciones</td>
+                                                  <td>Cadena de caracteres</td>
+                                                  <td>Manejo de múltiples caracteres que representan un solo segmento</td>
                                                   <td class="td-actions text-center">
-                                                      <button type="button" rel="tooltip" class="btn btn-success" data-original-title="" title="">
+                                                      <button type="button" rel="tooltip" class="btn btn-success ButtonLocked" onclick="onPdf(7)" data-original-title="" title="">
                                                           <i class="pe-7s-study"></i>
                                                       </button>
                                                   </td>
                                               </tr>
                                               <tr class="text-center">
                                                   <td>9</td>
-                                                  <td>Funciones y procedimientos</td>
-                                                  <td>Declaración, definición y llamadas de funciones y procedimientos</td>
+                                                  <td>Ciclos de repetición</td>
+                                                  <td>Instrucciones que se repiten bajo condiciones</td>
                                                   <td class="td-actions text-center">
-                                                      <button type="button" rel="tooltip" class="btn btn-success" data-original-title="" title="">
+                                                      <button type="button" rel="tooltip" class="btn btn-success ButtonLocked" onclick="onPdf(8)" data-original-title="" title="">
                                                           <i class="pe-7s-study"></i>
                                                       </button>
                                                   </td>
                                               </tr>
                                               <tr class="text-center">
                                                   <td>10</td>
-                                                  <td>Librerias</td>
-                                                  <td>Manejo y creación de librerias</td>
+                                                  <td>Funciones y procedimientos</td>
+                                                  <td>Definición, declaración y llamadas de funciones y procedimientos</td>
                                                   <td class="td-actions text-center">
-                                                      <button type="button" rel="tooltip" class="btn btn-success" data-original-title="" title="">
+                                                      <button type="button" rel="tooltip" class="btn btn-success ButtonLocked" onclick="onPdf(9)" data-original-title="" title="">
                                                           <i class="pe-7s-study"></i>
                                                       </button>
                                                   </td>
                                               </tr>
+                                              <tr class="text-center">
+                                                  <td>11</td>
+                                                  <td>Librerias</td>
+                                                  <td>Manejo y creación de librerias</td>
+                                                  <td class="td-actions text-center">
+                                                      <button type="button" rel="tooltip" class="btn btn-success ButtonLocked" onclick="onPdf(10)" data-original-title="" title="">
+                                                          <i class="pe-7s-study"></i>
+                                                      </button>
+                                                  </td>
+                                              </tr>
+                                              -->
                                             </tbody>
                                         </table>
                                     </div>
-                                <!--  <div class="fixed-table-pagination">
-                                        <div class="pull-right pagination">
-                                            <ul class="pagination">
-                                                <li class="page-pre">
-                                                    <a href="javascript:void(0)">‹</a>
-                                                </li>
-                                                <li class="page-number">
-                                                    <a href="javascript:void(0)">1</a>
-                                                </li>
-                                                <li class="page-number">
-                                                    <a href="javascript:void(0)">2</a>
-                                                </li>
-                                   
-                                                <li class="page-next"><a href="javascript:void(0)">›</a></li>
-                                            </ul>
-                                        </div>
-                                    </div>-->  
-                                </div>   
+                                </div>
                             </div>
                         </div> 
                     </div>

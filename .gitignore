@@ -11,3 +11,5 @@ uploads
 \.DS_Store
 \.idea/
 \.sti-core/
+mi_venv/
+public/

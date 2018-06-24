@@ -1,0 +1,56 @@
+{% extends "teacher/base.html" %}
+{% load static %}
+
+{% block content %}
+
+        <div class="content">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="card">
+                            <div class="header">
+                                <h4 class="title">Editar Temas</h4>
+                            </div>
+                            <div class="content">
+                                <form method="post" action="{% url 'teacher:editNewTheme' theme.id %}">
+                                    {% csrf_token %}
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <label>Nombre</label>
+                                                <input type="text" name="name" class="form-control" placeholder="Nombre" value="{{theme.name}}">
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <label for="exampleInputEmail1">Contenido de referencia</label>
+                                                <input type="text" name="referenceContent" class="form-control" placeholder="Contenido de referencia" value="{{theme.referenceContent}}">
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-md-3">
+                                        </div>
+                                        <div class="col-md-6">
+                                            <a href="{% url 'teacher:themes' %}" class="btn btn-defoutl btn-fill pull-left">Cancelar </a>
+                                            <button type="submit" class="btn btn-info btn-fill pull-right">Aceptar</button>
+                                        </div>
+                                        <div class="col-md-3">
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="clearfix"></div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+{% endblock %}
