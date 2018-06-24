@@ -13,13 +13,42 @@
          <div class="container-fluid">
             <div class="row">
                 <div class="col-md-4">
+                    {% if errors %}
+                        <div class="alert alert-danger">
+                            <strong>{{errors.0}}</strong>
+                            <p>
+                                {% if errors.1 %}
+                                <ul>
+                                {% for err in errors.1%}
+                                    <li>{{ err }}</li>
+                                {% endfor %}
+                                </ul>
+                                {% endif %}
+                            </p>
+                        </div>
+                    {% else %}
+                        {% if score >= 0.0 %}
+                            {% if score < 50.0 %}
+                                <div class="alert alert-warning">
+                                  <strong>Regular</strong> Has obtenido una puntuación de: {{ score }}.
+                                    Sabemos que puedes mejorar, el siguiente ejercicio es mas sencillo, aprovechalo!
+                                </div>
+                                {% else %}
+                                    <div class="alert alert-success">
+                                      <strong>Muy Bien!</strong> Has obtenido una puntuación del: {{ score }} %.
+                                        Sigue asi! Aqui tienes otro problema para que sigas practicando.
+                                    </div>
+                            {% endif %}
+                        {% endif %}
+                    {% endif %}
                     <div class="card ">
+
                         <div class="header">
-                            <h4 class="title">Nombre del problema</h4>
+                            <h4 class="title">{{ problem.title }}</h4>
                         </div>
                         <div class="content">
                             <div id="" class="">
-                                <p class="category">Descripción del problema</p>
+                                <p class="category">{{ problem.description }}</p>
                             </div>
                         </div>
 
@@ -30,34 +59,39 @@
                 <div class="col-md-8">
                     <div class="card ">
                         <div class="content">
+
+                            {% csrf_token %}
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <button type="button" rel="tooltip" class="btn btn-success" onclick="confirm()" data-original-title="" title="">
+                                      <i class="pe-7s-study"></i> Confirmar
+                                    </button>
+                                </div>
+                                <div class="col-sm-6">
+                                    <button type="submit" class="btn btn-primary btn-round">Enviar código</button>
+                                </div>
+                            </div>
+
+
                             {% if form.errors %}
                                 <div class="alert alert-danger">
                                     <strong>Aun no has confirmado el codigo que vas a corregir.</strong>
                                 </div>
                             {% endif %}
 
-                            {% csrf_token %}
-
-                            <div id="editor">
-#include"stdio.h"
+                            <div id="editor" style="max-height: 450px; overflow: hidden;">{% if code %}{{ code }}{% else %}#include"stdio.h"
 
 //Escriba su codigo aqui
 int main()
 {
     return 0;
-}
+}{% endif %}
                             </div>
 
                             {% for field in form %}
                                 {% render_field field class="form-control" %}
                             {% endfor %}
 
-                            <button type="button" rel="tooltip" class="btn btn-success" onclick="confirm()" data-original-title="" title="">
-                              <i class="pe-7s-study"></i> Confirmar
-                            </button>
-                            <div class="card-footer" style="margin-top: 10px">
-                                <button type="submit" class="btn btn-primary btn-round btn-lg btn-block mb-3">Enviar código</button>
-                            </div>
                         </div>
                     </div>
                 </div>
