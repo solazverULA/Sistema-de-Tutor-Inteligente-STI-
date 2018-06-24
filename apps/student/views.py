@@ -1,6 +1,6 @@
 # from django.shortcuts import render
 import os
-import urllib
+# import urllib
 import psutil
 import codecs
 import subprocess
@@ -253,11 +253,36 @@ def logout(request):
 
 
 @login_required
-def theme(request):
+def theme(request, id):
+    learning = None
+
+    if id:
+        learning = LearningTheme.objects.get(id=id)
+        progress = Progress.objects.get(student=request.user.people.student, theme=learning.theme)
+        next = LearningTheme.objects.get(id=id + 1)
+        learning.ready = True
+        learning.IsDisabled = False
+        next.IsDisabled = False
+
+        """
+        Updating for Inteligent Agent
+        """
+        if not progress.value:
+            progress.value = 1
+            progress.save()
+            print(vars(progress))
+
+        learning.save()
+        next.save()
 
     learned = list(LearningTheme.objects.filter(student=request.user.people.student).order_by('pk'))
-    print (vars(learned[0]))
-    return render(request, 'student/theme.html', {'themes': learned})
+    progress_it = Progress.objects.filter(student=request.user.people.student). \
+        exclude(value=0.0).order_by('id')
+
+    return render(request, 'student/theme.html', {'themes': learned,
+                                                  'id': learning.theme.name if id  else '',
+                                                  'progress': progress_it
+                                                  })
 
 
 @login_required
@@ -313,7 +338,8 @@ def user_view(request):
         else:
             print(form.errors)
 
-    return render(request, 'student/user.html', {'form': form, 'progress': progress})
+    return render(request, 'student/user.html', {'form': form,
+                                                 'progress': progress})
 
 
 def signup(request):
