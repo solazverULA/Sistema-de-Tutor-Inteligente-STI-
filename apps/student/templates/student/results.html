@@ -20,36 +20,32 @@
                                               </tr>
                                           </thead>
                                           <tbody>
-                                              <tr class="text-center">
-                                                  <td>1</td>
-                                                  <td>Problema 1</td>
-                                                  <td>20</td>
-                                                  <td class="td-actions text-center">
-                                                      <button type="button" rel="tooltip" class="btn btn-success" data-original-title="" title="">
-                                                          <i class="pe-7s-study"></i>
-                                                      </button>
+                                            {% for prob in results %}
+                                                <tr class="text-center">
+                                                  <td>{{ prob.problem.id }}</td>
+                                                  <td>{{ prob.problem.title }}</td>
+                                                  <td>
+                                                      {% if prob.score < 25.0 %}
+                                                        <strong class="text-danger"> {{ prob.score }} %</strong>
+                                                      {% endif %}
+
+                                                      {% if prob.score >= 25.0 and prob.score < 75.0 %}
+                                                        <strong class="text-info"> {{ prob.score }} %</strong>
+                                                      {% endif %}
+
+                                                      {% if prob.score >= 75.0 %}
+                                                        <strong class="text-success"> {{ prob.score }} %</strong>
+                                                      {% endif %}
                                                   </td>
-                                              </tr>
-                                              <tr class="text-center">
-                                                  <td>2</td>
-                                                  <td>Problema 2</td>
-                                                  <td>5</td>
                                                   <td class="td-actions text-center">
-                                                      <button type="button" rel="tooltip" class="btn btn-success" data-original-title="" title="">
-                                                          <i class="pe-7s-study"></i>
-                                                      </button>
+                                                      <a href="{% url 'student:seeResult' prob.id %}">
+                                                          <button type="button" rel="tooltip" class="btn btn-success" data-original-title="" title="">
+                                                              <i class="pe-7s-study"></i>
+                                                          </button>
+                                                      </a>
                                                   </td>
-                                              </tr>
-                                              <tr class="text-center">
-                                                  <td>3</td>
-                                                  <td>Problema 3</td>
-                                                  <td>10</td>
-                                                  <td class="td-actions text-center">
-                                                      <button type="button" rel="tooltip" class="btn btn-success" data-original-title="" title="">
-                                                          <i class="pe-7s-study"></i>
-                                                      </button>
-                                                  </td>
-                                              </tr>
+                                                </tr>
+                                            {% endfor %}
                                             </tbody>
                                         </table>
                                     </div>

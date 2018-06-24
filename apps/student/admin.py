@@ -9,8 +9,15 @@ class ProgressInline(admin.TabularInline):
         return 0
 
 
+class MakingProblemInline(admin.TabularInline):
+    model = MakingProblem
+
+    def get_extra(self, request, obj=None, **kwargs):
+        return 0
+
+
 class StudentAdmin(admin.ModelAdmin):
-    inlines = [ProgressInline, ]
+    inlines = [ProgressInline, MakingProblemInline]
 
 
 class ThemeAdmin(admin.ModelAdmin):
