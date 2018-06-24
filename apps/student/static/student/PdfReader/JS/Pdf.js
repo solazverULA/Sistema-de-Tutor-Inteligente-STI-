@@ -1,5 +1,6 @@
-function onPdf(i) {
+function onPdf(i,a) {
     document.getElementsByClassName("overlayPdf")[i - 1 ].style.display = "block";
+	console.log(a);
 }
 
 function BackButtonOff(i) {
@@ -8,19 +9,8 @@ function BackButtonOff(i) {
 
 function CheckButtonOff(i) {
 	document.getElementsByClassName("overlayPdf")[i - 1].style.display = "none";
-}
-
-function OffNextSubject(i) {
-    document.getElementsByClassName("ButtonLocked")[i - 1].disabled = true;
+	document.getElementsByClassName("unlock")[i].disabled=false;
 }
 
 
-function Locking() {
 
-	var i;
-	alert('hola');
-	/*for(i in document.getElementsByClassName("ButtonLocked").length ) {
-		OffNextSubject(i);	
-	}*/
-
-}
