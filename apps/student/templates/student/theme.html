@@ -15,7 +15,7 @@
         </object>
         <button class="BackButton circle BackButtonPos" onclick="BackButtonOff( {{ theme.theme.pk }} )"><i id="BackButtonArrow" class="BackButtonArrowLeft"></i>
         </button>
-        <button class="CheckButton circle CheckButtonPos" onclick="CheckButtonOff( {{ theme.theme.pk }} )">&#10004
+        <button class="CheckButton circle CheckButtonPos" onclick="CheckButtonOff( {{ theme.theme.pk }})">&#10004
         </button>
     </div>
 {% endfor %}
@@ -48,7 +48,11 @@
                                               <td>{{ theme.theme.name }}</td>
                                               <td>{{ theme.theme.description}}</td>
                                               <td class="td-actions text-center">
-                                                  <button type="button" rel="tooltip" class="btn btn-success" onclick="onPdf({{ theme.theme.pk }})" data-original-title="" title="">
+											  {% if theme.IsDisabled %}
+                                                  <button type="button" rel="tooltip" class="btn btn-success unlock" onclick="onPdf({{ theme.theme.pk }})" data-original-title="" title="" disabled="true" >
+											  {% else %}
+												  <button type="button" rel="tooltip" class="btn btn-success unlock" onclick="onPdf({{ theme.theme.pk }})" data-original-title="" title="">
+											  {% endif %}
                                                       <i class="pe-7s-study"></i>
                                                   </button>
                                               </td>

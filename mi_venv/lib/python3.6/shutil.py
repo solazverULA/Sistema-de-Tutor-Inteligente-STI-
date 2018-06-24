@@ -1,1 +1,1 @@
-/usr/local/lib/python3.6/shutil.py
+/usr/lib/python3.6/shutil.py

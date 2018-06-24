@@ -21,8 +21,8 @@ class Student(People):
 def update_student_profile(sender, instance, created, **kwargs):
     if created:
         for theme in Theme.objects.all():
-            learning = LearningTheme.objects.create(student=instance,
-                                                    theme=theme, ready=False)
+            learning = LearningTheme.objects.create(student=student,
+                                                    theme=instance, ready=False, IsDisabled=True)
             progress = Progress.objects.create(student=instance,
                                                theme=theme, value=0)
             progress.save()
@@ -46,9 +46,9 @@ class Theme(models.Model):
 def update_theme_info(sender, instance, created, **kwargs):
     if created:
         # Student.objects.create(user=instance)
-        for student in Student.objects.all():
+        for student in Student.objects.all():            
             learning = LearningTheme.objects.create(student=student,
-                                                    theme=instance, ready=False)
+                                                    theme=instance, ready=False, IsDisabled=True)
             progress = Progress.objects.create(student=student,
                                                theme=instance, value=0)
             progress.save()
@@ -94,6 +94,7 @@ class LearningTheme(models.Model):
     student = models.ForeignKey(Student, on_delete=models.CASCADE)
     theme = models.ForeignKey(Theme, on_delete=models.CASCADE)
     ready = models.BooleanField(default=False)
+    IsDisabled=models.BooleanField(default=True)
 
     def __str__(self):
         return self.student.user.username + " " + self.theme.name

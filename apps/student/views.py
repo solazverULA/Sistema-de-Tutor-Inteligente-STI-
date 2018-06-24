@@ -255,8 +255,8 @@ def logout(request):
 @login_required
 def theme(request):
 
-    learned = LearningTheme.objects.filter(student=request.user.people.student)
-
+    learned = list(LearningTheme.objects.filter(student=request.user.people.student).order_by('pk'))
+    print (vars(learned[0]))
     return render(request, 'student/theme.html', {'themes': learned})
 
 
