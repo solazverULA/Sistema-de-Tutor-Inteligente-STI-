@@ -41,18 +41,31 @@
                             {% endif %}
                         {% endif %}
                     {% endif %}
-                    <div class="card ">
 
-                        <div class="header">
-                            <h4 class="title">{{ problem.title }}</h4>
-                        </div>
-                        <div class="content">
-                            <div id="" class="">
-                                <p class="category">{{ problem.description }}</p>
+                    {% if id %}
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <a href="{% url 'student:problem' 0 %}">
+                                    <button type="button" rel="tooltip" class="btn btn-success" data-original-title="" title="">
+                                      <i class="pe-7s-study"></i> Continuar realizando problemas propuestos
+                                    </button>
+                                </a>
                             </div>
                         </div>
 
-                    </div>
+                        {% else %}
+                        <div class="card ">
+                            <div class="header">
+                                <h4 class="title">{{ problem.title }}</h4>
+                            </div>
+                            <div class="content">
+                                <div id="" class="">
+                                    <p class="category">{{ problem.description }}</p>
+                                </div>
+                            </div>
+                        </div>
+                    {% endif %}
+
 
                 </div>
 

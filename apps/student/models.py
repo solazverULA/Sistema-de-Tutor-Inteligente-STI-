@@ -94,7 +94,7 @@ class LearningTheme(models.Model):
     student = models.ForeignKey(Student, on_delete=models.CASCADE)
     theme = models.ForeignKey(Theme, on_delete=models.CASCADE)
     ready = models.BooleanField(default=False)
-    IsDisabled=models.BooleanField(default=True)
+    IsDisabled = models.BooleanField(default=True)
 
     def __str__(self):
         return self.student.user.username + " " + self.theme.name

@@ -282,6 +282,7 @@ def problem(request, id=None):
 
     return render(request, 'student/problem.html',
                   {'form': form,
+                   'id': id if id and len(results['errors']) == 0 and request.POST else '',
                    'problem': render_problem,
                    'score': results['score'],
                    'errors': results['errors'].pop() if len(results['errors']) > 0 else '',
@@ -291,6 +292,9 @@ def problem(request, id=None):
 @login_required
 def user_view(request):
     form = ProblemForm()
+    progress = Progress.objects.filter(student=request.user.people.student).\
+        exclude(value=0.0).order_by('id')
+
     if request.method == 'POST':
         form = StudentProfileForm(request.POST)
         if form.is_valid():
@@ -308,7 +312,8 @@ def user_view(request):
 
         else:
             print(form.errors)
-    return render(request, 'student/user.html', {'form': form})
+
+    return render(request, 'student/user.html', {'form': form, 'progress': progress})
 
 
 def signup(request):
@@ -345,11 +350,16 @@ def results(request):
     results = MakingProblem.objects.filter(student=request.user.people.student).\
         order_by('score')
 
-    return render(request, 'student/results.html', {'results': results})
+    progress = Progress.objects.filter(student=request.user.people.student).\
+        exclude(value=0.0).order_by('id')
+
+    return render(request, 'student/results.html', {'results': results, 'progress': progress})
 
 
 @login_required
 def seeResult(request, id):
     problem = MakingProblem.objects.get(student=request.user.people.student,
                                         id=id)
-    return render(request, 'student/seeResult.html', {'problem': problem})
+    difficults = Difficult.objects.filter(problem=problem.problem)
+
+    return render(request, 'student/seeResult.html', {'problem': problem, 'difficults': difficults})
