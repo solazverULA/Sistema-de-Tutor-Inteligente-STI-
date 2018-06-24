@@ -7,7 +7,7 @@ app_name = 'student'
 
 urlpatterns = [
     path('', views.index, name='index'),
-    path('theme/<int:id>/', views.theme, name='theme'),
+    path('theme/', views.theme, name='theme'),
     path('problem/<int:id>/', views.problem, name='problem'),
     path('login/', auth_views.LoginView.as_view(template_name='student/login.html',
                                                 authentication_form=LoginForm),

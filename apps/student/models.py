@@ -21,9 +21,8 @@ class Student(People):
 def update_student_profile(sender, instance, created, **kwargs):
     if created:
         for theme in Theme.objects.all():
-            learning = LearningTheme.objects.create(student=instance,
-                                                    theme=theme, ready=False,
-                                                    IsDisabled=True)
+            learning = LearningTheme.objects.create(student=student,
+                                                    theme=instance, ready=False, IsDisabled=True)
             progress = Progress.objects.create(student=instance,
                                                theme=theme, value=0)
             progress.save()
@@ -38,7 +37,6 @@ class Theme(models.Model):
     description = models.CharField(max_length=400, null=True, blank=True)
     initial_address = models.CharField(max_length=300, null=True, blank=True)
     referenceContent = models.FileField(upload_to='uploads/', null=True, blank=True)
-    IsDisabled = models.BooleanField(default=True)
 
     def __str__(self):
         return self.name
@@ -60,12 +58,6 @@ def update_theme_info(sender, instance, created, **kwargs):
             difficult = Difficult.objects.create(problem=problem,
                                                  theme=instance, value=0)
             difficult.save()
-
-    else:
-        learning = LearningTheme.objects.filter(theme=instance)
-        learning.update(IsDisabled=instance.IsDisabled)
-        for l in learning:
-            l.save()
 
 
 class Problem(models.Model):
@@ -109,9 +101,6 @@ class LearningTheme(models.Model):
 
 
 class MakingProblem(models.Model):
-    class Meta:
-        unique_together = (('student', 'problem'),)
-
     """
     Model for Making Problem Type
     """
@@ -124,9 +113,6 @@ class MakingProblem(models.Model):
 
 
 class Difficult(models.Model):
-    class Meta:
-        unique_together = (('problem', 'theme'),)
-
     problem = models.ForeignKey(Problem, related_name="problems", on_delete=models.CASCADE)
     theme = models.ForeignKey(Theme, related_name="themes", on_delete=models.CASCADE)
     value = models.IntegerField()
@@ -137,9 +123,6 @@ class Difficult(models.Model):
 
 
 class Progress(models.Model):
-    class Meta:
-        unique_together = (('student', 'theme'),)
-
     student = models.ForeignKey(Student, on_delete=models.CASCADE)
     theme = models.ForeignKey(Theme, on_delete=models.CASCADE)
     value = models.IntegerField()
