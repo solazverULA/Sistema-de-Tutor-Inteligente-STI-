@@ -7,6 +7,23 @@
                 <div class="row">
                     <div class="col-md-12">
                         <div class="card">
+                            <div class="header">
+                                <h4 class="title">Tu progreso</h4>
+                            </div>
+                            <div class="content">
+                                <div class="row">
+                                    {% for pr in progress %}
+                                        <div class="col-sm-4">
+                                            <div class="form-group">
+                                                <label>{{ pr.theme.name }}</label>
+                                                <p>Nivel: {{ pr.value }}</p>
+                                            </div>
+                                        </div>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card">
                            <h3 class="navbar-brand">Listado de sus problemas resueltos</h3>
                                 <div class="card-body">
                                     <div class="table-responsive">

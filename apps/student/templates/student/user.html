@@ -97,6 +97,23 @@
                                 </form>
                             </div>
                         </div>
+                        <div class="card">
+                            <div class="header">
+                                <h4 class="title">Progreso actual</h4>
+                            </div>
+                            <div class="content">
+                                <div class="row">
+                                    {% for pr in progress %}
+                                        <div class="col-sm-4">
+                                            <div class="form-group">
+                                                <label>{{ pr.theme.name }}</label>
+                                                <p>Nivel: {{ pr.value }}</p>
+                                            </div>
+                                        </div>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                        </div>
                     </div>
                     <div class="col-md-4">
                         <div class="card card-user">
