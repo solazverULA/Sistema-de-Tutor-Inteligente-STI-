@@ -1,1 +1,1 @@
-/usr/local/lib/python3.6/hmac.py
+/usr/lib/python3.6/hmac.py
