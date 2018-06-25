@@ -51,6 +51,23 @@
                                 <div class="clearfix"></div>
                             </div>
                         </div>
+                        <div class="card">
+                            <div class="header">
+                                <h4 class="title">Dificultad del Problema</h4>
+                            </div>
+                            <div class="content">
+                                <div class="row">
+                                    {% for pr in difficults %}
+                                        <div class="col-sm-4">
+                                            <div class="form-group">
+                                                <label>{{ pr.theme.name }}</label>
+                                                <p>Valor: {{ pr.value }}</p>
+                                            </div>
+                                        </div>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                        </div>
                     </div>
                     <div class="col-md-4">
                         <div class="card">

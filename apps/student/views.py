@@ -1,7 +1,7 @@
 # from django.shortcuts import render
 import os
-# import urllib
 import psutil
+import statistics
 import codecs
 import subprocess
 from django.conf import settings
@@ -13,7 +13,47 @@ from django.contrib.auth.decorators import login_required
 from apps.student.models import *
 
 
-def calculate_next_problem(request):
+def agent_heuristics(problem_iter):
+    prob_h = []
+    prob_max = []
+
+    for prob in problem_iter:
+        prob_h.append([prob[0], statistics.mean(prob[1]), statistics.stdev(prob[1]) ])
+
+    # maximo de medias
+    prob_max = [max(prob_h, key=lambda item: item[1])]
+
+    # minimo de desviaciones (mas balanceado)
+    return [min(prob_max, key=lambda item: item[2])]
+
+
+def if_approved(progress, dif_problem):
+    new_progress = []
+
+    for pr, dif in zip(progress, dif_problem):
+        new_progress.append(max(pr.value, dif))
+
+    return new_progress
+
+
+def increase_score(score):
+    if score <= 25:
+        return -2
+
+    if 25 < score <= 45:
+        return -1
+
+    if 45 < score <= 55:
+        return 0
+
+    if 55 < score <= 75:
+        return 1
+
+    if score > 75:
+        return 2
+
+
+def calculate_next_problem(request, score=None):
     themes = Theme.objects.all().count()
     progress = Progress.objects.filter(student=request.user.people.student)
     # values_list('id', flat=True).order_by('id')
@@ -22,18 +62,41 @@ def calculate_next_problem(request):
         diff_count = 0
 
         for pr in progress:
-            diff_count += Difficult.objects.filter(problem=prob, theme=pr.theme,
-                                                   value__lte=pr.value).count()
+            if score:
+                diff_count += Difficult.objects.filter(problem=prob,
+                                                       theme=pr.theme,
+                                                       value__lte=(
+                                                           pr.value
+                                                           if pr.value == 0 else
+                                                           (pr.value +
+                                                            increase_score(score)))).count()
+
+            else:
+                diff_count += Difficult.objects.filter(problem=prob,
+                                                       theme=pr.theme,
+                                                       value__lte=pr.value).count()
 
         if diff_count == themes:
-            problems.append([prob,
-                             Difficult.objects.filter(problem=prob).values_list(
-                                 'value', flat=True).order_by('id')])
+            """
+                Dado que tengo UN problema que pertenece a un conjunto de 
+                problemas para Actuales o Futuras dificultades (en caso de que 
+                resolvio), necesito saber como queda el progreso del usuario si 
+                resuelve dicha dificultad (solo si hubo un resultado -score- )
+                
+                Uso la funcion if_approve(progreso, dif_problemas)  
+            """
+            if score:
+                diff_problem = Difficult.objects.filter(problem=prob).\
+                    values_list('value', flat=True).order_by('id')
+                problems.append([prob, if_approved(progress, diff_problem)])
 
-    # print(problems)
-    # ejecuta el agente . . .
-    # retorna respuesta:
-    return problems
+            else:
+                problems.append([prob, Difficult.objects.filter(problem=prob).
+                            values_list('value', flat=True).order_by('id')])
+
+    problems = agent_heuristics(problems)
+
+    return problems[0][0]
 
 
 def update_student_progress(request, render_problem, result):
@@ -137,18 +200,31 @@ def compile_exec(form, render_problem):
         f_b = open(os.path.join(settings.MEDIA_ROOT, 'compile',
                                 'exec.bat'), 'w')
         code_file = File(f_b)
-        code_file.write('cmd /c ' + '"' + os.path.normpath(os.path.join(
-            settings.MEDIA_ROOT,
-            'compile',
-            'compiled.exe', )) + '"'
-                        + ' < ' + '"' +
-                        os.path.normpath(render_problem.
-                                         referenceInput.path) + '"'
-                        + ' > ' + '"' +
-                        os.path.normpath(os.path.join(
-                            settings.MEDIA_ROOT,
-                            'compile',
-                            'result.txt')) + '"')
+
+        if render_problem.referenceInput:
+            code_file.write('cmd /c ' + '"' + os.path.normpath(os.path.join(
+                settings.MEDIA_ROOT,
+                'compile',
+                'compiled.exe', )) + '"'
+                            + ' < ' + '"' +
+                            os.path.normpath(render_problem.
+                                             referenceInput.path) + '"'
+                            + ' > ' + '"' +
+                            os.path.normpath(os.path.join(
+                                settings.MEDIA_ROOT,
+                                'compile',
+                                'result.txt')) + '"')
+        else:
+            code_file.write('cmd /c ' + '"' + os.path.normpath(os.path.join(
+                settings.MEDIA_ROOT,
+                'compile',
+                'compiled.exe', )) + '"'
+                            + ' > ' + '"' +
+                            os.path.normpath(os.path.join(
+                                settings.MEDIA_ROOT,
+                                'compile',
+                                'result.txt')) + '"')
+
         code_file.close()
 
         def to_raw(str):
@@ -289,22 +365,30 @@ def theme(request, id):
 def problem(request, id=None):
     print(id) if id else print("No id")
     render_problem = Problem.objects.get(id=id) if id else \
-        calculate_next_problem(request)[0][0]
-
+        calculate_next_problem(request)
     results = {'code': [], 'errors': [], 'results': [], 'score': None}
 
     if request.method == 'POST':
 
         form = ProblemForm(request.POST)
         if form.is_valid():
-            results = compile_exec(form, render_problem)
+            print("================> Entradadashadkajdk:    ===========")
+            print(form.cleaned_data['problem_exec'])
+            problem = Problem.objects.get(id=form.cleaned_data['problem_exec'])
+            results = compile_exec(form, problem)
             results['score'] = update_student_progress(request,
-                                                       render_problem,
+                                                       problem,
                                                        results)
+            """
+            ========================================================
+            AGENT DECISIONS
+            ========================================================
+            """
+            render_problem = calculate_next_problem(request, results['score'])
 
-    else:
-        form = ProblemForm()
+    form = ProblemForm()
 
+    print(render_problem)
     return render(request, 'student/problem.html',
                   {'form': form,
                    'id': id if id and len(results['errors']) == 0 and request.POST else '',

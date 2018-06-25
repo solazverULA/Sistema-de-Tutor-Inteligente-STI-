@@ -42,6 +42,7 @@ class SignUpForm(UserCreationForm):
 
 class ProblemForm(Form):
     code = forms.CharField(widget=forms.Textarea(attrs={'style': 'display: none;'}))
+    problem_exec = forms.CharField(widget=forms.TextInput(attrs={'style': 'display: none;'}))
 
 
 class StudentProfileForm(Form):
