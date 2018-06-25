@@ -6,6 +6,9 @@ from apps.teacher.models import Teacher
 from django.contrib.auth.models import User
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
 
 
 class StudentModelTestClass(TestCase):
@@ -92,13 +95,13 @@ class PythonOrgSearch(unittest.TestCase):
 """
 
 
-class LoginTest(unittest.TestCase):
+class LoginSignUpTest(unittest.TestCase):
 
     def setUp(self):
         self.fake = Faker()
-        self.driver = webdriver.Chrome('C:/Python27/chromedriver.exe')
+        self.driver = webdriver.Firefox(executable_path="C:/Python27/geckodriver.exe")
 
-    def test_search_in_python_org(self):
+    def test_signup(self):
         # all_options = element.find_elements_by_tag_name("option")
         driver = self.driver
         driver.get("http://localhost:8000")
@@ -133,11 +136,27 @@ class LoginTest(unittest.TestCase):
         password2.send_keys(password)
         password2.send_keys(Keys.RETURN)
         # teacherMentor field
-        teacherMentor = driver.find_element_by_name("teacherMentor")
-        teacherMentor.send_keys(1)
-        teacherMentor.send_keys(Keys.RETURN)
+        driver.execute_script("document.getElementById('id_teacherMentor').selectedIndex = 1;");
 
-        assert "No results found." not in driver.page_source
+        driver.get("http://localhost:8000/apps/student/login/")
+        try:
+            print("Waiting then........")
+            element = WebDriverWait(driver, 10).until(
+                EC.presence_of_element_located((By.ID, "id_username"))
+            )
+            username = driver.find_element_by_name("username")
+            username.send_keys(self.fake.simple_profile(sex=None)['username'])
+            username.send_keys(Keys.RETURN)
+
+            password_f = self.fake.ean8()
+            password = driver.find_element_by_name("password")
+            password.send_keys(password_f)
+            password.send_keys(Keys.RETURN)
+        finally:
+            driver.quit()
+
+    def toLogin(self):
+        pass
 
     def tearDown(self):
-        self.driver.close()
+        self.driver.quit()

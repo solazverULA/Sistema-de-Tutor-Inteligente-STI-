@@ -60,7 +60,7 @@
                             </div>
                             <div class="content">
                                 <div id="" class="">
-                                    <p class="category">{{ problem.description }}</p>
+                                    {{ problem.description }}
                                 </div>
                             </div>
                         </div>
@@ -102,7 +102,11 @@ int main()
                             </div>
 
                             {% for field in form %}
-                                {% render_field field class="form-control" %}
+                                {% if field.name == "problem_exec"%}
+                                    {% render_field field class="form-control" value=problem.id %}
+                                {% else %}
+                                    {% render_field field class="form-control" %}
+                                {% endif %}
                             {% endfor %}
 
                         </div>
