@@ -73,8 +73,7 @@ class Problem(models.Model):
     Model for Problem Type
     """
     title = models.CharField(max_length=150)
-    # difficult = models.CharField(max_length=10)
-    description = models.CharField(max_length=300)
+    description = models.CharField(max_length=2000)
     referenceInput = models.FileField(upload_to='uploads/', null=True, blank=True)
     referenceOutput = models.FileField(upload_to='uploads/', null=True, blank=True)
 
