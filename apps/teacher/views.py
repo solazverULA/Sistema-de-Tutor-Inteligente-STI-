@@ -47,12 +47,16 @@ def createTheme(request):
 
 def createNewTheme(request):
     print(request.POST)
+    print(request.FILES)
     name = request.POST['name']
-    referenceContent = request.POST['referenceContent']
+
+    myfile = request.FILES['referenceContent']
+    fs = FileSystemStorage()
+    fs.save(myfile.name, myfile)
 
     p1 = Theme()
     p1.name = name
-    p1.referenceContent = referenceContent
+    p1.referenceContent = myfile
     p1.save()
 
     return redirect('/apps/teacher/themes/')
@@ -120,7 +124,7 @@ def createProblem(request):
         p1 = Problem()
         p1.title = title
         p1.description = description
-        p1.difficult = request.POST['difficult']
+        #p1.difficult = request.POST['difficult']
         p1.referenceOutput = myfile
         p1.save()
         return redirect('/apps/teacher/problems/')
